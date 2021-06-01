@@ -1,0 +1,33 @@
+inherit_from: .rubocop_todo.yml
+
+# 自動生成されるものはチェック対象から除外する
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'vendor/**/*'
+    - 'bin/**/*'
+    - 'tmp/**/*'
+    - 'node_modules/**/*'
+    - "config/initializers/*"
+    - "config/deploy/*"
+    - "config/puma/*"
+
+# rubocop関連のgemをrequireする
+require:
+  - rubocop-rails
+
+# 日本語でのコメントを許可
+AsciiComments:
+  Enabled: false
+
+# モジュール名::クラス名の定義を許可
+ClassAndModuleChildren:
+  Enabled: false
+
+# メソッド名のprefixに「set_」「get_」を許可
+AccessorMethodName:
+  Enabled: false
+
+# クラスのコメント必須を無視
+Documentation:
+  Enabled: false
