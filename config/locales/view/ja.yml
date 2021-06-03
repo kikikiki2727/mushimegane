@@ -13,3 +13,6 @@ ja:
     new:
       title: ログインページ
       to_new_user: ユーザー新規作成ページへ
+    create:
+      success: ログインしました
+      fail: ログインに失敗しました
