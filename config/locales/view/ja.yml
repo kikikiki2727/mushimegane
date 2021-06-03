@@ -1,0 +1,15 @@
+ja:
+  defaults:
+    register: 登録
+    login: ログイン
+  users:
+    new:
+     title: ユーザー新規作成
+     to_login_page: ログインページへ
+    create:
+      success: 登録が完了しました
+      fail: 登録に失敗しました
+  user_sessions:
+    new:
+      title: ログインページ
+      to_new_user: ユーザー新規作成ページへ
