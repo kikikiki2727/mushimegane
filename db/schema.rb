@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_02_180723) do
+ActiveRecord::Schema.define(version: 2021_06_05_065347) do
+
+  create_table "bugs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "feature"
+    t.text "approach"
+    t.text "prevention"
+    t.text "harm"
+    t.integer "size", null: false
+    t.integer "color", null: false
+    t.integer "seazon", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_bugs_on_name", unique: true
+    t.index ["user_id"], name: "index_bugs_on_user_id"
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", null: false
@@ -22,4 +38,5 @@ ActiveRecord::Schema.define(version: 2021_06_02_180723) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "bugs", "users"
 end

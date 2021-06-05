@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @bug.name %>
+</p>
+
+<p>
+  <strong>Feature:</strong>
+  <%= @bug.feature %>
+</p>
+
+<p>
+  <strong>Approach:</strong>
+  <%= @bug.approach %>
+</p>
+
+<p>
+  <strong>Prevention:</strong>
+  <%= @bug.prevention %>
+</p>
+
+<p>
+  <strong>Harm:</strong>
+  <%= @bug.harm %>
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @bug.size %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @bug.color %>
+</p>
+
+<p>
+  <strong>Seazon:</strong>
+  <%= @bug.seazon %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @bug.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_bug_path(@bug) %> |
+<%= link_to 'Back', bugs_path %>

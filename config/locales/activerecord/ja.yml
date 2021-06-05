@@ -8,4 +8,29 @@ ja:
         email: メールアドレス
         password: パスワード
         password_confirmation: パスワード(確認)
+  enums:
+    bug:
+      size:
+        unknown_size: その他
+        extra_small: 1mm未満
+        small: 1mm~10mm未満
+        medium: 10mm~30mm未満
+        large: 30mm~50mm未満
+        extra_large: 50mm以上
+      color:
+        unknown_color: その他
+        black: 黒
+        brown: 茶
+        gray: グレー
+        white: 白
+        red: 赤
+        orange: オレンジ
+        yellow: 黄
+        green: 緑
+      season:
+        unknown_season: その他
+        spring: 春
+        summer: 夏
+        autumn: 秋
+        winter: 冬
         
