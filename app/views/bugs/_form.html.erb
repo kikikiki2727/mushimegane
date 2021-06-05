@@ -1,62 +1,56 @@
-<%= form_with(model: bug, local: true) do |form| %>
-  <% if bug.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(bug.errors.count, "error") %> prohibited this bug from being saved:</h2>
-
-      <ul>
-        <% bug.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+<%= form_with model: bug, local: true do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= form.label :feature %>
-    <%= form.text_area :feature %>
+  <div class="form-group">
+    <%= f.label :feature %>
+    <%= f.text_area :feature, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= form.label :approach %>
-    <%= form.text_area :approach %>
+  <div class="form-group">
+    <%= f.label :approach %>
+    <%= f.text_area :approach, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= form.label :prevention %>
-    <%= form.text_area :prevention %>
+  <div class="form-group">
+    <%= f.label :prevention %>
+    <%= f.text_area :prevention, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= form.label :harm %>
-    <%= form.text_area :harm %>
+  <div class="form-group">
+    <%= f.label :harm %>
+    <%= f.text_area :harm, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= form.label :size %>
-    <%= form.number_field :size %>
+  <div class="form-group">
+    <%= f.label :size %>
+    <%= f.select :size, Bug.sizes_i18n.invert.map { |key, value| [key, Bug.sizes[value]]}, { include_blank: '選択してください' }, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= form.label :color %>
-    <%= form.number_field :color %>
+  <div class="form-group">
+    <%= f.label :color %>
+    <%= f.select :color, Bug.colors_i18n.invert.map { |key, value| [key, Bug.colors[value]]}, { include_blank: '選択してください' }, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= form.label :seazon %>
-    <%= form.number_field :seazon %>
+  <div class="form-group">
+    <%= f.label :season %>
+    <%= f.select :season, Bug.seasons_i18n.invert.map { |key, value| [key, Bug.seasons[value]]}, { include_blank: '選択してください' }, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
+  <div class="form-group">
+    <%= f.label :image %>
+    <%= f.file_field :image, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :illustration %>
+    <%= f.file_field :illustration, class: 'form-control' %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= f.submit '登録', class: 'btn btn-primary' %>
   </div>
 <% end %>

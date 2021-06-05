@@ -1,11 +1,10 @@
 <div class="container">
   <h1>検索結果一覧</h1>
   <div class="row">
-    <%= if @bugs.present? %>
+    <% if @bugs.present? %>
       <%= render @bugs %>
     <% else %>
-      <p>検索条件マッチする虫がいません</p>
+      <p>検索条件にマッチする虫がいません</p>
     <% end %>
   </div>
-  <%= paginate @bugs %>
 </div>

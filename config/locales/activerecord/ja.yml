@@ -1,13 +1,4 @@
-ja: 
-  activerecord:
-    models:
-      user: ユーザー
-    attributes:
-      user:
-        name: 名前
-        email: メールアドレス
-        password: パスワード
-        password_confirmation: パスワード(確認)
+ja:
   enums:
     bug:
       size:
@@ -33,4 +24,24 @@ ja:
         summer: 夏
         autumn: 秋
         winter: 冬
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        name: 名前
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード(確認)
+      bug:
+        name: 名前
+        feature: 特徴
+        approach: 駆除方法
+        prevention: 予防方法
+        harm: 実害
+        size: 大きさ
+        color: 色
+        season: 季節
+        image: 画像
+        illustration: イラスト
         

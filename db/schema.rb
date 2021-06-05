@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2021_06_05_181428) do
     t.text "harm"
     t.integer "size", null: false
     t.integer "color", null: false
-    t.integer "seazon", null: false
+    t.integer "season", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

@@ -10,23 +10,20 @@ class BugsController < ApplicationController
   end
 
   def new
-    @bug = Bug.new
+    @bug = current_user.bugs.build
   end
 
   def edit
   end
 
   def create
-    @bug = Bug.new(bug_params)
+    @bug = current_user.bugs.build(bug_params)
 
-    respond_to do |format|
-      if @bug.save
-        format.html { redirect_to @bug, notice: "Bug was successfully created." }
-        format.json { render :show, status: :created, location: @bug }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @bug.errors, status: :unprocessable_entity }
-      end
+    if @bug.save
+      redirect_to @bug, success: '登録しました'
+    else
+      flash.now[:danger] = '登録に失敗しました'
+      render :new
     end
   end
 
@@ -56,6 +53,6 @@ class BugsController < ApplicationController
     end
 
     def bug_params
-      params.require(:bug).permit(:name, :feature, :approach, :prevention, :harm, :size, :color, :seazon, :user_id)
+      params.require(:bug).permit(:name, :feature, :approach, :prevention, :harm, :size, :color, :seazon, :image, :illustration)
     end
 end

@@ -8,7 +8,7 @@ class CreateBugs < ActiveRecord::Migration[6.0]
       t.text :harm
       t.integer :size, null: false
       t.integer :color, null: false
-      t.integer :seazon, null: false
+      t.integer :season, null: false
       t.references :user, null: false, foreign_key: true
 
       t.timestamps

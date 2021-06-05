@@ -30,6 +30,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'kaminari'
 gem 'rails-i18n'
+gem 'enum_help'
 
 gem 'sorcery', '0.16.0'
 
