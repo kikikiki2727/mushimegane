@@ -18,7 +18,8 @@ class BugsController < ApplicationController
 
   def create
     @bug = current_user.bugs.build(bug_params)
-
+    @bug.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default.png')), filename: "default.png", content_type: "image/png") unless @bug.image.attached?
+    @bug.illustration.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default.png')), filename: "default.png", content_type: "image/png") unless @bug.illustration.attached?
     if @bug.save
       redirect_to @bug, success: '登録しました'
     else
@@ -37,11 +38,8 @@ class BugsController < ApplicationController
   end
 
   def destroy
-    @bug.destroy
-    respond_to do |format|
-      format.html { redirect_to bugs_url, notice: "Bug was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    @bug.destroy!
+    redirect_to bugs_path, success: '削除しました'
   end
 
   private
@@ -50,6 +48,6 @@ class BugsController < ApplicationController
     end
 
     def bug_params
-      params.require(:bug).permit(:name, :feature, :approach, :prevention, :harm, :size, :color, :seazon, :image, :illustration)
+      params.require(:bug).permit(:name, :feature, :approach, :prevention, :harm, :size, :color, :season, :image, :illustration)
     end
 end

@@ -1,16 +1,11 @@
-<div class="col-md-4 col-sm-12 m-4">
-  <div class="bug-title">
-    <%= bug.name %>
-  </div>
-  <div class="row">
-    <div class="col-6">
-      <div class="bug-image">
-        <%= image_tag bug.image %>
-      </div>
-    </div>
-    <div class="col-6">
-      <div class="bug-illustration">
-        <%= image_tag bug.illustration %>
-      </div>
+<div class="col-sm-12 col-md-4">
+  <div class="card", style="width: 20rem; height: 37rem;">
+    <h3 class="card-title"><%= bug.name %></h3>
+    <%= image_tag bug.image, size: '300x200', class: 'card-mig-top p-1' %>
+    <%= image_tag bug.illustration, size: '300x200', class: 'card-mig-top p-1' %>
+    <div class="card-body">
+      <p class="card-text"><%= bug.feature.truncate(40) %></p>
+      <%= link_to '詳細を見る', bug_path(bug), class: 'btn btn-primary' %>
     </div>
   </div>
+</div>

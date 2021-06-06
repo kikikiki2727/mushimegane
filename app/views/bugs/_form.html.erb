@@ -27,17 +27,17 @@
 
   <div class="form-group">
     <%= f.label :size %>
-    <%= f.select :size, Bug.sizes_i18n.invert.map { |key, value| [key, Bug.sizes[value]]}, { include_blank: '選択してください' }, class: 'form-control' %>
+    <%= f.select :size, Bug.sizes_i18n.invert, { include_blank: '選択してください' }, class: 'form-control' %>
   </div>
 
   <div class="form-group">
     <%= f.label :color %>
-    <%= f.select :color, Bug.colors_i18n.invert.map { |key, value| [key, Bug.colors[value]]}, { include_blank: '選択してください' }, class: 'form-control' %>
+    <%= f.select :color, Bug.colors_i18n.invert, { include_blank: '選択してください' }, class: 'form-control' %>
   </div>
 
   <div class="form-group">
     <%= f.label :season %>
-    <%= f.select :season, Bug.seasons_i18n.invert.map { |key, value| [key, Bug.seasons[value]]}, { include_blank: '選択してください' }, class: 'form-control' %>
+    <%= f.select :season, Bug.seasons_i18n.invert, { include_blank: '選択してください' }, class: 'form-control' %>
   </div>
 
   <div class="form-group">

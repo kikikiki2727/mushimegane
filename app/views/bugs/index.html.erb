@@ -6,6 +6,7 @@
     <% else %>
       <p>検索条件にマッチする虫がいません</p>
     <% end %>
+    <%= link_to '家にいる不快な虫を登録する', new_bug_path %>
     <%= paginate @bugs %>
   </div>
 </div>
