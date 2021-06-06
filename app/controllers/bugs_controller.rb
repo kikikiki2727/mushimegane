@@ -3,7 +3,7 @@ class BugsController < ApplicationController
   skip_before_action :require_login # , only: %i[ index show ]
 
   def index
-    @bugs = Bug.all
+    @bugs = Bug.all.page(params[:page])
   end
 
   def show
@@ -28,14 +28,11 @@ class BugsController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-      if @bug.update(bug_params)
-        format.html { redirect_to @bug, notice: "Bug was successfully updated." }
-        format.json { render :show, status: :ok, location: @bug }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @bug.errors, status: :unprocessable_entity }
-      end
+    if @bug.update(bug_params)
+      redirect_to @bug, success: '更新しました'
+    else
+      flash.now[:danger] = '更新できませんでした'
+      render :new
     end
   end
 
