@@ -7,14 +7,14 @@ class BugsController < ApplicationController
   end
 
   def show
+    @radar_chart = @bug.radar_chart
   end
 
   def new
     @bug = current_user.bugs.build
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @bug = current_user.bugs.build(bug_params)
@@ -49,5 +49,9 @@ class BugsController < ApplicationController
 
     def bug_params
       params.require(:bug).permit(:name, :feature, :approach, :prevention, :harm, :size, :color, :season, :image, :illustration)
+    end
+
+    def create_params
+      params.require(:create_bug_form).permit(:name, :feature, :approach, :prevention, :harm, :size, :color, :season, :image, :illustration, :capture, :breeding, :quickness, :harm, :discomfort)
     end
 end

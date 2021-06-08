@@ -1,10 +1,11 @@
 <div class="col-sm-12 col-md-4">
-  <div class="card", style="width: 20rem; height: 37rem;">
+  <div class="card">
     <h3 class="card-title"><%= bug.name %></h3>
-    <%= image_tag bug.image, size: '300x200', class: 'card-mig-top p-1' %>
-    <%= image_tag bug.illustration, size: '300x200', class: 'card-mig-top p-1' %>
+    <%= image_tag bug.image, size: '300x200', class: 'card-mig-top' %>
+    <%#= render 'radar_charts/radar_chart', bug: bug %>
+    <%= image_tag bug.illustration, size: '300x200', class: 'card-mig-top' %>
     <div class="card-body">
-      <p class="card-text"><%= bug.feature.truncate(40) %></p>
+      <p class="card-text"><%= bug.feature.truncate(47) %></p>
       <%= link_to '詳細を見る', bug_path(bug), class: 'btn btn-primary' %>
     </div>
   </div>

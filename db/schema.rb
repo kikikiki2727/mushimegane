@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_05_181428) do
+ActiveRecord::Schema.define(version: 2021_06_07_145354) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -49,6 +49,18 @@ ActiveRecord::Schema.define(version: 2021_06_05_181428) do
     t.index ["user_id"], name: "index_bugs_on_user_id"
   end
 
+  create_table "radar_charts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "capture", null: false
+    t.integer "breeding", null: false
+    t.integer "quickness", null: false
+    t.integer "evil", null: false
+    t.integer "discomfort", null: false
+    t.bigint "bug_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["bug_id"], name: "index_radar_charts_on_bug_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", null: false
     t.string "crypted_password"
@@ -61,4 +73,5 @@ ActiveRecord::Schema.define(version: 2021_06_05_181428) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bugs", "users"
+  add_foreign_key "radar_charts", "bugs"
 end

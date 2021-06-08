@@ -27,6 +27,8 @@ ja:
   activerecord:
     models:
       user: ユーザー
+      bug: 害虫
+      radar_chart: レーダーチャート
     attributes:
       user:
         name: 名前
@@ -44,4 +46,10 @@ ja:
         season: 季節
         image: 画像
         illustration: イラスト
+      radar_chart:
+        capture: 攻略度
+        breeding: 繁殖力
+        quickness: 素早さ
+        evil: 実害
+        discomfort: 不快感
         

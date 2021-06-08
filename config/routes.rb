@@ -6,5 +6,7 @@ Rails.application.routes.draw do
   delete 'logout', to: 'user_sessions#destroy'
   
   resources :users, only: %i[new create]
-  resources :bugs
+  resources :bugs do
+    resource :radar_chart, only: %i[new create edit update]
+  end
 end

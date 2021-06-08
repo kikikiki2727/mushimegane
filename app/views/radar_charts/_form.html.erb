@@ -1,0 +1,32 @@
+<%= form_with model: [bug, radar_chart], url: url, local: true do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="form-group">
+    <%= f.label :capture %>
+    <%= f.select :capture, (1..10).map{ |n| [n]}, { include_blank: '選択してください' }, class: 'form-select' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :breeding %>
+    <%= f.select :breeding, (1..10).map{ |n| [n]}, { include_blank: '選択してください' }, class: 'form-select' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :quickness %>
+    <%= f.select :quickness, (1..10).map{ |n| [n]}, { include_blank: '選択してください' }, class: 'form-select' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :evil %>
+    <%= f.select :evil, (1..10).map{ |n| [n]}, { include_blank: '選択してください' }, class: 'form-select' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :discomfort %>
+    <%= f.select :discomfort, (1..10).map{ |n| [n]}, { include_blank: '選択してください' }, class: 'form-select' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit '登録', class: 'btn btn-primary' %>
+  </div>
+<% end %>
+<%= link_to 'Back', bugs_path %>

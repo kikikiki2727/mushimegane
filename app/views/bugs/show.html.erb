@@ -1,49 +1,28 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @bug.name %>
-</p>
-
-<p>
-  <strong>Feature:</strong>
-  <%= safe_join(@bug.feature.split("\n"), tag(:br)) %>
-</p>
-
-<p>
-  <strong>Approach:</strong>
-  <%= @bug.approach %>
-</p>
-
-<p>
-  <strong>Prevention:</strong>
-  <%= @bug.prevention %>
-</p>
-
-<p>
-  <strong>Harm:</strong>
-  <%= @bug.harm %>
-</p>
-
-<p>
-  <strong>Size:</strong>
-  <%= @bug.size %>
-</p>
-
-<p>
-  <strong>Color:</strong>
-  <%= @bug.color %>
-</p>
-
-<p>
-  <strong>Seazon:</strong>
-  <%= @bug.season %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @bug.user_id %>
-</p>
-
 <%= link_to 'Edit', edit_bug_path(@bug) %> |
 <%= link_to 'Back', bugs_path %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="bug-titile mb-5"><%= @bug.name %></h2>
+      <div class="line-one col-12">
+        <div class="bug-image-contents col-6" style="float: left;">
+          <%= image_tag @bug.image, size: '300x200' %>
+          <%= image_tag @bug.illustration, size: '300x200' %>
+        </div>
+        <div class="radar-chart col-6" style="float: left;">
+          <% if @bug.radar_chart %>
+            <%= render 'radar_charts/radar_chart', bug: @bug %>
+          <% else %>
+            <p>レーダーチャートがありません</p>
+            <%= link_to 'レーダーチャートを作成する', new_bug_radar_chart_path(@bug), class: 'btn btn-primary' %>
+          <% end %>
+        </div>
+      </div>
+      <div class="bug-text-contents">
+      </div>
+      <div class="bug-reviewes">
+      </div>
+    </div>
+  </div>
+</div>
