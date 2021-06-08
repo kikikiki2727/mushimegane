@@ -13,6 +13,9 @@
         <div class="radar-chart col-6" style="float: left;">
           <% if @bug.radar_chart %>
             <%= render 'radar_charts/radar_chart', bug: @bug %>
+            <div class="float-end">
+              <%= link_to '編集する', edit_bug_radar_chart_path(@bug) %>
+            </div>
           <% else %>
             <p>レーダーチャートがありません</p>
             <%= link_to 'レーダーチャートを作成する', new_bug_radar_chart_path(@bug), class: 'btn btn-primary' %>
@@ -23,6 +26,31 @@
       </div>
       <div class="bug-reviewes">
       </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <ul class="tab-list">
+    <li class="tab tab-active">タブ1</li>
+    <li class="tab">タブ2</li>
+    <li class="tab">タブ3</li>
+  </ul>
+  <div class="tabbox-contents">
+    <div class="tabbox box-show">
+      <p>タブ1の中身が入ります。</p>
+      <p>タブ1の中身が入ります。</p>
+      <p>タブ1の中身が入ります。</p>
+    </div>
+    <div class="tabbox">
+      <p>タブ2の中身が入ります。</p>
+      <p>タブ2の中身が入ります。</p>
+      <p>タブ2の中身が入ります。</p>
+    </div>
+    <div class="tabbox">
+      <p>タブ3の中身が入ります。</p>
+      <p>タブ3の中身が入ります。</p>
+      <p>タブ3の中身が入ります。</p>
     </div>
   </div>
 </div>
