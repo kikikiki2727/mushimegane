@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = current_user.comments.find(params[:id])
-    @comment.destory!
+    @comment.destroy!
     redirect_to bug_path(@comment.bug), success: 'レビューを削除しました'
   end
 

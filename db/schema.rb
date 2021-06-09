@@ -10,17 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_09_131625) do
-
-  create_table "Comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.text "sentence", null: false
-    t.bigint "bug_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["bug_id"], name: "index_Comments_on_bug_id"
-    t.index ["user_id"], name: "index_Comments_on_user_id"
-  end
+ActiveRecord::Schema.define(version: 2021_06_09_165040) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -59,6 +49,26 @@ ActiveRecord::Schema.define(version: 2021_06_09_131625) do
     t.index ["user_id"], name: "index_bugs_on_user_id"
   end
 
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.text "sentence", null: false
+    t.bigint "bug_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["bug_id"], name: "index_comments_on_bug_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "comment_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["comment_id"], name: "index_likes_on_comment_id"
+    t.index ["user_id", "comment_id"], name: "index_likes_on_user_id_and_comment_id", unique: true
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "radar_charts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "capture", null: false
     t.integer "breeding", null: false
@@ -81,9 +91,11 @@ ActiveRecord::Schema.define(version: 2021_06_09_131625) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
-  add_foreign_key "Comments", "bugs"
-  add_foreign_key "Comments", "users"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bugs", "users"
+  add_foreign_key "comments", "bugs"
+  add_foreign_key "comments", "users"
+  add_foreign_key "likes", "comments"
+  add_foreign_key "likes", "users"
   add_foreign_key "radar_charts", "bugs"
 end

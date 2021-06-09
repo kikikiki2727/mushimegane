@@ -10,7 +10,7 @@ class BugsController < ApplicationController
     @radar_chart = @bug.radar_chart
     @other_bug = RadarChart.offset(rand(RadarChart.count)).first.bug
     @comments = @bug.comments
-    @comment = @bug.comments.build
+    @comment = Comment.new
     @url = bug_comments_path(@bug)
   end
 

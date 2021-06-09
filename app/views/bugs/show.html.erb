@@ -22,10 +22,21 @@
       <div class="bug-text-contents">
         <%= render 'tab_menu', bug: @bug %>
       </div>
-      <div class="bug-comments">
-        <h2>コメント</h2>
-        <%= render 'comments/comments', comments: @comments %>
-        <%= render 'comments/form', bug: @bug, comment: @comment, url: @url %>
+      <div class="bug-comments container">
+        <div class="row">
+          <div class="col-6">
+            <h3 class="mb-3">コメント一覧</h3>
+            <% if @comments.present? %>
+              <%= render 'comments/comments', comments: @comments %>
+            <% else %>
+              <p>コメントがありません</p>
+            <% end %>
+          </div>
+          <div class="col-6">
+            <h3 class="mb-3">コメント投稿</h3>
+            <%= render 'comments/form', bug: @bug, comment: @comment, url: @url %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
