@@ -1,0 +1,13 @@
+<%= form_with model: [bug, comment], url: url, local: true do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="row">
+    <div class="form-group mb-3offset-1">
+      <%= f.label :sentence %>
+      <%= f.text_field :sentence, class: 'form-control' %>
+    </div>
+
+    <div class="actions mb-3">
+      <%= f.submit 'コメントを投稿する', class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>

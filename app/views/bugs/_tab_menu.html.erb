@@ -1,0 +1,20 @@
+<ul class="tab-list">
+  <li class="tab tab-active"><%= Bug.human_attribute_name(:feature) %></li>
+  <li class="tab"><%= Bug.human_attribute_name(:approach) %></li>
+  <li class="tab"><%= Bug.human_attribute_name(:prevention) %></li>
+  <li class="tab"><%= Bug.human_attribute_name(:harm) %></li>
+</ul>
+<div class="tabbox-contents">
+  <div class="tabbox box-show">
+    <p><%= safe_join(bug.feature.split("\n"), tag(:br)) %></p>
+  </div>
+  <div class="tabbox">
+    <p><%= safe_join(bug.approach.split("\n"), tag(:br)) %></p>
+  </div>
+  <div class="tabbox">
+    <p><%= safe_join(bug.prevention.split("\n"), tag(:br)) %></p>
+  </div>
+  <div class="tabbox">
+    <p><%= safe_join(bug.harm.split("\n"), tag(:br)) %></p>
+  </div>
+</div>

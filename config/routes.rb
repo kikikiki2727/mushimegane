@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create]
   resources :bugs do
     resource :radar_chart, only: %i[new create edit update]
+    resources :comments, only: %i[create destroy], shallow: true
   end
 end

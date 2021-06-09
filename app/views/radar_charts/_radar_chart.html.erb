@@ -15,14 +15,14 @@ var myChart = new Chart(ctx, {
         borderWidth: 1,
         pointBackgroundColor: 'rgb(46,106,177)'
         },
-        <% if bug == 1 %>{
-          label: "<%= Bug.first.name %>",
-          data: [<%= Bug.first.radar_chart.capture %>, <%= Bug.first.radar_chart.breeding %>, <%= Bug.first.radar_chart.quickness %>, <%= Bug.first.radar_chart.evil %>, <%= Bug.first.radar_chart.discomfort %>],
+        {
+          label: "<%= other_bug.name %>",
+          data: [<%= other_bug.radar_chart.capture %>, <%= other_bug.radar_chart.breeding %>, <%= other_bug.radar_chart.quickness %>, <%= other_bug.radar_chart.evil %>, <%= other_bug.radar_chart.discomfort %>],
           backgroundColor: 'rgba(204,204,153,0.3)',
           borderColor: 'rgba(122,255,129,0.2)',
           borderWidth: 1,
           pointBackgroundColor: 'RGB(46,106,177)'
-          }<% end %>
+          }
     ]
   },
   options: {

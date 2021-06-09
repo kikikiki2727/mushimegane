@@ -1,20 +1,17 @@
-<%= link_to 'Edit', edit_bug_path(@bug) %> |
-<%= link_to 'Back', bugs_path %>
-
 <div class="container">
   <div class="row">
     <div class="col-12">
       <h2 class="bug-titile mb-5"><%= @bug.name %></h2>
-      <div class="line-one col-12">
-        <div class="bug-image-contents col-6" style="float: left;">
+      <div class="line-one col-12 mb-5" style="overflow: hidden;">
+        <div class="bug-image-contents col-6 float-start">
           <%= image_tag @bug.image, size: '300x200' %>
           <%= image_tag @bug.illustration, size: '300x200' %>
         </div>
-        <div class="radar-chart col-6" style="float: left;">
+        <div class="radar-chart col-6 float-start">
           <% if @bug.radar_chart %>
-            <%= render 'radar_charts/radar_chart', bug: @bug %>
+            <%= render 'radar_charts/radar_chart', bug: @bug, other_bug: @other_bug %>
             <div class="float-end">
-              <%= link_to '編集する', edit_bug_radar_chart_path(@bug) %>
+              <%= link_to 'レーダーチャートを編集する', edit_bug_radar_chart_path(@bug) %>
             </div>
           <% else %>
             <p>レーダーチャートがありません</p>
@@ -23,34 +20,15 @@
         </div>
       </div>
       <div class="bug-text-contents">
+        <%= render 'tab_menu', bug: @bug %>
       </div>
-      <div class="bug-reviewes">
+      <div class="bug-comments">
+        <h2>コメント</h2>
+        <%= render 'comments/comments', comments: @comments %>
+        <%= render 'comments/form', bug: @bug, comment: @comment, url: @url %>
       </div>
     </div>
   </div>
-</div>
-
-<div class="container">
-  <ul class="tab-list">
-    <li class="tab tab-active">タブ1</li>
-    <li class="tab">タブ2</li>
-    <li class="tab">タブ3</li>
-  </ul>
-  <div class="tabbox-contents">
-    <div class="tabbox box-show">
-      <p>タブ1の中身が入ります。</p>
-      <p>タブ1の中身が入ります。</p>
-      <p>タブ1の中身が入ります。</p>
-    </div>
-    <div class="tabbox">
-      <p>タブ2の中身が入ります。</p>
-      <p>タブ2の中身が入ります。</p>
-      <p>タブ2の中身が入ります。</p>
-    </div>
-    <div class="tabbox">
-      <p>タブ3の中身が入ります。</p>
-      <p>タブ3の中身が入ります。</p>
-      <p>タブ3の中身が入ります。</p>
-    </div>
-  </div>
+  <%= link_to 'Edit', edit_bug_path(@bug) %> |
+  <%= link_to 'Back', bugs_path %> 
 </div>

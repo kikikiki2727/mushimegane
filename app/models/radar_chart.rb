@@ -6,4 +6,5 @@ class RadarChart < ApplicationRecord
   validates :quickness, presence: true, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 100 }
   validates :evil, presence: true, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 100 }
   validates :discomfort, presence: true, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 100 }
+
 end

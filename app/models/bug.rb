@@ -1,6 +1,7 @@
 class Bug < ApplicationRecord
   belongs_to :user
-  has_one :radar_chart
+  has_one :radar_chart, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   has_one_attached :image
   has_one_attached :illustration
