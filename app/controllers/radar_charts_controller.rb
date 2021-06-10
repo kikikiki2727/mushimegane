@@ -1,5 +1,4 @@
 class RadarChartsController < ApplicationController
-  skip_before_action :require_login
   before_action :set_bug
 
   def new
@@ -24,6 +23,7 @@ class RadarChartsController < ApplicationController
     if @bug.radar_chart.update(radar_chart_params)
       redirect_to @bug, success: 'レーダーチャートを更新しました'
     else
+      @radar_chart = @bug.radar_chart
       flash.now[:danger] = '更新に失敗しました'
       render :edit
     end
