@@ -1,6 +1,6 @@
 class BugsController < ApplicationController
   before_action :set_bug, only: %i[ show edit update destroy ]
-  skip_before_action :require_login # , only: %i[ index show ]
+  skip_before_action :require_login , only: %i[ index show ]
 
   def index
     @bugs = Bug.all.page(params[:page])
@@ -27,7 +27,7 @@ class BugsController < ApplicationController
     if @bug.save
       redirect_to @bug, success: '登録しました'
     else
-      flash.now[:danger] = '登録に失敗しました'
+      flash.now[:danger] = '登録できませんでした'
       render :new
     end
   end

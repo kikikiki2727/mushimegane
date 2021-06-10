@@ -1,6 +1,6 @@
 <li class="comment">
   <%= comment.sentence %>
-  <% if current_user.own?(comment) %>
+  <% if current_user&.own?(comment) %>
     <%= link_to '削除', comment_path(comment), method: :delete, data: { confirm: '削除してもよろしいですか？' } %>
   <% else %>
     <%= render 'likes/like_button', comment: comment %>

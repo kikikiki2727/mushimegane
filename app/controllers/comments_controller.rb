@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-  skip_before_action :require_login
 
   def create
     comment = current_user.comments.build(comment_params)

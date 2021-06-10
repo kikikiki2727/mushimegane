@@ -1,4 +1,4 @@
-<% if current_user.like_comment?(comment) %>
+<% if current_user&.like_comment?(comment) %>
   <%= render 'likes/unlike', comment: comment %>
 <% else %>
   <%= render 'likes/like', comment: comment %>
