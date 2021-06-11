@@ -3,7 +3,8 @@ class BugsController < ApplicationController
   skip_before_action :require_login , only: %i[ index show ]
 
   def index
-    @bugs = Bug.all.page(params[:page])
+    @search_bugs_form = SearchBugsForm.new(search_params)
+    @bugs = @search_bugs_form.search.page(params[:page]) 
   end
 
   def show
@@ -46,6 +47,11 @@ class BugsController < ApplicationController
     redirect_to bugs_path, success: '削除しました'
   end
 
+  def detailed_search
+    @search_bugs_form = SearchBugsForm.new
+    @url = bugs_path
+  end
+
   private
     def set_bug
       @bug = Bug.find(params[:id])
@@ -55,7 +61,7 @@ class BugsController < ApplicationController
       params.require(:bug).permit(:name, :feature, :approach, :prevention, :harm, :size, :color, :season, :image, :illustration)
     end
 
-    def create_params
-      params.require(:create_bug_form).permit(:name, :feature, :approach, :prevention, :harm, :size, :color, :season, :image, :illustration, :capture, :breeding, :quickness, :harm, :discomfort)
+    def search_params
+      params[:search]&.permit(:name, :search_word, :size, :color, :season, :capture, :breeding, :quickness, :harm, :discomfort)
     end
 end

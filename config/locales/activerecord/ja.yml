@@ -54,4 +54,16 @@ ja:
         discomfort: 不快感
       comment:
         sentence: コメント内容
-        
+  activemodel:
+    attributes:
+      search_bugs_form:
+        name: 名前
+        search_word: フリーワード
+        size: 大きさ
+        color: 色
+        season: 季節
+        capture: 攻略度
+        breeding: 繁殖力
+        quickness: 素早さ
+        evil: 実害
+        discomfort: 不快感
