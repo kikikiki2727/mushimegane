@@ -34,11 +34,11 @@ class SearchBugsForm
     relation = relation.where(color: color) if color.present?
     relation = relation.where(season: season) if season.present?
 
-    relation = relation.joins(:radar_chart).where(radar_chart: { capture: capture }) if capture.present?
-    relation = relation.joins(:radar_chart).where(radar_chart: { breeding: breeding }) if breeding.present?
-    relation = relation.joins(:radar_chart).where(radar_chart: { breeding: breeding }) if quickness.present?
-    relation = relation.joins(:radar_chart).where(radar_chart: { evil: evil }) if evil.present?
-    relation = relation.joins(:radar_chart).where(radar_chart: { discomfort: discomfort }) if discomfort.present?
+    relation = relation.joins(:radar_chart).where(radar_charts: { capture: capture }) if capture.present?
+    relation = relation.joins(:radar_chart).where(radar_charts: { breeding: breeding }) if breeding.present?
+    relation = relation.joins(:radar_chart).where(radar_charts: { breeding: breeding }) if quickness.present?
+    relation = relation.joins(:radar_chart).where(radar_charts: { evil: evil }) if evil.present?
+    relation = relation.joins(:radar_chart).where(radar_charts: { discomfort: discomfort }) if discomfort.present?
     
     relation
   end
