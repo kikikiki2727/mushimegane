@@ -1,3 +1,6 @@
-<%= link_to comment_likes_path(comment), method: :post do %>
+<%= link_to comment_likes_path(comment),
+    id: "js-like-button-for-comment-#{comment.id}", 
+    method: :post, 
+    remote: true do %>
   <i class="far fa-thumbs-up"></i>
 <% end %>

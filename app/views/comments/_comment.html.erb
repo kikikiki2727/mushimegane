@@ -5,5 +5,5 @@
   <% else %>
     <%= render 'likes/like_button', comment: comment %>
   <% end %>
-  <i><%= comment.likes.count %>件</i>
+  <i id="js-like-count-for-comment-<%= comment.id %>"><%= comment.likes.count %>件</i>
 </li>
