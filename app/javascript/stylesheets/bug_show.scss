@@ -1,3 +1,5 @@
+/*タブメニュー*/
+
 .container {
   margin: 10px;
   border: 1px solid #ccc;
@@ -32,3 +34,13 @@
   display: block;
 }
 /*ここまでタブメニュー*/
+
+/*画像ぼかし*/
+
+.blur_active {
+  filter: blur(3px);
+}
+
+.hide_button {
+  display: none;
+}
