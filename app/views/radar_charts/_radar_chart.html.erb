@@ -1,0 +1,42 @@
+<canvas id="myChart"></canvas>
+<script>
+var ctx = document.getElementById("myChart");
+var myChart = new Chart(ctx, {
+  type: 'radar',
+  data: {
+    labels: ["<%= RadarChart.human_attribute_name(:capture) %>", "<%= RadarChart.human_attribute_name(:breeding) %>", "<%= RadarChart.human_attribute_name(:quickness) %>", "<%= RadarChart.human_attribute_name(:evil) %>", "<%= RadarChart.human_attribute_name(:discomfort) %>"],
+    datasets: 
+    [
+        {
+        label: "<%= bug.name %>",
+        data: [<%= bug.radar_chart.capture %>, <%= bug.radar_chart.breeding %>, <%= bug.radar_chart.quickness %>, <%= bug.radar_chart.evil %>, <%= bug.radar_chart.discomfort %>],
+        backgroundColor: 'rgba(85,107,47,0.3)',
+        borderColor: 'rgba(85,107,47)',
+        borderWidth: 1,
+        pointBackgroundColor: 'rgb(46,106,177)'
+        },
+        {
+          label: "<%= other_bug.name %>",
+          data: [<%= other_bug.radar_chart.capture %>, <%= other_bug.radar_chart.breeding %>, <%= other_bug.radar_chart.quickness %>, <%= other_bug.radar_chart.evil %>, <%= other_bug.radar_chart.discomfort %>],
+          backgroundColor: 'rgba(204,204,153,0.3)',
+          borderColor: 'rgba(122,255,129,0.2)',
+          borderWidth: 1,
+          pointBackgroundColor: 'RGB(46,106,177)'
+          }
+    ]
+  },
+  options: {
+      title: {
+          display: true,
+          text: '他害虫との比較'
+      },   
+      scale: {
+          ticks: {
+              suggestedMin: 0,
+              suggestedMax: 10,
+              stepSize: 1
+          }
+      }
+  }
+});
+</script>

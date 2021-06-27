@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="bug-titile mb-5"><%= @bug.name %></h2>
+      <div class="line-one col-12 mb-5" style="overflow: hidden;">
+        <% if @bug.image.attached? %>
+          <div class="bug-image-contents col-6 float-start">
+            <%= image_tag @bug.image, size: '300x200' %>
+            <%= image_tag @bug.illustration, size: '300x200' %>
+          </div>
+        <% end %>
+        <div class="radar-chart col-6 float-start">
+          <% if @bug.radar_chart %>
+            <%= render 'radar_charts/radar_chart', bug: @bug, other_bug: @other_bug %>
+            <div class="float-end">
+              <%= link_to 'レーダーチャートを編集する', edit_bug_radar_chart_path(@bug) %>
+            </div>
+          <% else %>
+            <p>レーダーチャートがありません</p>
+            <%= link_to 'レーダーチャートを作成する', new_bug_radar_chart_path(@bug), class: 'btn btn-primary' %>
+          <% end %>
+        </div>
+      </div>
+      <div class="bug-text-contents">
+        <%= render 'tab_menu', bug: @bug %>
+      </div>
+      <div class="bug-comments container">
+        <div class="row">
+          <div class="col-6">
+            <h3 class="mb-3">コメント一覧</h3>
+            <% if @comments.present? %>
+              <%= render 'comments/comments', comments: @comments %>
+            <% else %>
+              <p>コメントがありません</p>
+            <% end %>
+          </div>
+          <div class="col-6">
+            <h3 class="mb-3">コメント投稿</h3>
+            <%= render 'comments/form', bug: @bug, comment: @comment, url: @url %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= link_to 'Edit', edit_bug_path(@bug) %> |
+  <%= link_to 'Back', bugs_path %> 
+</div>

@@ -6,4 +6,11 @@ Rails.application.routes.draw do
   delete 'logout', to: 'user_sessions#destroy'
   
   resources :users, only: %i[new create]
+  resources :bugs do
+    get 'search', to: 'bugs#detailed_search', on: :collection
+    resource :radar_chart, only: %i[new create edit update]
+    resources :comments, only: %i[create destroy], shallow: true do
+      resources :likes, only: %i[create destroy]
+    end
+  end
 end

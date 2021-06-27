@@ -1,0 +1,34 @@
+<%= form_with model: [bug, radar_chart], url: url, local: true do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="row">
+    <div class="form-group mb-3 col-2 offset-1">
+      <%= f.label :capture %>
+      <%= f.select :capture, (1..10).map{ |n| [n]}, { include_blank: '指定なし' }, class: 'form-select' %>
+    </div>
+
+    <div class="form-group mb-3 col-2">
+      <%= f.label :breeding %>
+      <%= f.select :breeding, (1..10).map{ |n| [n]}, { include_blank: '指定なし' }, class: 'form-select' %>
+    </div>
+
+    <div class="form-group mb-3 col-2">
+      <%= f.label :quickness %>
+      <%= f.select :quickness, (1..10).map{ |n| [n]}, { include_blank: '指定なし' }, class: 'form-select' %>
+    </div>
+
+    <div class="form-group mb-3 col-2">
+      <%= f.label :evil %>
+      <%= f.select :evil, (1..10).map{ |n| [n]}, { include_blank: '指定なし' }, class: 'form-select' %>
+    </div>
+
+    <div class="form-group mb-3 col-2">
+      <%= f.label :discomfort %>
+      <%= f.select :discomfort, (1..10).map{ |n| [n]}, { include_blank: '指定なし' }, class: 'form-select' %>
+    </div>
+
+    <div class="actions mb-3 offset-1">
+      <%= f.submit class: 'btn btn-primary' %>
+      <%= link_to 'Back', bugs_path %>
+    </div>
+  </div>
+<% end %>
