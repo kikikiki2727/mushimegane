@@ -2,12 +2,12 @@
   <div class="row">
     <div class="col-12">
       <h2 class="bug-titile mb-5"><%= @bug.name %></h2>
-      <a class="btn btn-danger blur_button">モザイクを外してみる</a>
-      <a class="btn btn-primary hide_blur_button hide_button">やっぱりモザイクをつける</a>
+      <button class="btn-danger blur_button blur_button_<%= @bug.id %>" value="<%= @bug.id %>">モザイクを外してみる</button>
+      <button class="btn-primary hide_blur_button hide_blur_button_<%= @bug.id %> hide_button" value="<%= @bug.id %>">やっぱりモザイクをつける</button>
       <div class="line-one col-12 mb-5" style="overflow: hidden;">
         <% if @bug.image.attached? %>
           <div class="bug-image-contents col-6 float-start">
-            <%= image_tag @bug.image, size: '300x200', class: 'blur blur_active' %>
+            <%= image_tag @bug.image, size: '300x200', class: "blur blur_#{@bug.id} blur_active" %>
             <%= image_tag @bug.illustration, size: '300x200' %>
           </div>
         <% end %>
