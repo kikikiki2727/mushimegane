@@ -31,6 +31,10 @@
           <div class="col-6">
             <h3 class="mb-3">コメント一覧</h3>
             <% if @comments.present? %>
+              <div class="comment_order_button">
+                <button class="order_desc">新着順</button>
+                <button class="order_like">いいね順</button>
+              </div>
               <%= render 'comments/comments', comments: @comments %>
             <% else %>
               <p>コメントがありません</p>

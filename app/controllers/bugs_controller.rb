@@ -4,13 +4,13 @@ class BugsController < ApplicationController
 
   def index
     @search_bugs_form = SearchBugsForm.new(search_params)
-    @bugs = @search_bugs_form.search.page(params[:page]) 
+    @bugs = @search_bugs_form.search.page(params[:page])
   end
 
   def show
     @radar_chart = @bug.radar_chart
     @other_bug = RadarChart.offset(rand(RadarChart.count)).first.bug
-    @comments = @bug.comments
+    @comments = @bug.comments.order(created_at: :desc)
     @comment = Comment.new
     @url = bug_comments_path(@bug)
   end
