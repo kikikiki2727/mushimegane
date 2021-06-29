@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create]
   resources :bugs do
     get 'search', to: 'bugs#detailed_search', on: :collection
+    get 'comments/sort', to: 'comments#sort'
     resource :radar_chart, only: %i[new create edit update]
     resources :comments, only: %i[create destroy], shallow: true do
       resources :likes, only: %i[create destroy]

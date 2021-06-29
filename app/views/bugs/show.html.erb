@@ -31,7 +31,12 @@
           <div class="col-6">
             <h3 class="mb-3">コメント一覧</h3>
             <% if @comments.present? %>
-              <%= render 'comments/comments', comments: @comments %>
+              <div class="comment_order_button">
+                <%= render 'comments/comments_sort', bug: @bug %>
+              </div>
+              <div class="comment-page">
+                <%= render 'comments/comments', comments: @comments %>
+              </div>
             <% else %>
               <p>コメントがありません</p>
             <% end %>
