@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  include CommentsHelper
 
   def create
     comment = current_user.comments.build(comment_params)
@@ -13,6 +14,11 @@ class CommentsController < ApplicationController
     @comment = current_user.comments.find(params[:id])
     @comment.destroy!
     redirect_to bug_path(@comment.bug), success: 'コメントを削除しました'
+  end
+
+  def sort
+    @bug = Bug.find(params[:bug_id])
+    sort_type(params[:bug][:type])
   end
 
   private

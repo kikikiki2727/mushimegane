@@ -1,0 +1,10 @@
+<%= form_with model: bug, url: bug_comments_sort_path(bug), method: :get do |f| %>
+  <div class="row">
+    <div class="form-group col-3">
+      <%= f.select :type, [['新しい順', 'desc'], ['古い順', 'asc'], ['いいね順', 'like']], { include_blank: false }, class: 'form-select' %>
+    </div>
+    <div class="actions mb-3 col-3">
+      <%= f.submit '変更する', class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>
