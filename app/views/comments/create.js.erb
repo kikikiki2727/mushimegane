@@ -1,0 +1,7 @@
+$("#error_massages").remove()
+<% if @comment.errors.present? %>
+  $("#new_comment").prepend("<%= j(render('shared/error_messages', object: @comment)) %>")
+<% else %>
+  $(".comment-list").prepend("<%= j(render('comments/comment', comment: @comment)) %>")
+  $("#js_new_comment_body").val('')
+<% end %>
