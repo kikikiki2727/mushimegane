@@ -36,6 +36,10 @@ gem 'sorcery', '0.16.0'
 
 gem 'draper'
 
+gem 'aws-sdk-rails', '~> 3'
+gem 'aws-sdk-s3', '~> 1'
+gem 'aws-sdk-rekognition'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
