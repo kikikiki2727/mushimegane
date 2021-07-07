@@ -36,7 +36,7 @@ gem 'sorcery', '0.16.0'
 
 gem 'draper'
 
-gem 'aws-sdk-rails', '~> 3'
+gem 'aws-sdk'
 gem 'aws-sdk-s3', '~> 1'
 gem 'aws-sdk-rekognition'
 

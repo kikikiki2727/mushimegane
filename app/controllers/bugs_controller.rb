@@ -47,7 +47,7 @@ class BugsController < ApplicationController
     redirect_to bugs_path, success: '削除しました'
   end
 
-  def detailed_search
+  def word_search_page
     @search_bugs_form = SearchBugsForm.new
     @url = bugs_path
   end

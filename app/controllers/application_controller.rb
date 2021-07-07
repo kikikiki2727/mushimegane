@@ -1,6 +1,4 @@
 class ApplicationController < ActionController::Base
-  include ApplicationHelper
-
   add_flash_types :success, :info, :warning, :danger
 
   before_action :require_login
