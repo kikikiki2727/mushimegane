@@ -3,10 +3,6 @@ class SearchBugsForm
   include ActiveModel::Attributes
 
   attribute :name, :string
-  attribute :feature, :string
-  attribute :approach, :string
-  attribute :prevention, :string
-  attribute :harm, :string
   attribute :size, :string
   attribute :color, :string
   attribute :season, :string
@@ -26,7 +22,11 @@ class SearchBugsForm
     if search_word.present?
       search_words = search_word.split(/[[:blank:]]+/)
       search_words.inject(relation) do |result, word|
-        relation = result.where('name LIKE ?', "%#{word}%").or(result.where('feature LIKE ?', "%#{word}%")).or(result.where('approach LIKE ?', "%#{word}%")).or(result.where('prevention LIKE ?', "%#{word}%")).or(result.where('harm LIKE ?', "%#{word}%"))
+        relation = result.where('name LIKE ?', "%#{word}%")
+                         .or(result.where('feature LIKE ?', "%#{word}%"))
+                         .or(result.where('approach LIKE ?', "%#{word}%"))
+                         .or(result.where('prevention LIKE ?', "%#{word}%"))
+                         .or(result.where('harm LIKE ?', "%#{word}%"))
       end
     end
 

@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <h2>詳細検索</h2>
+    <h2>検索</h2>
     <div class="col-12">
       <%= form_with model: @search_bugs_form, scope: :search, url: @url, method: :get, local: true do |f| %>
         <%= render 'shared/error_messages', object: f.object %>
