@@ -6,11 +6,11 @@ class SearchBugsForm
   attribute :size, :string
   attribute :color, :string
   attribute :season, :string
-  attribute :capture, :integer
-  attribute :breeding, :integer
-  attribute :prevention_difficulty, :integer
-  attribute :injury, :integer
-  attribute :discomfort, :integer
+  attribute :capture, :string
+  attribute :breeding, :string
+  attribute :prevention_difficulty, :string
+  attribute :injury, :string
+  attribute :discomfort, :string
 
   attr_accessor :search_word
 
@@ -34,14 +34,26 @@ class SearchBugsForm
     relation = relation.where(color: color) if color.present?
     relation = relation.where(season: season) if season.present?
 
-    relation = relation.joins(:radar_chart).where(radar_charts: { capture: capture }) if capture.present?
-    relation = relation.joins(:radar_chart).where(radar_charts: { breeding: breeding }) if breeding.present?
-    relation = relation.joins(:radar_chart).where(radar_charts: { prevention_difficulty: prevention_difficulty }) if prevention_difficulty.present?
-    relation = relation.joins(:radar_chart).where(radar_charts: { injury: injury }) if injury.present?
-    relation = relation.joins(:radar_chart).where(radar_charts: { discomfort: discomfort }) if discomfort.present?
+    relation = search_chart(relation, capture, 'capture') if capture.present?
+    relation = search_chart(relation, breeding, 'breeding') if breeding.present?
+    relation = search_chart(relation, prevention_difficulty, 'prevention_difficulty') if prevention_difficulty.present?
+    relation = search_chart(relation, injury, 'injury') if injury.present?
+    relation = search_chart(relation, discomfort, 'discomfort') if discomfort.present?
     
     relation
   end
 
   private
+
+  def search_chart(relation, value, column)
+    if value == 'high'
+      relation.high_chart(column)
+    elsif value == 'normal'
+      relation.normal_chart(column)
+    elsif value == 'low'
+      relation.low_chart(column)
+    else
+      relation
+    end
+  end
 end

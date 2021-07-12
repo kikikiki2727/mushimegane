@@ -9,6 +9,7 @@ class BugsController < ApplicationController
 
   def show
     @radar_chart = @bug.radar_chart
+    @other_bug = Bug.where.not(id: @bug.id).shuffle.first
     # @other_bug = RadarChart.offset(rand(RadarChart.count)).first.bug
     @comments = @bug.comments.order(created_at: :desc)
     @comment = Comment.new

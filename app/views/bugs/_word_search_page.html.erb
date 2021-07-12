@@ -15,7 +15,7 @@
             <div class="col-12">
               <%= form_with model: SearchBugsForm.new, scope: :search, url: bugs_path, method: :get, local: true do |f| %>
                 <div class="form-group mb-3">
-                  <%= f.label :name %>
+                  <%= f.label :name%>
                   <%= f.text_field :name, class: 'form-control', placeholder: '害虫の名前を入力してください。' %>
                 </div>
         
@@ -24,49 +24,116 @@
                   <%= f.text_field :search_word, class: 'form-control', placeholder: '2単語以上入力する場合はスペースを空けてください。', rows: 3%>
                 </div>
             
-                <div class="row">
-                  <div class="form-group mb-3 col-4">
-                    <%= f.label :size %>
-                    <%= f.select :size, Bug.sizes_i18n.invert, { include_blank: '選択してください' }, class: 'form-select' %>
-                  </div>
-              
-                  <div class="form-group mb-3 col-4">
-                    <%= f.label :color %>
-                    <%= f.select :color, Bug.colors_i18n.invert, { include_blank: '選択してください' }, class: 'form-select' %>
-                  </div>
-              
-                  <div class="form-group mb-3 col-4">
-                    <%= f.label :season %>
-                    <%= f.select :season, Bug.seasons_i18n.invert, { include_blank: '選択してください' }, class: 'form-select' %>
-                  </div>
+                <%= f.label :size %>
+                <div class="form-control mb-3 col-4">
+                  <%= f.radio_button :size, '', class: 'form-check-input' %>
+                  <%= f.label '選択してください', class: 'form-check-label', 'for': 'search_size_' %>
+                  <%= f.radio_button :size, 'extra_small', class: 'form-check-input' %>
+                  <%= f.label :size_extra_small, class: 'form-check-label' %>
+                  <%= f.radio_button :size, 'small', class: 'form-check-input' %>
+                  <%= f.label 'size_small', class: 'form-check-label' %>
+                  <%= f.radio_button :size, 'medium', class: 'form-check-input' %>
+                  <%= f.label 'size_medium', class: 'form-check-label' %>
+                  <%= f.radio_button :size, 'large', class: 'form-check-input' %>
+                  <%= f.label 'size_large', class: 'form-check-label' %>
+                </div>
+            
+                <%= f.label :color %>
+                <div class="form-control mb-3 col-4">
+                  <%= f.radio_button :color, '', class: 'form-check-input' %>
+                  <%= f.label '選択してください', class: 'form-check-label', 'for': 'search_color_' %>
+                  <%= f.radio_button :color, 'black', class: 'form-check-input' %>
+                  <%= f.label 'color_black', class: 'form-check-label' %>
+                  <%= f.radio_button :color, 'brown', class: 'form-check-input' %>
+                  <%= f.label 'color_brown', class: 'form-check-label' %>
+                  <%= f.radio_button :color, 'gray', class: 'form-check-input' %>
+                  <%= f.label 'color_gray', class: 'form-check-label' %>
+                  <%= f.radio_button :color, 'white', class: 'form-check-input' %>
+                  <%= f.label 'color_white', class: 'form-check-label' %>
+                  <%= f.radio_button :color, 'red', class: 'form-check-input' %>
+                  <%= f.label 'color_red', class: 'form-check-label' %>
+                  <%= f.radio_button :color, 'orange', class: 'form-check-input' %>
+                  <%= f.label 'color_orange', class: 'form-check-label' %>
+                  <%= f.radio_button :color, 'yellow', class: 'form-check-input' %>
+                  <%= f.label 'color_yellow', class: 'form-check-label' %>
+                  <%= f.radio_button :color, 'green', class: 'form-check-input' %>
+                  <%= f.label 'color_green', class: 'form-check-label' %>
+                </div>
+            
+                <%= f.label :season %>
+                <div class="form-control mb-3 col-4">
+                  <%= f.radio_button :season, '', class: 'form-check-input' %>
+                  <%= f.label '選択してください', class: 'form-check-label', 'for': 'search_season_' %>
+                  <%= f.radio_button :season, 'spring', class: 'form-check-input' %>
+                  <%= f.label 'season_spring', class: 'form-check-label' %>
+                  <%= f.radio_button :season, 'summer', class: 'form-check-input' %>
+                  <%= f.label 'season_summer', class: 'form-check-label' %>
+                  <%= f.radio_button :season, 'autumn', class: 'form-check-input' %>
+                  <%= f.label 'season_autumn', class: 'form-check-label' %>
+                  <%= f.radio_button :season, 'winter', class: 'form-check-input' %>
+                  <%= f.label 'season_winter', class: 'form-check-label' %>
+                </div>
+
+                <%= f.label :capture %>
+                <div class="form-control mb-3">
+                  <%= f.radio_button :capture, '', class: 'form-check-input' %>
+                  <%= f.label '選択してください', class: 'form-check-label', 'for': 'search_capture_' %>
+                  <%= f.radio_button :capture, 'high', class: 'form-check-input' %>
+                  <%= f.label 'capture_high', class: 'form-check-label' %>
+                  <%= f.radio_button :capture, 'normal', class: 'form-check-input' %>
+                  <%= f.label 'capture_normal', class: 'form-check-label' %>
+                  <%= f.radio_button :capture, 'low', class: 'form-check-input' %>
+                  <%= f.label 'capture_low', class: 'form-check-label' %>
                 </div>
           
-                <div class="row">
-                  <div class="form-group mb-3 col-2 offset-1">
-                    <%= f.label :capture %>
-                    <%= f.select :capture, (1..10).map{ |n| [n]}, { include_blank: '指定なし' }, class: 'form-select' %>
-                  </div>
-          
-                  <div class="form-group mb-3 col-2">
-                    <%= f.label :breeding %>
-                    <%= f.select :breeding, (1..10).map{ |n| [n]}, { include_blank: '指定なし' }, class: 'form-select' %>
-                  </div>
-          
-                  <div class="form-group mb-3 col-2">
-                    <%= f.label :quickness %>
-                    <%= f.select :quickness, (1..10).map{ |n| [n]}, { include_blank: '指定なし' }, class: 'form-select' %>
-                  </div>
-          
-                  <div class="form-group mb-3 col-2">
-                    <%= f.label :evil %>
-                    <%= f.select :evil, (1..10).map{ |n| [n]}, { include_blank: '指定なし' }, class: 'form-select' %>
-                  </div>
-          
-                  <div class="form-group mb-3 col-2">
-                    <%= f.label :discomfort %>
-                    <%= f.select :discomfort, (1..10).map{ |n| [n]}, { include_blank: '指定なし' }, class: 'form-select' %>
-                  </div>
+                <%= f.label :breeding %>
+                <div class="form-control mb-3">
+                  <%= f.radio_button :breeding, '', class: 'form-check-input' %>
+                  <%= f.label '選択してください', class: 'form-check-label', 'for': 'search_breeding_' %>
+                  <%= f.radio_button :breeding, 'high', class: 'form-check-input' %>
+                  <%= f.label 'breeding_high', class: 'form-check-label' %>
+                  <%= f.radio_button :breeding, 'normal', class: 'form-check-input' %>
+                  <%= f.label 'breeding_normal', class: 'form-check-label' %>
+                  <%= f.radio_button :breeding, 'low', class: 'form-check-input' %>
+                  <%= f.label 'breeding_low', class: 'form-check-label' %>
                 </div>
+        
+                <%= f.label :prevention_difficulty %>
+                <div class="form-control mb-3">
+                  <%= f.radio_button :prevention_difficulty, '', class: 'form-check-input' %>
+                  <%= f.label '選択してください', class: 'form-check-label', 'for': 'search_prevention_difficulty_' %>
+                  <%= f.radio_button :prevention_difficulty, 'high', class: 'form-check-input' %>
+                  <%= f.label 'prevention_difficulty_high', class: 'form-check-label' %>
+                  <%= f.radio_button :prevention_difficulty, 'normal', class: 'form-check-input' %>
+                  <%= f.label 'prevention_difficulty_normal', class: 'form-check-label' %>
+                  <%= f.radio_button :prevention_difficulty, 'low', class: 'form-check-input' %>
+                  <%= f.label 'prevention_difficulty_low', class: 'form-check-label' %>
+                </div>
+        
+                <%= f.label :injury %>
+                <div class="form-control mb-3">
+                  <%= f.radio_button :injury, '', class: 'form-check-input' %>
+                  <%= f.label '選択してください', class: 'form-check-label', 'for': 'search_injury_' %>
+                  <%= f.radio_button :injury, 'high', class: 'form-check-input' %>
+                  <%= f.label 'injury_high', class: 'form-check-label' %>
+                  <%= f.radio_button :injury, 'normal', class: 'form-check-input' %>
+                  <%= f.label 'injury_normal', class: 'form-check-label' %>
+                  <%= f.radio_button :injury, 'low', class: 'form-check-input' %>
+                  <%= f.label 'injury_low', class: 'form-check-label' %>
+                </div>
+        
+                <%= f.label :discomfort %>
+                <div class="form-control mb-3">
+                  <%= f.radio_button :discomfort, '', class: 'form-check-input' %>
+                  <%= f.label '選択してください', class: 'form-check-label', 'for': 'search_discomfort_' %>
+                  <%= f.radio_button :discomfort, 'high', class: 'form-check-input' %>
+                  <%= f.label 'discomfort_high', class: 'form-check-label' %>
+                  <%= f.radio_button :discomfort, 'normal', class: 'form-check-input' %>
+                  <%= f.label 'discomfort_normal', class: 'form-check-label' %>
+                  <%= f.radio_button :discomfort, 'low', class: 'form-check-input' %>
+                  <%= f.label 'discomfort_low', class: 'form-check-label' %>
+                </div>
+                
           
                 <div class="buttons mb-3">
                   <%= f.submit '検索する', class: 'btn btn-primary' %>
