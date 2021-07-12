@@ -4,10 +4,9 @@ ja:
       size:
         unknown_size: その他
         extra_small: 1mm未満
-        small: 1mm~10mm未満
-        medium: 10mm~30mm未満
-        large: 30mm~50mm未満
-        extra_large: 50mm以上
+        small: 1mm~30mm未満
+        medium: 30mm~60mm未満
+        large: 60mm以上
       color:
         unknown_color: その他
         black: 黒
@@ -49,8 +48,8 @@ ja:
       radar_chart:
         capture: 攻略度
         breeding: 繁殖力
-        quickness: 素早さ
-        evil: 実害
+        prevention_difficulty: 予防難度
+        injury: 害
         discomfort: 不快感
       comment:
         sentence: コメント内容

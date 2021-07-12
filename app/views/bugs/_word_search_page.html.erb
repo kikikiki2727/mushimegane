@@ -1,9 +1,8 @@
-<h1> トップページ </h1>
 <!-- Button trigger modal -->
-<%= link_to '検索', '#', class: 'btn btn-primary', 'data-bs-toggle': :modal, 'data-bs-target': '#exampleModal2' %>
+<%= link_to '検索', '#', class: 'nav-link', 'data-bs-toggle': :modal, 'data-bs-target': '#exampleModal' %>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
@@ -25,24 +24,21 @@
                   <%= f.text_field :search_word, class: 'form-control', placeholder: '2単語以上入力する場合はスペースを空けてください。', rows: 3%>
                 </div>
             
-                <%= f.label :size %>
-                <div class="form-group mb-3 col-4">
-                  <%= f.label '1mm未満' %>
-                  <%= f.radio_button :size, '0', checked: true, class: 'form-check-input' %>
-                  <%= f.label '1mm~30mm' %>
-                  <%= f.radio_button :size, '1', class: 'form-check-input' %>
-                  <%= f.label '30mm以上' %>
-                  <%= f.radio_button :size, '2', class: 'form-check-input' %>
-                </div>
-            
-                <div class="form-group mb-3 col-4">
-                  <%= f.label :color %>
-                  <%= f.select :color, Bug.colors_i18n.invert, { include_blank: '選択してください' }, class: 'form-select' %>
-                </div>
-            
-                <div class="form-group mb-3 col-4">
-                  <%= f.label :season %>
-                  <%= f.select :season, Bug.seasons_i18n.invert, { include_blank: '選択してください' }, class: 'form-select' %>
+                <div class="row">
+                  <div class="form-group mb-3 col-4">
+                    <%= f.label :size %>
+                    <%= f.select :size, Bug.sizes_i18n.invert, { include_blank: '選択してください' }, class: 'form-select' %>
+                  </div>
+              
+                  <div class="form-group mb-3 col-4">
+                    <%= f.label :color %>
+                    <%= f.select :color, Bug.colors_i18n.invert, { include_blank: '選択してください' }, class: 'form-select' %>
+                  </div>
+              
+                  <div class="form-group mb-3 col-4">
+                    <%= f.label :season %>
+                    <%= f.select :season, Bug.seasons_i18n.invert, { include_blank: '選択してください' }, class: 'form-select' %>
+                  </div>
                 </div>
           
                 <div class="row">

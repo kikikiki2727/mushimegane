@@ -4,12 +4,12 @@ var ctx = document.getElementById("myChart");
 var myChart = new Chart(ctx, {
   type: 'radar',
   data: {
-    labels: ["<%= RadarChart.human_attribute_name(:capture) %>", "<%= RadarChart.human_attribute_name(:breeding) %>", "<%= RadarChart.human_attribute_name(:quickness) %>", "<%= RadarChart.human_attribute_name(:evil) %>", "<%= RadarChart.human_attribute_name(:discomfort) %>"],
+    labels: ["<%= RadarChart.human_attribute_name(:capture) %>", "<%= RadarChart.human_attribute_name(:breeding) %>", "<%= RadarChart.human_attribute_name(:prevention_difficulty) %>", "<%= RadarChart.human_attribute_name(:injury) %>", "<%= RadarChart.human_attribute_name(:discomfort) %>"],
     datasets: 
     [
         {
         label: "<%= bug.name %>",
-        data: [<%= bug.radar_chart.capture %>, <%= bug.radar_chart.breeding %>, <%= bug.radar_chart.quickness %>, <%= bug.radar_chart.evil %>, <%= bug.radar_chart.discomfort %>],
+        data: [<%= bug.radar_chart.capture %>, <%= bug.radar_chart.breeding %>, <%= bug.radar_chart.prevention_difficulty %>, <%= bug.radar_chart.injury %>, <%= bug.radar_chart.discomfort %>],
         backgroundColor: 'rgba(85,107,47,0.3)',
         borderColor: 'rgba(85,107,47)',
         borderWidth: 1,
