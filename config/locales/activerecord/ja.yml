@@ -59,10 +59,41 @@ ja:
         name: 名前
         search_word: フリーワード
         size: 大きさ
+        size_extra_small: 1mm未満
+        size_small: 1mm~30mm
+        size_medium: 30mm~60mm
+        size_large: 60mm以上
         color: 色
+        color_black: 黒
+        color_brown: 茶
+        color_gray: グレー
+        color_white: 白
+        color_red: 赤
+        color_orange: オレンジ 
+        color_yellow: 黄
+        color_green: 緑
         season: 季節
+        season_spring: 春
+        season_summer: 夏
+        season_autumn: 秋
+        season_winter: 冬
         capture: 攻略度
+        capture_high: 高い
+        capture_normal: 普通
+        capture_low: 低い
         breeding: 繁殖力
-        quickness: 素早さ
-        evil: 実害
+        breeding_high: 高い
+        breeding_normal: 普通
+        breeding_low: 低い
+        prevention_difficulty: 予防難度
+        prevention_difficulty_high: 高い
+        prevention_difficulty_normal: 普通
+        prevention_difficulty_low: 低い
+        injury: 害
+        injury_high: 高い
+        injury_normal: 普通
+        injury_low: 低い
         discomfort: 不快感
+        discomfort_high: 高い
+        discomfort_normal: 普通
+        discomfort_low: 低い

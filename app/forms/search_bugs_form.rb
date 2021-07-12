@@ -8,8 +8,8 @@ class SearchBugsForm
   attribute :season, :string
   attribute :capture, :integer
   attribute :breeding, :integer
-  attribute :quickness, :integer
-  attribute :evil, :integer
+  attribute :prevention_difficulty, :integer
+  attribute :injury, :integer
   attribute :discomfort, :integer
 
   attr_accessor :search_word
@@ -36,8 +36,8 @@ class SearchBugsForm
 
     relation = relation.joins(:radar_chart).where(radar_charts: { capture: capture }) if capture.present?
     relation = relation.joins(:radar_chart).where(radar_charts: { breeding: breeding }) if breeding.present?
-    relation = relation.joins(:radar_chart).where(radar_charts: { breeding: breeding }) if quickness.present?
-    relation = relation.joins(:radar_chart).where(radar_charts: { evil: evil }) if evil.present?
+    relation = relation.joins(:radar_chart).where(radar_charts: { prevention_difficulty: prevention_difficulty }) if prevention_difficulty.present?
+    relation = relation.joins(:radar_chart).where(radar_charts: { injury: injury }) if injury.present?
     relation = relation.joins(:radar_chart).where(radar_charts: { discomfort: discomfort }) if discomfort.present?
     
     relation
