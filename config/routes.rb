@@ -9,8 +9,7 @@ Rails.application.routes.draw do
   resources :search_images, only: %i[new create]
   resources :bugs do
     collection do
-      get 'word_search_page', to: 'bugs#word_search_page'
-      get 'image_search_page', to: 'bugs#image_search_page'
+      post 'image_search', to: 'bugs#image_search'
     end
     get 'comments/sort', to: 'comments#sort'
     resource :radar_chart, only: %i[new create edit update]
