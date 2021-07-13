@@ -9,7 +9,8 @@ class BugsController < ApplicationController
 
   def show
     @radar_chart = @bug.radar_chart
-    @other_bug = RadarChart.offset(rand(RadarChart.count)).first.bug
+    @other_bug = Bug.where.not(id: @bug.id).shuffle.first
+    # @other_bug = RadarChart.offset(rand(RadarChart.count)).first.bug
     @comments = @bug.comments.order(created_at: :desc)
     @comment = Comment.new
     @url = bug_comments_path(@bug)
@@ -24,7 +25,6 @@ class BugsController < ApplicationController
   def create
     @bug = current_user.bugs.build(bug_params)
     @bug.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default.png')), filename: "default.png", content_type: "image/png") unless @bug.image.attached?
-    @bug.illustration.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default.png')), filename: "default.png", content_type: "image/png") unless @bug.illustration.attached?
     if @bug.save
       redirect_to @bug, success: '登録しました'
     else
@@ -45,11 +45,6 @@ class BugsController < ApplicationController
   def destroy
     @bug.destroy!
     redirect_to bugs_path, success: '削除しました'
-  end
-
-  def word_search_page
-    @search_bugs_form = SearchBugsForm.new
-    @url = bugs_path
   end
 
   private

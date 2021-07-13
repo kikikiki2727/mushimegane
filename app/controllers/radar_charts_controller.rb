@@ -36,6 +36,6 @@ class RadarChartsController < ApplicationController
   end
 
   def radar_chart_params
-    params.require(:radar_chart).permit(:capture, :breeding, :quickness, :evil, :discomfort)
+    params.require(:radar_chart).permit(:capture, :breeding, :prevention_difficulty, :injury, :discomfort)
   end
 end

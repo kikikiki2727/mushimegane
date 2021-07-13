@@ -5,7 +5,6 @@
     <button class="btn-danger blur_button blur_button_<%= bug.id %>" value="<%= bug.id %>">モザイクを外してみる</button>
     <button class="btn-primary hide_blur_button hide_blur_button_<%= bug.id %> hide_button" value="<%= bug.id %>">やっぱりモザイクをつける</button>
     <%#= render 'radar_charts/radar_chart', bug: bug %>
-    <%#= image_tag bug.illustration, size: '300x200', class: 'card-mig-top' %>
     <div class="card-body">
       <p class="card-text"><%= bug.feature.truncate(47) %></p>
       <%= link_to '詳細を見る', bug_path(bug), class: 'btn btn-primary' %>

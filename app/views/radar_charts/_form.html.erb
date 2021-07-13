@@ -12,13 +12,13 @@
     </div>
 
     <div class="form-group mb-3 col-2">
-      <%= f.label :quickness %>
-      <%= f.select :quickness, (1..10).map{ |n| [n]}, { include_blank: '指定なし' }, class: 'form-select' %>
+      <%= f.label :prevention_difficulty %>
+      <%= f.select :prevention_difficulty, (1..10).map{ |n| [n]}, { include_blank: '指定なし' }, class: 'form-select' %>
     </div>
 
     <div class="form-group mb-3 col-2">
-      <%= f.label :evil %>
-      <%= f.select :evil, (1..10).map{ |n| [n]}, { include_blank: '指定なし' }, class: 'form-select' %>
+      <%= f.label :injury %>
+      <%= f.select :injury, (1..10).map{ |n| [n]}, { include_blank: '指定なし' }, class: 'form-select' %>
     </div>
 
     <div class="form-group mb-3 col-2">
