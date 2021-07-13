@@ -1,4 +1,6 @@
 class BugsController < ApplicationController
+  include SearchImagesHelper
+
   before_action :set_bug, only: %i[ show edit update destroy ]
   skip_before_action :require_login , only: %i[ index show ]
 
@@ -45,6 +47,21 @@ class BugsController < ApplicationController
   def destroy
     @bug.destroy!
     redirect_to bugs_path, success: '削除しました'
+  end
+
+  def image_search
+    if data = params[:image]
+      label_list = upload_image(data)
+      bug_array = label_search(label_list)
+      if bug_array.present?
+        @bugs = Bug.where(name: bug_array.map(&:name)).page(params[:page])
+      else
+        @bugs = Bug.none.page(params[:page])
+      end
+      render :index
+    else
+      redirect_to bugs_path
+    end
   end
 
   private
