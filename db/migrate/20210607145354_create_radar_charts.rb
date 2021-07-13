@@ -3,8 +3,8 @@ class CreateRadarCharts < ActiveRecord::Migration[6.0]
     create_table :radar_charts do |t|
       t.integer :capture, null: false
       t.integer :breeding, null: false
-      t.integer :quickness, null: false
-      t.integer :evil, null: false
+      t.integer :prevention_difficulty, null: false
+      t.integer :injury, null: false
       t.integer :discomfort, null: false
       t.references :bug, null: false, foreign_key: true
 

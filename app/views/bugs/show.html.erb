@@ -8,7 +8,6 @@
         <% if @bug.image.attached? %>
           <div class="bug-image-contents col-6 float-start">
             <%= image_tag @bug.image, size: '300x200', class: "blur blur_#{@bug.id} blur_active" %>
-            <%= image_tag @bug.illustration, size: '300x200' %>
           </div>
         <% end %>
         <div class="radar-chart col-6 float-start">

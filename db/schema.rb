@@ -39,9 +39,9 @@ ActiveRecord::Schema.define(version: 2021_06_09_165040) do
     t.text "approach"
     t.text "prevention"
     t.text "harm"
-    t.integer "size", null: false
-    t.integer "color", null: false
-    t.integer "season", null: false
+    t.integer "size"
+    t.integer "color"
+    t.integer "season"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -72,8 +72,8 @@ ActiveRecord::Schema.define(version: 2021_06_09_165040) do
   create_table "radar_charts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "capture", null: false
     t.integer "breeding", null: false
-    t.integer "quickness", null: false
-    t.integer "evil", null: false
+    t.integer "prevention_difficulty", null: false
+    t.integer "injury", null: false
     t.integer "discomfort", null: false
     t.bigint "bug_id", null: false
     t.datetime "created_at", precision: 6, null: false
