@@ -1,8 +1,6 @@
 class SearchImagesController < ApplicationController
   include SearchImagesHelper
 
-  def new; end
-
   def create
     data = params[:search][:image]
     label_list = upload_image(data)

@@ -1,0 +1,32 @@
+<!-- Button trigger modal -->
+<%= link_to '画像検索', '#', class: 'nav-link', 'data-bs-toggle': :modal, 'data-bs-target': '#ImageSearchModal' %>
+
+<!-- Modal -->
+<div class="modal fade" id="ImageSearchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">画像検索をする</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12">
+              <%= form_with url: search_images_path, scope: :search, method: :post, local: true do |f| %>
+                <div class="form-group mb-3">
+                  <p>検索したい画像を添付してください</p>
+                  <%= f.file_field :image, class: 'form-control' %>
+                </div>
+                <div class="actions mb-3">
+                  <%= f.submit '検索する', class: 'btn btn-primary' %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
