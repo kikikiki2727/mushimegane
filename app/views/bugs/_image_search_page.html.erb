@@ -15,8 +15,11 @@
             <div class="col-12">
               <%= form_with url: image_search_bugs_path, method: :post, local: true do |f| %>
                 <div class="form-group mb-3">
-                  <p>検索したい画像を添付してください</p>
-                  <%= f.file_field :image, class: 'form-control' %>
+                  <p style="color: red;">※ファイル形式は`png`か`jpeg`でお願いします。</p>
+                  <%= f.file_field :image, class: 'form-control', id: 'input_image', accept: 'image/png, image/jpeg' %>
+                </div>
+                <div class="mb-3">
+                  <img id="image_preview", style="display: none;" />
                 </div>
                 <div class="actions mb-3">
                   <%= f.submit '検索する', class: 'btn btn-primary' %>
