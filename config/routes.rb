@@ -8,13 +8,12 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create]
   resources :search_images, only: %i[new create]
   resources :bugs do
-    collection do
-      post 'image_search', to: 'bugs#image_search'
-    end
+    post 'image_search', to: 'bugs#image_search', on: :collection
     get 'comments/sort', to: 'comments#sort'
     resource :radar_chart, only: %i[new create edit update]
     resources :comments, only: %i[create destroy], shallow: true do
       resources :likes, only: %i[create destroy]
     end
   end
+  get 'news', to: 'news#index'
 end

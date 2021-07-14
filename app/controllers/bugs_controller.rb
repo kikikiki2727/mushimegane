@@ -26,7 +26,7 @@ class BugsController < ApplicationController
 
   def create
     @bug = current_user.bugs.build(bug_params)
-    @bug.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default.png')), filename: "default.png", content_type: "image/png") unless @bug.image.attached?
+    # @bug.image.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'default.png')), filename: "default.png", content_type: "image/png") unless @bug.image.attached?
     if @bug.save
       redirect_to @bug, success: '登録しました'
     else

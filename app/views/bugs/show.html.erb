@@ -5,11 +5,13 @@
       <button class="btn-danger blur_button blur_button_<%= @bug.id %>" value="<%= @bug.id %>">モザイクを外してみる</button>
       <button class="btn-primary hide_blur_button hide_blur_button_<%= @bug.id %> hide_button" value="<%= @bug.id %>">やっぱりモザイクをつける</button>
       <div class="line-one col-12 mb-5" style="overflow: hidden;">
-        <% if @bug.image.attached? %>
-          <div class="bug-image-contents col-6 float-start">
+        <div class="bug-image-contents col-6 float-start">
+          <% if @bug.image.attached? %>
             <%= image_tag @bug.image, size: '300x200', class: "blur blur_#{@bug.id} blur_active" %>
-          </div>
-        <% end %>
+          <% else %>
+            <%= image_tag 'sorry.png', class: 'card-img-top', height: '250px' %>
+          <% end %>
+        </div>
         <div class="radar-chart col-6 float-start">
           <% if @bug.radar_chart %>
             <%= render 'radar_charts/radar_chart', bug: @bug, other_bug: @other_bug %>
@@ -49,5 +51,6 @@
     </div>
   </div>
   <%= link_to 'Edit', edit_bug_path(@bug) %> |
+  <%= link_to 'delete', bug_path(@bug), method: :delete, data: { confirm: '削除してもよろしいですか？' } %> |
   <%= link_to 'Back', bugs_path %> 
 </div>
