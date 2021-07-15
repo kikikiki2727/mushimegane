@@ -1,9 +1,13 @@
-<div class="col-sm-12 col-md-4">
+<div class="col-sm-6 offset-sm-3 col-lg-4 offset-lg-0 mb-3" style="width: 300;">
   <div class="card">
     <h3 class="card-title"><%= bug.name %></h3>
-    <%= image_tag bug.image, size: '300x200', class: "card-mig-top blur blur_#{bug.id} blur_active" %>
-    <button class="btn-danger blur_button blur_button_<%= bug.id %>" value="<%= bug.id %>">モザイクを外してみる</button>
-    <button class="btn-primary hide_blur_button hide_blur_button_<%= bug.id %> hide_button" value="<%= bug.id %>">やっぱりモザイクをつける</button>
+    <% if bug.image.attached? %>
+      <%= image_tag bug.image, class: "card-mig-top blur blur_#{bug.id} blur_active", height: '250px' %>
+      <button class="btn-danger blur_button blur_button_<%= bug.id %>" value="<%= bug.id %>">モザイクを外してみる</button>
+      <button class="btn-primary hide_blur_button hide_blur_button_<%= bug.id %> hide_button" value="<%= bug.id %>">やっぱりモザイクをつける</button>
+    <% else %>
+      <%= image_tag 'sorry.png', class: 'card-img-top', height: '250px' %>
+    <% end %>
     <%#= render 'radar_charts/radar_chart', bug: bug %>
     <div class="card-body">
       <p class="card-text"><%= bug.feature.truncate(47) %></p>

@@ -1,0 +1,13 @@
+<div class="col-sm-6 offset-sm-3 col-lg-4 offset-lg-1 mb-3" style="width: 300;">
+  <div class="card">
+    <% if news["image"] %>
+      <%= image_tag news["image"]["thumbnail"]["contentUrl"], class: 'card-img-top', height: '250px' %>
+    <% else %>
+      <%= image_tag 'sorry.png', class: 'card-img-top', height: '250px' %>
+    <% end %>
+    <div class="card-body">
+      <%= link_to news["name"], news["url"], class: 'card-title' %>
+      <p class="card-text"><%= news["description"].truncate(100) %></p>
+    </div>
+  </div>
+</div>
