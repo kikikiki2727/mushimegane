@@ -1,6 +1,7 @@
 <!-- Button trigger modal -->
-<%= link_to '画像検索', '#', class: 'nav-link', 'data-bs-toggle': :modal, 'data-bs-target': '#ImageSearchModal' %>
-
+<%= link_to '#', class: 'nav-link', 'data-bs-toggle': :modal, 'data-bs-target': '#ImageSearchModal' do %>
+  <i class="fas fa-camera"></i><span> 画像検索</span>
+<% end %>
 <!-- Modal -->
 <div class="modal fade" id="ImageSearchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">

@@ -1,0 +1,42 @@
+.bug_index {
+  padding: 5px 0;
+}
+
+.bug_record {
+  box-shadow: 2px 2px 4px gray;
+  padding: 5px;
+}
+
+.title_button {
+  text-decoration: none;
+  color: black;
+  transition: .3s;
+
+  &:hover {
+    background: black;
+    color: white;
+  }
+}
+
+.blur_button {
+  width: 65%;
+  margin: 0 auto;
+  transition: .3s;
+  border-radius:30px;
+
+  &:hover {
+    background: red;
+    color: white;
+  }
+}
+
+.hide_blur_button {
+  width: 75%;
+  margin: 0 auto;
+  transition: .3s;
+  border-radius:30px;
+
+  &:hover {
+    background: #6ff2fc;
+  }
+}

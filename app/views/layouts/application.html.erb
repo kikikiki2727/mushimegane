@@ -12,7 +12,7 @@
   <body>
     <div>
       <%= render 'shared/header' unless 'home' == params[:controller] %>
-      <%= render 'shared/flash_message' %>
+      <%= render 'shared/flash_message' unless 'home' == params[:controller] %>
       <%= yield %>
       <%= render 'shared/footer' %>
     </div>
