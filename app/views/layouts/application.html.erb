@@ -10,8 +10,8 @@
   </head>
 
   <body>
-    <div class="container">
-      <%= render 'shared/header' %>
+    <div>
+      <%= render 'shared/header' unless 'home' == params[:controller] %>
       <%= render 'shared/flash_message' %>
       <%= yield %>
       <%= render 'shared/footer' %>
