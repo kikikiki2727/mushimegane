@@ -1,0 +1,42 @@
+#top_page_top {
+  width: 100%;
+  padding-bottom: 700px;
+  background: no-repeat url('../../assets/images/chair_large.jpeg');
+  background-size: 100% 100%;
+  background-position: 50% 50%;
+}
+
+#second_sentence {
+  padding-top: 150px;
+  padding-bottom: 200px;
+  background-color: #FFFFDD;
+}
+
+#second_sentence_title {
+  padding-bottom: 100px;
+}
+
+#third_sentence {
+  width: 100%;
+  padding-top: 100px;
+  padding-bottom: 200px;
+  background: no-repeat url('../../assets/images/tea.jpeg');
+  background-size: 100% 100%;
+  background-position: 50% 50%;
+}
+
+#third_sentence_title {
+  border-bottom: 3px dashed #000;
+  padding-bottom: 30px;
+}
+
+.service_name {
+  font-weight: bolder;
+}
+
+#third_sentence_body {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 350px;
+}
+
