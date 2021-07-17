@@ -7,8 +7,8 @@
     </h3>
     <% if bug.image.attached? %>
       <%= image_tag bug.image, class: "card-mig-top blur blur_#{bug.id} blur_active", height: '250px' %>
-      <button class="blur_button blur_button_<%= bug.id %>" value="<%= bug.id %>"><i class="far fa-eye-slash"></i> モザイクを外してみる</button>
-      <button class="hide_blur_button hide_blur_button_<%= bug.id %> hide_button" value="<%= bug.id %>"><i class="far fa-eye"></i> やっぱりモザイクをつける</button>
+      <button class="blur_button blur_button_<%= bug.id %>" id="blur_button_index" value="<%= bug.id %>"><i class="far fa-eye-slash"></i> モザイクを外してみる</button>
+      <button class="hide_blur_button hide_blur_button_<%= bug.id %> hide_button" id="no_blur_button_index" value="<%= bug.id %>"><i class="far fa-eye"></i> やっぱりモザイクをつける</button>
     <% else %>
       <%= image_tag 'sorry.png', class: 'card-img-top', height: '250px' %>
       <p class="text-center card-text">画像が登録されていません</p>

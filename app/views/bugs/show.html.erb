@@ -1,18 +1,18 @@
-<div class="container">
+<div class="container bug_show mb-5">
   <div class="row">
     <div class="col-12">
-      <h2 class="bug-titile mb-5"><%= @bug.name %></h2>
-      <button class="btn-danger blur_button blur_button_<%= @bug.id %>" value="<%= @bug.id %>">モザイクを外してみる</button>
-      <button class="btn-primary hide_blur_button hide_blur_button_<%= @bug.id %> hide_button" value="<%= @bug.id %>">やっぱりモザイクをつける</button>
+      <h2 class="bug-titile mb-4 pb-2 border-bottom border-dark"><%= @bug.name %></h2>
       <div class="line-one col-12 mb-5" style="overflow: hidden;">
-        <div class="bug-image-contents col-6 float-start">
+        <div class="bug-image-contents">
           <% if @bug.image.attached? %>
-            <%= image_tag @bug.image, size: '300x200', class: "blur blur_#{@bug.id} blur_active" %>
+            <%= image_tag @bug.image, size: '300x200', class: "blur blur_#{@bug.id} blur_active border border-dark" %>
           <% else %>
             <%= image_tag 'sorry.png', class: 'card-img-top', height: '250px' %>
           <% end %>
         </div>
-        <div class="radar-chart col-6 float-start">
+        <button class="btn-danger blur_button blur_button_<%= @bug.id %>" value="<%= @bug.id %>">モザイクを外してみる</button>
+        <button class="btn-primary hide_blur_button hide_blur_button_<%= @bug.id %> hide_button" value="<%= @bug.id %>">やっぱりモザイクをつける</button>
+        <div class="radar-chart">
           <% if @bug.radar_chart %>
             <%= render 'radar_charts/radar_chart', bug: @bug, other_bug: @other_bug %>
             <div class="float-end">
@@ -27,30 +27,30 @@
       <div class="bug-text-contents">
         <%= render 'tab_menu', bug: @bug %>
       </div>
-      <div class="bug-comments container">
-        <div class="row">
-          <div class="col-6">
-            <h3 class="mb-3">コメント一覧</h3>
-            <% if @comments.present? %>
-              <div class="comment_order_button">
-                <%= render 'comments/comments_sort', bug: @bug %>
-              </div>
-              <div class="comment-page">
-                <%= render 'comments/comments', comments: @comments %>
-              </div>
-            <% else %>
-              <p>コメントがありません</p>
-            <% end %>
-          </div>
-          <div class="col-6">
-            <h3 class="mb-3">コメント投稿</h3>
-            <%= render 'comments/form', bug: @bug, comment: @comment, url: @url %>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
   <%= link_to 'Edit', edit_bug_path(@bug) %> |
   <%= link_to 'delete', bug_path(@bug), method: :delete, data: { confirm: '削除してもよろしいですか？' } %> |
   <%= link_to 'Back', bugs_path %> 
+</div>
+<div class="bug_comments container">
+  <div class="row">
+    <div class="col-sm-12 col-lg-6 mb-4 p-3 comment_index">
+      <h3 class="mb-3 pb-2 border-bottom border-dark">コメント一覧</h3>
+      <% if @comments.present? %>
+        <div class="comment_order_button">
+          <%= render 'comments/comments_sort', bug: @bug %>
+        </div>
+        <div class="comment-page">
+          <%= render 'comments/comments', comments: @comments %>
+        </div>
+      <% else %>
+        <p>コメントがありません</p>
+      <% end %>
+    </div>
+    <div class="col-sm-12 col-lg-5 offset-lg-1 mb-4 p-3 comment_new">
+      <h3 class="mb-3 pb-2 border-bottom border-dark">コメント投稿</h3>
+      <%= render 'comments/form', bug: @bug, comment: @comment, url: @url %>
+    </div>
+  </div>
 </div>

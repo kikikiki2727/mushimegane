@@ -3,7 +3,7 @@
 }
 
 .bug_record {
-  box-shadow: 2px 2px 4px gray;
+  box-shadow: 0px 0px 8px gray;
   padding: 5px;
 }
 
@@ -18,7 +18,7 @@
   }
 }
 
-.blur_button {
+#blur_button_index {
   width: 65%;
   margin: 0 auto;
   transition: .3s;
@@ -30,7 +30,7 @@
   }
 }
 
-.hide_blur_button {
+#no_blur_button_index {
   width: 75%;
   margin: 0 auto;
   transition: .3s;

@@ -4,7 +4,6 @@
   margin: 10px;
   border: 1px solid #ccc;
 }
-*/
 
 .tab-list {
   display: flex;
@@ -34,6 +33,7 @@
 .box-show {
   display: block;
 }
+*/
 /*ここまでタブメニュー*/
 
 /*画像ぼかし*/
@@ -44,4 +44,36 @@
 
 .hide_button {
   display: none;
+}
+
+/*ここまで*/
+
+.bug_show {
+  border: 1px solid #ccc;
+  border-radius:20px;
+  box-shadow: 0px 0px 8px gray;
+  padding: 25px;
+  width: 80%;
+}
+
+.bug_comments {
+  padding: 25px 0;
+  width: 80%;
+}
+
+.comment_index {
+  border: 1px solid #ccc;
+  border-radius:20px;
+  box-shadow: 0px 0px 8px gray;
+}
+
+.comment_new {
+  border: 1px solid #ccc;
+  border-radius:20px;
+  box-shadow: 0px 0px 8px gray;
+}
+
+.nav-tabs .nav-link.active {
+  background-color: #19b5d1;
+  color: #FFF;
 }

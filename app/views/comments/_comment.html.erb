@@ -1,5 +1,5 @@
-<li class="comment", id="comment-<%= comment.id %>">
-  <%= comment.sentence %>
+<li class="comment mb-3", id="comment-<%= comment.id %>">
+  <%= safe_join(comment.sentence.split("\n"), tag(:br)) %>
   <% if current_user&.own?(comment) %>
     <%= link_to '削除', comment_path(comment), method: :delete, data: { confirm: '削除してもよろしいですか？' }, id: 'delete_button', remote: true %>
   <% else %>
