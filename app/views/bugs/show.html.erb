@@ -12,17 +12,18 @@
             </div>
           <% else %>
             <%= image_tag 'sorry.png', class: 'card-img-top', height: '250px' %>
+            <p>画像がありません</p>
           <% end %>
         </div>
         <div class="radar-chart">
           <% if @bug.radar_chart %>
             <%= render 'radar_charts/radar_chart', bug: @bug, other_bug: @other_bug %>
             <div class="float-end">
-              <%= link_to 'レーダーチャートを編集する', edit_bug_radar_chart_path(@bug) %>
+              <%= link_to 'レーダーチャートを編集する', edit_bug_radar_chart_path(@bug) if current_user&.own?(@bug) %>
             </div>
           <% else %>
-            <p>レーダーチャートがありません</p>
-            <%= link_to 'レーダーチャートを作成する', new_bug_radar_chart_path(@bug), class: 'btn btn-primary' %>
+            <p class="text-center">レーダーチャートがありません</p>
+            <%= link_to 'レーダーチャートを作成する', new_bug_radar_chart_path(@bug) if current_user&.own?(@bug) %>
           <% end %>
         </div>
       </div>
@@ -32,25 +33,21 @@
     </div>
   </div>
   <% if current_user&.own?(@bug) %>
-    <%= link_to 'Edit', edit_bug_path(@bug) %> |
-    <%= link_to 'delete', bug_path(@bug), method: :delete, data: { confirm: '削除してもよろしいですか？' } %> |
+    <%= link_to '編集', edit_bug_path(@bug) %> |
+    <%= link_to '削除', bug_path(@bug), method: :delete, data: { confirm: '削除してもよろしいですか？' } %> |
   <% end %>
-  <%= link_to 'Back', bugs_path %> 
+  <%= link_to '戻る', bugs_path %> 
 </div>
 <div class="bug_comments container">
   <div class="row">
     <div class="col-sm-12 col-lg-6 mb-5 p-3 comment_index">
       <h3 class="mb-3 pb-2 border-bottom border-dark">コメント一覧</h3>
-      <% if @comments.present? %>
-        <div class="comment_order_button">
-          <%= render 'comments/comments_sort', bug: @bug %>
-        </div>
-        <div class="comment-page">
-          <%= render 'comments/comments', comments: @comments %>
-        </div>
-      <% else %>
-        <p>コメントがありません</p>
-      <% end %>
+      <div class="comment_order_button">
+        <%= render 'comments/comments_sort', bug: @bug %>
+      </div>
+      <div class="comment-page">
+        <%= render 'comments/comments', comments: @comments %>
+      </div>
     </div>
     <div class="col-sm-12 col-lg-5 offset-lg-1 mb-5 p-3 comment_new">
       <h3 class="mb-3 pb-2 border-bottom border-dark">コメント投稿</h3>

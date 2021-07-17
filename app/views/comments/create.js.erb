@@ -4,4 +4,5 @@ $("#error_massages").remove()
 <% else %>
   $(".comment-list").prepend("<%= j(render('comments/comment', comment: @comment)) %>")
   $("#js_new_comment_body").val('')
+  $(".comment_present").html('')
 <% end %>
