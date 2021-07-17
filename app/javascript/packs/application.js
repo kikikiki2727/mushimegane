@@ -13,6 +13,7 @@ require("@rails/activestorage").start()
 require("channels")
 
 require("jquery")
+require("header")
 require("tab_menu")
 require("image_blur")
 require("image_search_preview")
