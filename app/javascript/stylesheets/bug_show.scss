@@ -56,6 +56,29 @@
   width: 80%;
 }
 
+.bug_image_contents {
+  text-align : center
+}
+
+#blur_button_show {
+  transition: .3s;
+  border-radius:30px;
+
+  &:hover {
+    background: red;
+    color: white;
+  }
+}
+
+#no_blur_button_show {
+  transition: .3s;
+  border-radius:30px;
+
+  &:hover {
+    background: #6ff2fc;
+  }
+}
+
 .bug_comments {
   padding: 25px 0;
   width: 80%;

@@ -1,7 +1,7 @@
 class BugsController < ApplicationController
   include SearchImagesHelper
 
-  before_action :set_bug, only: %i[ show edit update destroy ]
+  before_action :set_bug, only: %i[ edit update destroy ]
   skip_before_action :require_login , only: %i[ index show ]
 
   def index
@@ -10,6 +10,7 @@ class BugsController < ApplicationController
   end
 
   def show
+    @bug = Bug.find(params[:id])
     @radar_chart = @bug.radar_chart
     @other_bug = RadarChart.where.not(bug_id: @bug.id).shuffle.first.bug
     # @other_bug = Bug.where.not(id: @bug.id).shuffle.first
@@ -67,7 +68,7 @@ class BugsController < ApplicationController
 
   private
     def set_bug
-      @bug = Bug.find(params[:id])
+      @bug = current_user.bugs.find(params[:id])
     end
 
     def bug_params

@@ -1,17 +1,19 @@
-<div class="container bug_show mb-5">
+<div class="container bug_show my-5">
   <div class="row">
     <div class="col-12">
       <h2 class="bug-titile mb-4 pb-2 border-bottom border-dark"><%= @bug.name %></h2>
-      <div class="line-one col-12 mb-5" style="overflow: hidden;">
-        <div class="bug-image-contents">
+      <div class="line-one col-12 mb-5">
+        <div class="bug_image_contents mb-3">
           <% if @bug.image.attached? %>
             <%= image_tag @bug.image, size: '300x200', class: "blur blur_#{@bug.id} blur_active border border-dark" %>
+            <div>
+              <button class="btn-danger blur_button blur_button_<%= @bug.id %>" id="blur_button_show" value="<%= @bug.id %>">モザイクを外してみる</button>
+              <button class="btn-primary hide_blur_button hide_blur_button_<%= @bug.id %> hide_button" id="no_blur_button_show" value="<%= @bug.id %>">やっぱりモザイクをつける</button>
+            </div>
           <% else %>
             <%= image_tag 'sorry.png', class: 'card-img-top', height: '250px' %>
           <% end %>
         </div>
-        <button class="btn-danger blur_button blur_button_<%= @bug.id %>" value="<%= @bug.id %>">モザイクを外してみる</button>
-        <button class="btn-primary hide_blur_button hide_blur_button_<%= @bug.id %> hide_button" value="<%= @bug.id %>">やっぱりモザイクをつける</button>
         <div class="radar-chart">
           <% if @bug.radar_chart %>
             <%= render 'radar_charts/radar_chart', bug: @bug, other_bug: @other_bug %>
@@ -29,13 +31,15 @@
       </div>
     </div>
   </div>
-  <%= link_to 'Edit', edit_bug_path(@bug) %> |
-  <%= link_to 'delete', bug_path(@bug), method: :delete, data: { confirm: '削除してもよろしいですか？' } %> |
+  <% if current_user&.own?(@bug) %>
+    <%= link_to 'Edit', edit_bug_path(@bug) %> |
+    <%= link_to 'delete', bug_path(@bug), method: :delete, data: { confirm: '削除してもよろしいですか？' } %> |
+  <% end %>
   <%= link_to 'Back', bugs_path %> 
 </div>
 <div class="bug_comments container">
   <div class="row">
-    <div class="col-sm-12 col-lg-6 mb-4 p-3 comment_index">
+    <div class="col-sm-12 col-lg-6 mb-5 p-3 comment_index">
       <h3 class="mb-3 pb-2 border-bottom border-dark">コメント一覧</h3>
       <% if @comments.present? %>
         <div class="comment_order_button">
@@ -48,7 +52,7 @@
         <p>コメントがありません</p>
       <% end %>
     </div>
-    <div class="col-sm-12 col-lg-5 offset-lg-1 mb-4 p-3 comment_new">
+    <div class="col-sm-12 col-lg-5 offset-lg-1 mb-5 p-3 comment_new">
       <h3 class="mb-3 pb-2 border-bottom border-dark">コメント投稿</h3>
       <%= render 'comments/form', bug: @bug, comment: @comment, url: @url %>
     </div>
