@@ -4,7 +4,7 @@ ja:
     login: ログイン
   users:
     new:
-     title: ユーザー新規作成
+     title: ユーザー登録
      to_login_page: ログインページへ
     create:
       success: 登録が完了しました
@@ -12,7 +12,7 @@ ja:
   user_sessions:
     new:
       title: ログインページ
-      to_new_user: ユーザー新規作成ページへ
+      to_new_user: ユーザー登録へ
     create:
       success: ログインしました
       fail: ログインに失敗しました

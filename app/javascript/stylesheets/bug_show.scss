@@ -96,9 +96,22 @@
   box-shadow: 0px 0px 8px gray;
 }
 
-.nav-tabs .nav-link.active {
-  background-color: #19b5d1;
-  color: #FFF;
+.nav-tabs {
+  border-bottom: 2px solid gray;
+
+  & .nav-link.active {
+    background-color: #5bc8db;
+    color: #FFF;
+    border-width: 3px;
+    border-top-color: gray;
+    border-right-color: gray;
+    border-bottom-color:rgba(221, 211, 211, 0.5);
+    border-left-color: gray;
+  }
+
+  & .nav-link {
+    color: #5bc8db;
+  }
 }
 
 .likes_count {
