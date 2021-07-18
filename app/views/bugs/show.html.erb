@@ -5,14 +5,13 @@
       <div class="line-one col-12 mb-5">
         <div class="bug_image_contents mb-3">
           <% if @bug.image.attached? %>
-            <%= image_tag @bug.image, size: '350x250', class: "blur blur_#{@bug.id} blur_active border border-dark" %>
+            <%= image_tag @bug.image, size: '350x250', class: "blur blur_#{@bug.id} blur_active border border-dark mb-1" %>
             <div>
-              <button class="btn-danger blur_button blur_button_<%= @bug.id %>" id="blur_button_show" value="<%= @bug.id %>">モザイクを外してみる</button>
-              <button class="btn-primary hide_blur_button hide_blur_button_<%= @bug.id %> hide_button" id="no_blur_button_show" value="<%= @bug.id %>">やっぱりモザイクをつける</button>
+              <button class="blur_button blur_button_<%= @bug.id %>" id="blur_button_show" value="<%= @bug.id %>">モザイクを外してみる</button>
+              <button class="hide_blur_button hide_blur_button_<%= @bug.id %> hide_button" id="no_blur_button_show" value="<%= @bug.id %>">やっぱりモザイクをつける</button>
             </div>
           <% else %>
-            <%= image_tag 'sorry.png', class: 'card-img-top', height: '250px' %>
-            <p>画像がありません</p>
+             <%= image_tag 'sorry_cat.png', class: 'card-img-top show_image_size' %>
           <% end %>
         </div>
         <div class="radar-chart">
@@ -42,6 +41,7 @@
   <div class="row">
     <div class="col-sm-12 col-lg-6 mb-5 p-3 comment_index">
       <h3 class="mb-3 pb-2 border-bottom border-dark">コメント一覧</h3>
+      <p class="warn_message">※いいねにはログインが必要です。</p>
       <div class="comment_order_button">
         <%= render 'comments/comments_sort', bug: @bug %>
       </div>
@@ -51,6 +51,7 @@
     </div>
     <div class="col-sm-12 col-lg-5 offset-lg-1 mb-5 p-3 comment_new">
       <h3 class="mb-3 pb-2 border-bottom border-dark">コメント投稿</h3>
+      <p class="warn_message">※コメントにはログインが必要です。</p>
       <%= render 'comments/form', bug: @bug, comment: @comment, url: @url %>
     </div>
   </div>

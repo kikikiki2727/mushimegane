@@ -76,6 +76,6 @@ class BugsController < ApplicationController
     end
 
     def search_params
-      params[:search]&.permit(:name, :search_word, :size, :color, :season, :capture, :breeding, :quickness, :harm, :discomfort)
+      params[:search]&.permit(:name, :search_word, :size, :color, :season, :capture, :breeding, :prevention_difficulty, :injury, :discomfort)
     end
 end
