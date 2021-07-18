@@ -1,7 +1,3 @@
-.bug_index {
-  padding: 5px 0;
-}
-
 .bug_record {
   box-shadow: 0px 0px 8px gray;
   padding: 5px;
@@ -22,7 +18,7 @@
   width: 65%;
   margin: 0 auto;
   transition: .3s;
-  border-radius:30px;
+  border-radius: 30px;
 
   &:hover {
     background: red;
