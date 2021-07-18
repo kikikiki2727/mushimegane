@@ -27,7 +27,7 @@ RSpec.describe "Comments", type: :system do
         visit bug_path(bug)
         fill_in 'comment[sentence]', with: 'コメントします'
         click_on 'コメントを投稿する'
-        expect(page).to have_content 'コメントを投稿しました'
+        expect(page).not_to have_content 'コメントがありません'
         expect(page).to have_content 'コメントします'
         expect(page).to have_css '#delete_button'
         expect(current_path).to eq bug_path(bug)
@@ -38,7 +38,7 @@ RSpec.describe "Comments", type: :system do
       it '投稿に失敗する' do
         visit bug_path(bug)
         click_on 'コメントを投稿する'
-        expect(page).to have_content 'コメントを投稿できませんでした'
+        expect(page).to have_content 'コメント内容を入力してください'
         expect(page).to have_content 'コメントがありません'
         expect(page).not_to have_css('#delete_button')
         expect(current_path).to eq bug_path(bug)

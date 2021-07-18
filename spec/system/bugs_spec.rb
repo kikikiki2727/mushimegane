@@ -26,25 +26,24 @@ RSpec.describe "Bugs", type: :system do
 
     context '詳細ページ' do
       let!(:radar_chart) { create(:radar_chart, bug: bug) }
+      let!(:edit_bug) { create(:bug, user: user) }
       before do
         login user
-        visit edit_bug_path(bug)
+        visit edit_bug_path(edit_bug)
         attach_file 'bug[image]', "#{Rails.root}/spec/fixtures/images/default.png"
-        attach_file 'bug[illustration]', "#{Rails.root}/spec/fixtures/images/default.png"
         click_on '更新する'
         logout
-        visit bug_path(bug)
+        visit bug_path(edit_bug)
       end
 
       it '害虫の詳細が表示される' do
-        expect(page).to have_content bug.name
+        expect(page).to have_content edit_bug.name
         expect(page).to have_content Bug.human_attribute_name(:feature)
         expect(page).to have_content Bug.human_attribute_name(:approach)
         expect(page).to have_content Bug.human_attribute_name(:prevention)
         expect(page).to have_content Bug.human_attribute_name(:harm)
-        expect(page).to have_content bug.feature
         expect(page).to have_content Bug.human_attribute_name(:feature)
-        expect(current_path).to eq bug_path(bug)
+        expect(current_path).to eq bug_path(edit_bug)
       end
     end
 
@@ -71,11 +70,10 @@ RSpec.describe "Bugs", type: :system do
         fill_in 'bug[approach]', with: '害虫の駆除方法'
         fill_in 'bug[prevention]', with: '害虫の予防方法'
         fill_in 'bug[harm]', with: '害虫の実害'
-        select 'その他', from: 'bug[size]'
+        select '選択してください', from: 'bug[size]'
         select '黒', from: 'bug[color]'
         select '春', from: 'bug[season]'
         attach_file 'bug[image]', "#{Rails.root}/spec/fixtures/images/default.png"
-        attach_file 'bug[illustration]', "#{Rails.root}/spec/fixtures/images/default.png"
         click_on '登録する'
         expect(page).to have_content '登録しました'
         expect(Bug.count).to eq 2
@@ -87,9 +85,6 @@ RSpec.describe "Bugs", type: :system do
         click_on '登録する'
         expect(page).to have_content '登録できませんでした'
         expect(page).to have_content '名前を入力してください'
-        expect(page).to have_content '大きさを入力してください'
-        expect(page).to have_content '色を入力してください'
-        expect(page).to have_content '季節を入力してください'
         expect(current_path).to eq bugs_path
       end
     end
@@ -99,7 +94,7 @@ RSpec.describe "Bugs", type: :system do
 
       it '有効な値を入れると更新できる' do
         visit bug_path(edit_bug)
-        click_on 'Edit'
+        click_on '編集'
         fill_in 'bug[feature]', with: '特徴を更新します'
         select '冬', from: 'bug[season]'
         click_on '更新する'

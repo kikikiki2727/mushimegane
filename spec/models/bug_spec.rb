@@ -14,23 +14,5 @@ RSpec.describe Bug, type: :model do
       expect(bug).to be_invalid
       expect(bug.errors[:name]).to include 'を入力してください'
     end
-
-    it '大きさを選択しないと無効であること' do
-      bug.size = nil
-      expect(bug).to be_invalid
-      expect(bug.errors[:size]).to include 'を入力してください'
-    end
-
-    it '色を選択しないと無効であること' do
-      bug.color = nil
-      expect(bug).to be_invalid
-      expect(bug.errors[:color]).to include 'を入力してください'
-    end
-
-    it '季節を選択しないと無効であること' do
-      bug.season = nil
-      expect(bug).to be_invalid
-      expect(bug.errors[:season]).to include 'を入力してください'
-    end
   end
 end

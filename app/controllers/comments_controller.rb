@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   include CommentsHelper
+  skip_before_action :require_login , only: :sort
 
   def create
     @comment = current_user.comments.build(comment_params)

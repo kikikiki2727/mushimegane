@@ -5,9 +5,9 @@ FactoryBot.define do
     approach { 'ここには駆除方法を入力します。' }
     prevention { 'ここには予防方法を入力します。' }
     harm { 'ここには実害を入力します。' }
-    size { :unknown_size }
-    color { :unknown_color }
-    season { :unknown_season }
+    size { :medium }
+    color { :black }
+    season { :spring }
     association :user
   end
 end

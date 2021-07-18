@@ -60,6 +60,11 @@
   text-align : center
 }
 
+.show_image_size {
+  width: 50%;
+  height: 400px;
+}
+
 #blur_button_show {
   transition: .3s;
   border-radius:30px;
@@ -116,4 +121,8 @@
 
 .likes_count {
   font-weight: bolder;
+}
+
+.warn_message {
+  color: red;
 }
