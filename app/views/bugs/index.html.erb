@@ -1,12 +1,15 @@
-<div class="container">
-  <h1>検索結果一覧</h1>
-  <div class="row">
-    <% if @bugs.present? %>
-      <%= render @bugs %>
-    <% else %>
-      <p>検索条件にマッチする虫がいません</p>
-    <% end %>
-    <%= link_to '家にいる不快な虫を登録する', new_bug_path %>
-    <%= paginate @bugs %>
+ <div class="bug_index pt-3"> 
+  <div class="container">
+    <h1 class="mb-4 pb-2 border-bottom border-dark">不快な虫たち一覧</h1>
+    <div class="row">
+      <% if @bugs.present? %>
+        <%= render @bugs %>
+      <% else %>
+        <p>検索条件にマッチする虫がいません</p>
+      <% end %>
+      <p>お目当ての虫さんはいましたか？</p>
+      <%= link_to '家にいる不快な虫を登録する', new_bug_path %>
+      <%= paginate @bugs %>
+    </div>
   </div>
 </div>

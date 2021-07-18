@@ -9,10 +9,10 @@ module NewsHelper
     uri  = "https://api.bing.microsoft.com/"
     path = "/v7.0/news/search"
     count = "20"
-
     term = "虫"
 
-    uri = URI(uri + path + "?count=" + count + "&q=" + URI.escape(term))
+    today = Date.today
+    uri = URI(uri + path + "?count=" + count + "&sortBy=" + "date" + "&q=" + URI.escape(term))
 
     request = Net::HTTP::Get.new(uri)
     request['Ocp-Apim-Subscription-Key'] = accessKey

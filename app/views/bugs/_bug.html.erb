@@ -1,17 +1,17 @@
-<div class="col-sm-6 offset-sm-3 col-lg-4 offset-lg-0 mb-3" style="width: 300;">
-  <div class="card">
-    <h3 class="card-title"><%= bug.name %></h3>
+<div class="col-sm-6 offset-sm-3 col-lg-4 offset-lg-0 mb-5">
+  <div class="card bug_record">
+    <h3 class="card-title">
+      <%= link_to bug_path(bug), class: 'title_button' do %>
+        <i class="fa fa-chevron-circle-right"></i> <%= bug.name %>
+      <% end %>
+    </h3>
     <% if bug.image.attached? %>
       <%= image_tag bug.image, class: "card-mig-top blur blur_#{bug.id} blur_active", height: '250px' %>
-      <button class="btn-danger blur_button blur_button_<%= bug.id %>" value="<%= bug.id %>">モザイクを外してみる</button>
-      <button class="btn-primary hide_blur_button hide_blur_button_<%= bug.id %> hide_button" value="<%= bug.id %>">やっぱりモザイクをつける</button>
+      <button class="blur_button blur_button_<%= bug.id %>" id="blur_button_index" value="<%= bug.id %>"><i class="far fa-eye-slash"></i> モザイクを外してみる</button>
+      <button class="hide_blur_button hide_blur_button_<%= bug.id %> hide_button" id="no_blur_button_index" value="<%= bug.id %>"><i class="far fa-eye"></i> やっぱりモザイクをつける</button>
     <% else %>
       <%= image_tag 'sorry.png', class: 'card-img-top', height: '250px' %>
+      <p class="text-center card-text">画像が登録されていません</p>
     <% end %>
-    <%#= render 'radar_charts/radar_chart', bug: bug %>
-    <div class="card-body">
-      <p class="card-text"><%= bug.feature.truncate(47) %></p>
-      <%= link_to '詳細を見る', bug_path(bug), class: 'btn btn-primary' %>
-    </div>
   </div>
 </div>

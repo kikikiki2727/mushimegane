@@ -1,8 +1,8 @@
 <%= form_with model: [bug, comment], url: url, id: 'new_comment' do |f| %>
   <div class="row">
     <div class="form-group mb-3offset-1">
-      <%= f.label :sentence %>
-      <%= f.text_field :sentence, class: 'form-control', id: 'js_new_comment_body' %>
+      <%= f.label :sentence, class: 'mb-3' %>
+      <%= f.text_area :sentence, class: 'form-control mb-3', id: 'js_new_comment_body', rows: 5 %>
     </div>
 
     <div class="actions mb-3">

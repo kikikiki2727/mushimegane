@@ -4,7 +4,7 @@
     <div class="container-fluid">
       <%= link_to 'むしめがね', root_path, class: 'navbar-brand' %>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span><i class="fas fa-chevron-circle-down"></i></span>
+        <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -15,26 +15,18 @@
             <%= render '/bugs/image_search_page' %>
           </li>
           <li class="nav-item">
-            <%= link_to news_path, class: 'nav-link' do %>
-              <i class="fas fa-paper-plane"></i><span> 新着情報</span>
-            <% end %>
+            <%= link_to '新着情報', news_path, class: 'nav-link' %>
           </li>
           <li class="nav-item">
-            <%= link_to new_bug_path, class: 'nav-link' do %>
-              <i class="fas fa-plus-square"></i><span> 新規作成</span>
-            <% end %>
+            <%= link_to '新規作成', new_bug_path, class: 'nav-link' %>
           </li>
         </ul>
         <ul class="navbar-nav justify-content-end">
           <li class="nav-item">
             <% if logged_in? %>
-              <%= link_to logout_path, method: :delete, class: 'nav-link' do %>
-                <i class="fas fa-sign-out-alt"></i><span> ログアウト</span>
-              <% end %>
+              <%= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link' %>
             <% else %>
-              <%= link_to login_path, class: 'nav-link' do %>
-                <i class="fas fa-sign-in-alt"></i><span> ログイン</span>
-              <% end %>
+              <%= link_to 'ログイン', login_path, class: 'nav-link' %>
             <% end %>
           </li>
         </ul>

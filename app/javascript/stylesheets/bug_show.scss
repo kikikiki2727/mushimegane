@@ -4,7 +4,6 @@
   margin: 10px;
   border: 1px solid #ccc;
 }
-*/
 
 .tab-list {
   display: flex;
@@ -34,6 +33,7 @@
 .box-show {
   display: block;
 }
+*/
 /*ここまでタブメニュー*/
 
 /*画像ぼかし*/
@@ -44,4 +44,76 @@
 
 .hide_button {
   display: none;
+}
+
+/*ここまで*/
+
+.bug_show {
+  border: 1px solid #ccc;
+  border-radius:20px;
+  box-shadow: 0px 0px 8px gray;
+  padding: 25px;
+  width: 80%;
+}
+
+.bug_image_contents {
+  text-align : center
+}
+
+#blur_button_show {
+  transition: .3s;
+  border-radius:30px;
+
+  &:hover {
+    background: red;
+    color: white;
+  }
+}
+
+#no_blur_button_show {
+  transition: .3s;
+  border-radius:30px;
+
+  &:hover {
+    background: #6ff2fc;
+  }
+}
+
+.bug_comments {
+  padding: 25px 0;
+  width: 80%;
+}
+
+.comment_index {
+  border: 1px solid #ccc;
+  border-radius:20px;
+  box-shadow: 0px 0px 8px gray;
+}
+
+.comment_new {
+  border: 1px solid #ccc;
+  border-radius:20px;
+  box-shadow: 0px 0px 8px gray;
+}
+
+.nav-tabs {
+  border-bottom: 2px solid gray;
+
+  & .nav-link.active {
+    background-color: #5bc8db;
+    color: #FFF;
+    border-width: 3px;
+    border-top-color: gray;
+    border-right-color: gray;
+    border-bottom-color:rgba(221, 211, 211, 0.5);
+    border-left-color: gray;
+  }
+
+  & .nav-link {
+    color: #5bc8db;
+  }
+}
+
+.likes_count {
+  font-weight: bolder;
 }

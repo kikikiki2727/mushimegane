@@ -2,6 +2,9 @@
   <div class="col-12">
     <ul class="comment-list">
       <%= render comments %>
+      <div class="comment_present">
+        <%= 'コメントがありません' unless comments.present? %>
+      </div>
     </ul>
   </div>
 </div>

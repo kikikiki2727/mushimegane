@@ -1,10 +1,8 @@
-<%= form_with model: bug, url: bug_comments_sort_path(bug), method: :get do |f| %>
-  <div class="row">
-    <div class="form-group col-3">
-      <%= f.select :type, [['新しい順', 'desc'], ['古い順', 'asc'], ['いいね順', 'like']], { include_blank: false }, class: 'form-select' %>
-    </div>
-    <div class="actions mb-3 col-3">
-      <%= f.submit '変更する', class: 'btn btn-primary' %>
-    </div>
-  </div>
-<% end %>
+<div class="dropdown mb-3">
+  <%= link_to '並び替え', '#', class: 'btn dropdown-toggle border border-2',  id: 'dropdownMenuButton', 'data-bs-toggle': 'dropdown', 'aria-expanded': 'false'%>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <li><%= link_to '新しい順', bug_comments_sort_path(bug, 'type': 'desc'), class: 'dropdown-item', remote: true %></li>
+    <li><%= link_to '古い順', bug_comments_sort_path(bug, 'type': 'asc'), class: 'dropdown-item', remote: true %></li>
+    <li><%= link_to 'いいね順', bug_comments_sort_path(bug, 'type': 'like'), class: 'dropdown-item', remote: true %></li>
+  </ul>
+</div>

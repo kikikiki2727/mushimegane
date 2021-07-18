@@ -1,5 +1,7 @@
 <!-- Button trigger modal -->
-<%= link_to '検索', '#', class: 'nav-link', 'data-bs-toggle': :modal, 'data-bs-target': '#WordSearchModal' %>
+<%= link_to '#', class: 'nav-link', 'data-bs-toggle': :modal, 'data-bs-target': '#WordSearchModal' do %>
+  <i class="fas fa-search"></i><span> 検索</span>
+<% end %>
 
 <!-- Modal -->
 <div class="modal fade" id="WordSearchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -1,56 +1,68 @@
-<%= form_with model: bug, local: true do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
-  <div class="form-group mb-3">
-    <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control', placeholder: '害虫の名前を入力してください。' %>
-  </div>
-
-  <div class="form-group mb-3">
-    <%= f.label :feature %>
-    <%= f.text_area :feature, class: 'form-control', placeholder: '害虫の特徴を入力してください。', rows: 7 %>
-  </div>
-
-  <div class="form-group mb-3">
-    <%= f.label :approach %>
-    <%= f.text_area :approach, class: 'form-control', placeholder: '害虫の駆除方法を入力してください', rows: 7 %>
-  </div>
-
-  <div class="form-group mb-3">
-    <%= f.label :prevention %>
-    <%= f.text_area :prevention, class: 'form-control', placeholder: '害虫の予防方法を入力してください。', rows: 7 %>
-  </div>
-
-  <div class="form-group mb-3">
-    <%= f.label :harm %>
-    <%= f.text_area :harm, class: 'form-control', placeholder: '害虫の実害を入力してください。', rows: 7 %>
-  </div>
-
-  <div class="row">
-    <div class="form-group mb-3 col-4">
-      <%= f.label :size %>
-      <%= f.select :size, Bug.sizes_i18n.invert, { include_blank: '選択してください' }, class: 'form-select' %>
+<div class="form">
+  <%= form_with model: bug, local: true do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <div class="form-group mb-3">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control', placeholder: '害虫の名前を入力してください。' %>
     </div>
 
-    <div class="form-group mb-3 col-4">
-      <%= f.label :color %>
-      <%= f.select :color, Bug.colors_i18n.invert, { include_blank: '選択してください' }, class: 'form-select' %>
+    <div class="form-group mb-3">
+      <%= f.label :feature %>
+      <%= f.text_area :feature, class: 'form-control', placeholder: '害虫の特徴を入力してください。', rows: 7 %>
     </div>
 
-    <div class="form-group mb-3 col-4">
-      <%= f.label :season %>
-      <%= f.select :season, Bug.seasons_i18n.invert, { include_blank: '選択してください' }, class: 'form-select' %>
+    <div class="form-group mb-3">
+      <%= f.label :approach %>
+      <%= f.text_area :approach, class: 'form-control', placeholder: '害虫の駆除方法を入力してください', rows: 7 %>
     </div>
-  </div>
 
-  <div class="row">
-    <div class="form-group mb-3 col-6">
-      <%= f.label :image %>
-      <%= f.file_field :image, class: 'form-control' %>
+    <div class="form-group mb-3">
+      <%= f.label :prevention %>
+      <%= f.text_area :prevention, class: 'form-control', placeholder: '害虫の予防方法を入力してください。', rows: 7 %>
     </div>
-  </div>
 
-  <div class="actions mb-3">
-    <%= f.submit class: 'btn btn-primary' %>
-  </div>
-<% end %>
+    <div class="form-group mb-3">
+      <%= f.label :harm %>
+      <%= f.text_area :harm, class: 'form-control', placeholder: '害虫の実害を入力してください。', rows: 7 %>
+    </div>
+
+    <div class="row">
+      <div class="form-group mb-3 col-sm-12 col-lg-4">
+        <%= f.label :size %>
+        <%= f.select :size, Bug.sizes_i18n.invert, { include_blank: '選択してください' }, class: 'form-select' %>
+      </div>
+
+      <div class="form-group mb-3 col-sm-12 col-lg-4">
+        <%= f.label :color %>
+        <%= f.select :color, Bug.colors_i18n.invert, { include_blank: '選択してください' }, class: 'form-select' %>
+      </div>
+
+      <div class="form-group mb-3 col-sm-12 col-lg-4">
+        <%= f.label :season %>
+        <%= f.select :season, Bug.seasons_i18n.invert, { include_blank: '選択してください' }, class: 'form-select' %>
+      </div>
+    </div>
+
+    <div class="image_input">
+      <div class="form-group mb-3 col-6">
+        <%= f.label :image %>
+        <%= f.file_field :image, class: 'form-control', id: 'registar_image', accept: 'image/png, image/jpeg' %>
+      </div>
+      <div class="mb-3">
+        <img id="registar_image_preview", style="display: none;" />
+      </div>
+    </div>
+
+    <div class="current_image mb-3">
+      <% if bug.image.attached? %>
+        <p class="mb-2">現在の画像</p>
+        <%= image_tag bug.image, size: '350x250', class: 'border border-dark' %>
+      <% end %>
+    </div>
+    
+    <div class="actions mb-3">
+      <%= f.submit class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>
 <%= link_to 'Back', bugs_path %>

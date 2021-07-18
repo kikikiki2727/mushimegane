@@ -1,0 +1,39 @@
+.bug_record {
+  box-shadow: 0px 0px 8px gray;
+  padding: 5px;
+  border-radius: 15px;
+}
+
+.title_button {
+  text-decoration: none;
+  color: black;
+  transition: .3s;
+
+  &:hover {
+    background: black;
+    color: white;
+  }
+}
+
+#blur_button_index {
+  width: 65%;
+  margin: 0 auto;
+  transition: .3s;
+  border-radius: 30px;
+
+  &:hover {
+    background: red;
+    color: white;
+  }
+}
+
+#no_blur_button_index {
+  width: 75%;
+  margin: 0 auto;
+  transition: .3s;
+  border-radius:30px;
+
+  &:hover {
+    background: #6ff2fc;
+  }
+}
