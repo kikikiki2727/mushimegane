@@ -1,6 +1,8 @@
-<div class="container">
-  <h1 class="mb-4 pb-2 border-bottom border-dark">虫のニュース一覧</h1>
-  <div class="row">
-    <%= render partial: 'news', collection: @news_list, as: :news %>
+<div class="news_index pt-3">
+  <div class="container">
+    <h1 class="mb-4 pb-2 border-bottom border-dark">虫のニュース一覧</h1>
+    <div class="row">
+      <%= render partial: 'news', collection: @news_list, as: :news %>
+    </div>
   </div>
 </div>

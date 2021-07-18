@@ -17,6 +17,7 @@ require("header")
 require("tab_menu")
 require("image_blur")
 require("image_search_preview")
+require("image_registar_preview")
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
