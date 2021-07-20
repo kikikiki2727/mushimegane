@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Likes", type: :system do
+RSpec.describe 'Likes', type: :system do
   let(:user) { create(:user) }
   let(:bug) { create(:bug) }
   let!(:radar_chart) { create(:radar_chart) }

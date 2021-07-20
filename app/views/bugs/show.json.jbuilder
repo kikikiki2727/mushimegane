@@ -1,1 +1,1 @@
-json.partial! "bugs/bug", bug: @bug
+json.partial! 'bugs/bug', bug: @bug

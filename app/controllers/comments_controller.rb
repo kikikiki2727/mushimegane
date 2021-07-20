@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   include CommentsHelper
-  skip_before_action :require_login , only: :sort
+  skip_before_action :require_login, only: :sort
 
   def create
     @comment = current_user.comments.build(comment_params)
@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
 
   def sort
     @bug = Bug.find(params[:bug_id])
-    sort_type(params[:type])
+    @comments = sort_type(params[:type], @bug)
   end
 
   private

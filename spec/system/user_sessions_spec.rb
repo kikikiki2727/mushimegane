@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "UserSessions", type: :system do
+RSpec.describe 'UserSessions', type: :system do
   let(:user) { create(:user) }
 
   describe 'ログイン機能' do
@@ -14,7 +14,7 @@ RSpec.describe "UserSessions", type: :system do
         fill_in 'password', with: 'password'
         click_on 'ログイン'
         expect(page).to have_content 'ログインしました'
-        expect(current_path).to eq root_path 
+        expect(current_path).to eq root_path
       end
     end
 
@@ -24,7 +24,7 @@ RSpec.describe "UserSessions", type: :system do
         fill_in 'password', with: 'password'
         click_on 'ログイン'
         expect(page).to have_content 'ログインに失敗しました'
-        expect(current_path).to eq login_path 
+        expect(current_path).to eq login_path
       end
     end
 
@@ -34,7 +34,7 @@ RSpec.describe "UserSessions", type: :system do
         fill_in 'password', with: nil
         click_on 'ログイン'
         expect(page).to have_content 'ログインに失敗しました'
-        expect(current_path).to eq login_path 
+        expect(current_path).to eq login_path
       end
     end
   end
@@ -48,7 +48,7 @@ RSpec.describe "UserSessions", type: :system do
       find('.navbar-toggler').click
       click_on 'ログアウト'
       expect(page).to have_content 'ログアウトしました'
-      expect(current_path).to eq root_path 
+      expect(current_path).to eq root_path
     end
   end
 end

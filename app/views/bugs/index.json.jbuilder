@@ -1,1 +1,1 @@
-json.array! @bugs, partial: "bugs/bug", as: :bug
+json.array! @bugs, partial: 'bugs/bug', as: :bug

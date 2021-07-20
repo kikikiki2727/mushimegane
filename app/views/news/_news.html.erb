@@ -6,7 +6,7 @@
     <% if news["image"] %>
       <%= image_tag news["image"]["thumbnail"]["contentUrl"], class: 'card-img-top', height: '250px' %>
     <% else %>
-      <%= image_tag 'sorry.png', class: 'card-img-top', height: '250px' %>
+      <%= image_tag 'sorry_cat.png', class: 'card-img-top', height: '250px' %>
     <% end %>
     <div class="card-body">
       <p class="card-text"><%= news["description"].truncate(100) %></p>

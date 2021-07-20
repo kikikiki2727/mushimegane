@@ -5,5 +5,5 @@ class Comment < ApplicationRecord
 
   validates :sentence, presence: true, length: { maximum: 3_000 }
 
-  scope :sort_like, -> {includes(:likes).sort { |a,b| b.likes.count <=> a.likes.count }}
+  scope :sort_like, -> { includes(:likes).sort { |a, b| b.likes.count <=> a.likes.count } }
 end

@@ -1,5 +1,4 @@
 class LikesController < ApplicationController
-
   def create
     @comment = Comment.find(params[:comment_id])
     current_user.like_comment(@comment)

@@ -16,6 +16,6 @@ class Bug < ApplicationRecord
   validates :harm, length: { maximum: 3_000 }
 
   scope :high_chart, ->(column) { joins(:radar_chart).where(radar_charts: { column => [8, 9, 10] }) }
-  scope :normal_chart, ->(column) { joins(:radar_chart).where(radar_charts: { column => [4, 5, 6, 7]}) }
-  scope :low_chart, ->(column) { joins(:radar_chart).where(radar_charts: { column => [1, 2, 3]}) }
+  scope :normal_chart, ->(column) { joins(:radar_chart).where(radar_charts: { column => [4, 5, 6, 7] }) }
+  scope :low_chart, ->(column) { joins(:radar_chart).where(radar_charts: { column => [1, 2, 3] }) }
 end
