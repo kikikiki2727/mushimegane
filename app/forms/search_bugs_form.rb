@@ -17,8 +17,6 @@ class SearchBugsForm
   def search
     relation = Bug.distinct
 
-    relation = relation.where('name LIKE ?', "%#{name}%")
-
     if search_word.present?
       search_words = search_word.split(/[[:blank:]]+/)
       search_words.inject(relation) do |result, word|
@@ -39,18 +37,19 @@ class SearchBugsForm
     relation = search_chart(relation, prevention_difficulty, 'prevention_difficulty') if prevention_difficulty.present?
     relation = search_chart(relation, injury, 'injury') if injury.present?
     relation = search_chart(relation, discomfort, 'discomfort') if discomfort.present?
-    
+
     relation
   end
 
   private
 
   def search_chart(relation, value, column)
-    if value == 'high'
+    case value
+    when 'high'
       relation.high_chart(column)
-    elsif value == 'normal'
+    when 'normal'
       relation.normal_chart(column)
-    elsif value == 'low'
+    when 'low'
       relation.low_chart(column)
     else
       relation

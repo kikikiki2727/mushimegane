@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Bugs", type: :system do
+RSpec.describe 'Bugs', type: :system do
   let(:user) { create(:user) }
   let(:bug) { create(:bug) }
 
@@ -27,6 +27,7 @@ RSpec.describe "Bugs", type: :system do
     context '詳細ページ' do
       let!(:radar_chart) { create(:radar_chart, bug: bug) }
       let!(:edit_bug) { create(:bug, user: user) }
+
       before do
         login user
         visit edit_bug_path(edit_bug)
@@ -58,6 +59,7 @@ RSpec.describe "Bugs", type: :system do
 
   describe 'ログイン後' do
     let!(:radar_chart) { create(:radar_chart, bug: bug) }
+
     before do
       login user
     end
@@ -114,15 +116,15 @@ RSpec.describe "Bugs", type: :system do
   end
 
   describe '検索機能' do
-    let!(:other_bug) { create(:bug) } 
-    
+    let!(:other_bug) { create(:bug) }
+
     describe 'フリーワード検索' do
       context '検索ワードに「ゴキブリ」を入れて検索する' do
-        let!(:name_bug)  { create(:bug, feature: 'ゴキブリ' )}
-        let!(:feature_bug) { create(:bug, feature: 'ゴキブリが嫌いです' )}
-        let!(:approach_bug) { create(:bug, approach: 'ゴキブリが好きです' )}
-        let!(:prevention_bug) { create(:bug, prevention: 'ゴキブリが怖いです' )}
-        let!(:harm_bug) { create(:bug, harm: 'ゴキブリが気持ち悪いです' )}
+        let!(:name_bug) { create(:bug, feature: 'ゴキブリ') }
+        let!(:feature_bug) { create(:bug, feature: 'ゴキブリが嫌いです') }
+        let!(:approach_bug) { create(:bug, approach: 'ゴキブリが好きです') }
+        let!(:prevention_bug) { create(:bug, prevention: 'ゴキブリが怖いです') }
+        let!(:harm_bug) { create(:bug, harm: 'ゴキブリが気持ち悪いです') }
 
         it '検索ワードの入ったレコードのみ表示される' do
           visit root_path

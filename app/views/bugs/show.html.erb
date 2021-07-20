@@ -7,8 +7,8 @@
           <% if @bug.image.attached? %>
             <%= image_tag @bug.image, size: '350x250', class: "blur blur_#{@bug.id} blur_active border border-dark mb-1" %>
             <div>
-              <button class="blur_button blur_button_<%= @bug.id %>" id="blur_button_show" value="<%= @bug.id %>">モザイクを外してみる</button>
-              <button class="hide_blur_button hide_blur_button_<%= @bug.id %> hide_button" id="no_blur_button_show" value="<%= @bug.id %>">やっぱりモザイクをつける</button>
+              <button class="blur_button blur_button_<%= @bug.id %>" id="blur_button_show" value="<%= @bug.id %>"><i class="far fa-eye-slash"></i> モザイクを外してみる</button>
+              <button class="hide_blur_button hide_blur_button_<%= @bug.id %> hide_button" id="no_blur_button_show" value="<%= @bug.id %>"><i class="far fa-eye"></i> やっぱりモザイクをつける</button>
             </div>
           <% else %>
              <%= image_tag 'sorry_cat.png', class: 'card-img-top show_image_size' %>

@@ -30,7 +30,7 @@ class RadarChartsController < ApplicationController
   end
 
   private
-  
+
   def set_bug
     @bug = Bug.find(params[:bug_id])
   end

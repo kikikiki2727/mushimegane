@@ -15,7 +15,7 @@ RSpec.describe User, type: :model do
     end
 
     it '名前が31字以上だと無効であること' do
-      user.name = 'a'*31
+      user.name = 'a' * 31
       expect(user).to be_invalid
     end
 
@@ -31,7 +31,7 @@ RSpec.describe User, type: :model do
     end
 
     it '重複していないメールアドレスだと有効であること' do
-      another_user = create(:user)
+      create(:user)
       user.email = 'other@exmple.com'
       expect(user).to be_valid
     end
@@ -42,7 +42,7 @@ RSpec.describe User, type: :model do
     end
 
     it 'パスワードが8文字未満だと無効であること' do
-      user.password = 'a'*7
+      user.password = 'a' * 7
       expect(user).to be_invalid
     end
   end
