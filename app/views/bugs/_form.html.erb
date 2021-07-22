@@ -1,4 +1,4 @@
-<div class="form">
+<div class="form py-3 px-4 my-3">
   <%= form_with model: bug, local: true do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
     <div class="form-group mb-3">
@@ -65,4 +65,3 @@
     </div>
   <% end %>
 </div>
-<%= link_to 'Back', bugs_path %>

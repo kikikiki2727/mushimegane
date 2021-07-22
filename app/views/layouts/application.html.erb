@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SearchForBugsAtHome</title>
+    <title><%= pages_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -11,9 +11,9 @@
 
   <body>
     <div>
-      <%= render 'shared/header' unless 'home' == params[:controller] %>
-      <div class="<%= 'top_margin' unless 'home' == params[:controller] %>">
-        <%= render 'shared/flash_message' unless 'home' == params[:controller] %>
+      <%= header_if_home_controller %>
+      <div class="<%= margin_if_home_controller %>">
+        <%= flash_if_home_controller %>
         <%= yield %>
       </div>
       <%= render 'shared/footer' %>

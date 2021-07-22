@@ -58,3 +58,7 @@ Metrics/PerceivedComplexity:
 # メソッドの線形的複雑度、if文の数とか？
 Metrics/CyclomaticComplexity:
   Max: 11
+
+# dependent: :destroyオプションが必須かどうか
+Rails/HasManyOrHasOneDependent:
+  Enabled: false
