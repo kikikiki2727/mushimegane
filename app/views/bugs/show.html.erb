@@ -1,5 +1,5 @@
 <% content_for(:title, @bug.name) %>
-<div class="container bug_show my-5">
+<div class="container bug_show my-5 p-4">
   <div class="row">
     <div class="col-12">
       <h2 class="bug-titile mb-4 pb-2 border-bottom border-dark"><%= @bug.name %></h2>
@@ -34,9 +34,8 @@
   </div>
   <% if current_user&.own?(@bug) %>
     <%= link_to '編集', edit_bug_path(@bug) %> |
-    <%= link_to '削除', bug_path(@bug), method: :delete, data: { confirm: '削除してもよろしいですか？' } %> |
+    <%= link_to '削除', bug_path(@bug), method: :delete, data: { confirm: '削除してもよろしいですか？' } %>
   <% end %>
-  <%= link_to '戻る', bugs_path %> 
 </div>
 <div class="bug_comments container">
   <div class="row">

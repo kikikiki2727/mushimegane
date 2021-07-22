@@ -1,41 +1,3 @@
-/*タブメニュー*/
-
-/* .container {
-  margin: 10px;
-  border: 1px solid #ccc;
-}
-
-.tab-list {
-  display: flex;
-  justify-content: space-around;
-  text-align: center;
-  list-style: none;
-}
-
-.tab {
-  width: 100%;
-  padding: 10px;
-  cursor: pointer;
-  border: 1px solid #CCC;
-}
-
-.tab-active {
-  color: #FFF;
-  background: #19b5d1;
-  transition: all 0.2s ease-in-out;
-}
-
-.tabbox {
-  display: none;
-  padding: 15px;
-}
-
-.box-show {
-  display: block;
-}
-*/
-/*ここまでタブメニュー*/
-
 /*画像ぼかし*/
 
 .blur_active {
@@ -52,7 +14,6 @@
   border: 1px solid #ccc;
   border-radius:20px;
   box-shadow: 0px 0px 8px gray;
-  padding: 25px;
   width: 80%;
 }
 

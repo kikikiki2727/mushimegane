@@ -11,9 +11,9 @@
 
   <body>
     <div>
-      <%= render 'shared/header' unless 'home' == params[:controller] %>
-      <div class="<%= 'top_margin' unless 'home' == params[:controller] %>">
-        <%= render 'shared/flash_message' unless 'home' == params[:controller] %>
+      <%= header_if_home_controller %>
+      <div class="<%= margin_if_home_controller %>">
+        <%= flash_if_home_controller %>
         <%= yield %>
       </div>
       <%= render 'shared/footer' %>
