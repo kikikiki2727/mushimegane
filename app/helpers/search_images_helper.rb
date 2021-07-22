@@ -4,13 +4,13 @@ module SearchImagesHelper
       ENV['AWS_ACCESS_KEY_ID'],
       ENV['AWS_SECRET_ACCESS_KEY']
     )
-    region = 'us-east-1'
+    region = 'ap-northeast-1'
 
     # アップロードされた画像をs3に保存
     s3_client = Aws::S3::Client.new(region: region, credentials: credentials)
 
     body = data
-    bucket = 'bug-image-search'
+    bucket = 'bug-images-search'
     key = 'bug_image'
 
     s3_client.put_object({
@@ -19,12 +19,12 @@ module SearchImagesHelper
                            key: key
                          })
 
-    put_labels(credentials, bucket, key, s3_client)
+    put_labels(credentials, bucket, key, s3_client, region)
   end
 
-  def put_labels(credentials, bucket, key, s3_client)
+  def put_labels(credentials, bucket, key, s3_client, region)
     # 保存した画像を使ってラベルを検出
-    rekogniton_client = Aws::Rekognition::Client.new(credentials: credentials)
+    rekogniton_client = Aws::Rekognition::Client.new(credentials: credentials, region: region)
     attrs = {
       image: {
         s3_object: {
@@ -54,12 +54,10 @@ module SearchImagesHelper
                                }
                              })
 
-    translate_label(credentials, label_list)
+    translate_label(credentials, label_list, region)
   end
 
-  def translate_label(credentials, label_list)
-    region = 'us-east-1'
-
+  def translate_label(credentials, label_list, region)
     # ラベルを翻訳
     translate_client = Aws::Translate::Client.new(
       region: region,
