@@ -15,7 +15,7 @@ class SearchBugsForm
   attr_accessor :search_word
 
   def search
-    relation = Bug.distinct
+    relation = Bug.includes(image_attachment: :blob).distinct
 
     if search_word.present?
       search_words = search_word.split(/[[:blank:]]+/)
