@@ -36,9 +36,14 @@ gem 'sorcery', '0.16.0'
 
 gem 'draper'
 
-gem 'aws-sdk'
+gem 'aws-sdk-translate'
 gem 'aws-sdk-rekognition'
 gem 'aws-sdk-s3', '~> 1'
+
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+
+gem 'dotenv-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -69,8 +74,3 @@ group :test do
   gem 'capybara'
   gem 'webdrivers'
 end
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-
-gem 'dotenv-rails'
