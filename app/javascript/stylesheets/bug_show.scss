@@ -15,6 +15,7 @@
   border-radius:20px;
   box-shadow: 0px 0px 8px gray;
   width: 80%;
+  background-color: rgba(221, 211, 211, 0.8);
 }
 
 .bug_image_contents {
@@ -50,16 +51,27 @@
   width: 80%;
 }
 
+.comment_list {
+  list-style: none;
+}
+
+.comment_sentence {
+  background-color: white;
+  border-radius:20px;
+}
+
 .comment_index {
   border: 1px solid #ccc;
   border-radius:20px;
   box-shadow: 0px 0px 8px gray;
+  background-color: rgba(221, 211, 211, 0.8);
 }
 
 .comment_new {
   border: 1px solid #ccc;
   border-radius:20px;
   box-shadow: 0px 0px 8px gray;
+  background-color: rgba(221, 211, 211, 0.8);
 }
 
 .nav-tabs {
@@ -76,12 +88,8 @@
   }
 
   & .nav-link {
-    color: #5bc8db;
+    color: #4042b1;
   }
-}
-
-.likes_count {
-  font-weight: bolder;
 }
 
 .warn_message {
