@@ -17,6 +17,7 @@ AllCops:
     - "config/initializers/*"
     - "config/deploy/*"
     - "config/puma.rb"
+    - "config/environments/*"
     - "spec/**/*"
     - "app/forms/search_bugs_form.rb"
 

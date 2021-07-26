@@ -11,13 +11,11 @@
   </head>
 
   <body>
-    <div>
-      <%= header_if_home_controller %>
-      <div class="<%= margin_if_home_controller %>">
-        <%= flash_if_home_controller %>
-        <%= yield %>
-      </div>
-      <%= render 'shared/footer' %>
+    <%= header_if_static_controller %>
+    <div class="<%= margin_if_static_controller %>">
+      <%= flash_if_static_controller %>
+      <%= yield %>
     </div>
+    <%= render 'shared/footer' %>
   </body>
 </html>
