@@ -50,6 +50,15 @@
   width: 80%;
 }
 
+.comment_list {
+  list-style: none;
+}
+
+.comment_sentence {
+  background-color: white;
+  border-radius:20px;
+}
+
 .comment_index {
   border: 1px solid #ccc;
   border-radius:20px;
@@ -78,10 +87,6 @@
   & .nav-link {
     color: #5bc8db;
   }
-}
-
-.likes_count {
-  font-weight: bolder;
 }
 
 .warn_message {

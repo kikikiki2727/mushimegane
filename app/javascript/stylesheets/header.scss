@@ -1,6 +1,6 @@
 .header_body {
   background: rgba(255,255,255,0.5);
-  padding: 20px;
+  padding: 15px 20px;
   width: 100%;
   box-shadow: 0px 2px 4px gray;
   position: fixed;
@@ -16,4 +16,9 @@
 .top_margin {
   padding-top: 100px;
   background-color: rgba(221, 211, 211, 0.5);
+}
+
+.wf-nicomoji { 
+  font-family: "Nico Moji"; 
+  font-size: xx-large;
 }
