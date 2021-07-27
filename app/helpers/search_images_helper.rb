@@ -80,7 +80,7 @@ module SearchImagesHelper
   end
 
   def label_search(label_list)
-    relation = Bug.distinct
+    relation = Bug.includes(image_attachment: :blob).distinct
 
     result = []
 
