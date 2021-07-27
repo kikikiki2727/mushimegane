@@ -2,7 +2,7 @@ class BugsController < ApplicationController
   include SearchImagesHelper
 
   before_action :set_bug, only: %i[edit update destroy]
-  skip_before_action :require_login, only: %i[index show]
+  skip_before_action :require_login, only: %i[index show image_search]
 
   def index
     @search_bugs_form = SearchBugsForm.new(search_params)
