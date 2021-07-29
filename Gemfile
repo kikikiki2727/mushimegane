@@ -70,6 +70,12 @@ group :development do
   gem 'binding_of_caller'
 
   gem 'bullet'
+
+  gem 'capistrano', '~> 3.10', require: false
+  gem 'capistrano3-puma'
+  gem 'capistrano-rails', '~> 1.6', require: false
+  gem 'capistrano-rbenv', '~> 2.2'
+  gem 'capistrano-rbenv-vars', '~> 0.1'
 end
 
 group :test do
