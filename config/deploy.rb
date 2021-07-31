@@ -8,7 +8,7 @@ set :repo_url, 'git@github.com:kikikiki2727/mushimegane.git'
 set :nginx_config_name, "#{fetch(:application)}.conf"
 set :nginx_sites_enabled_path, '/etc/nginx/conf.d'
 set :rbenv_ruby, File.read('.ruby-version').strip
-set :branch, ENV['BRANCH'] || "main"
+set :branch, ENV['BRANCH'] || 'main'
 
 append :linked_files, 'config/master.key'
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'node_modules'
