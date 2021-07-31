@@ -1,7 +1,7 @@
-server "13.230.108.180", user: "kimori", roles: %w{app db web}
+server "18.180.247.167", user: "kimori", roles: %w{app db web}
 
 set :ssh_options, {
-  keys: %w(~/.ssh/aws_mushimegane.cer),
+  keys: %w(~/.ssh/aws_ssh_key_mushimegane.cer),
   forward_agent: true,
   auth_methods: %w(publickey),
 }
