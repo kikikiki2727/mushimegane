@@ -2,7 +2,6 @@ class SearchBugsForm
   include ActiveModel::Model
   include ActiveModel::Attributes
 
-  attribute :name, :string
   attribute :size, :string
   attribute :color, :string
   attribute :season, :string

@@ -10,10 +10,10 @@ class Bug < ApplicationRecord
   enum season: { spring: 1, summer: 2, autumn: 3, winter: 4 }
 
   validates :name, presence: true, uniqueness: true, length: { maximum: 50 }
-  validates :feature, length: { maximum: 3_000 }
-  validates :approach, length: { maximum: 3_000 }
-  validates :prevention, length: { maximum: 3_000 }
-  validates :harm, length: { maximum: 3_000 }
+  validates :feature, length: { maximum: 3000 }
+  validates :approach, length: { maximum: 3000 }
+  validates :prevention, length: { maximum: 3000 }
+  validates :harm, length: { maximum: 3000 }
 
   scope :high_chart, ->(column) { joins(:radar_chart).where(radar_charts: { column => [8, 9, 10] }) }
   scope :normal_chart, ->(column) { joins(:radar_chart).where(radar_charts: { column => [4, 5, 6, 7] }) }
