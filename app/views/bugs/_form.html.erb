@@ -79,6 +79,13 @@
         <img id="registar_image_preview", style="display: none;" />
       </div>
     </div>
+
+    <div class="current_image mb-3">
+      <% if bug.image.attached? %>
+        <p class="mb-2">現在の画像</p>
+        <%= image_tag bug.image, size: '350x250', class: 'border border-dark' %>
+      <% end %>
+    </div>
     
     <div class="actions mb-3">
       <%= f.submit class: 'btn btn-primary' %>

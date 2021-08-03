@@ -64,7 +64,7 @@ RSpec.describe 'Users', type: :system do
           fill_in 'user[password]', with: nil
           fill_in 'user[password_confirmation]', with: nil
           click_on '登録'
-          expect(page).to have_content 'パスワードは8文字以上で入力してください'
+          expect(page).to have_content 'パスワードは5文字以上で入力してください'
           expect(page).to have_content 'パスワード(確認)を入力してください'
           expect(current_path).to eq users_path
         end
