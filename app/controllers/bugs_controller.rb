@@ -19,29 +19,27 @@ class BugsController < ApplicationController
   end
 
   def new
-    @bug_radar_chart = BugRadarChartForm.new
+    @bug_radar_chart_form = BugRadarChartForm.new
   end
 
   def edit; end
 
   def create
-    @bug_radar_chart = BugRadarChartForm.new(bug_radar_chart_params)
-    @bug_radar_chart.save!
+    @bug_radar_chart_form = BugRadarChartForm.new(bug_radar_chart_params)
+    @bug_radar_chart_form.save!
     @bug = Bug.last
     redirect_to @bug, success: '登録しました'
   rescue ActiveRecord::RecordInvalid => e
-    @bug_radar_chart = e.record
+    @bug_radar_chart_form = e.record
     flash.now[:danger] = '登録できませんでした'
     render :new
   end
 
   def update
-    if @bug.update(bug_params)
+    @bug_radar_chart = BugRadarChartForm.new(bug_params)
       redirect_to @bug, success: '更新しました'
-    else
       flash.now[:danger] = '更新できませんでした'
       render :new
-    end
   end
 
   def destroy
@@ -80,7 +78,7 @@ class BugsController < ApplicationController
   end
 
   def bug_radar_chart_params
-    params[:bug_radar_chart]&.permit(:name, :feature, :approach, :prevention, :harm, 
+    params.require(:bug_radar_chart_form).permit(:name, :feature, :approach, :prevention, :harm, 
                                      :size, :color, :season, :capture, :breeding,
                                      :prevention_difficulty, :injury, :discomfort, 
                                      :image).merge(user_id: current_user.id)
