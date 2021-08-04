@@ -26,12 +26,13 @@ RSpec.describe 'Bugs', type: :system do
 
     context '詳細ページ' do
       let!(:radar_chart) { create(:radar_chart, bug: bug) }
-      let!(:edit_bug) { create(:bug, user: user) }
+      let(:edit_bug) { create(:bug, user: user) }
+      let!(:radar_chart_with_edit_bug) { create(:radar_chart, bug: edit_bug) }
 
       before do
         login user
         visit edit_bug_path(edit_bug)
-        attach_file 'bug[image]', "#{Rails.root}/spec/fixtures/images/default.png"
+        attach_file 'bug_radar_chart_form[image]', "#{Rails.root}/spec/fixtures/images/default.png"
         click_on '更新する'
         logout
         visit bug_path(edit_bug)
@@ -67,15 +68,15 @@ RSpec.describe 'Bugs', type: :system do
     context '新規作成ページ' do
       it '有効な値を入れると新規作成に成功する' do
         visit new_bug_path
-        fill_in 'bug[name]', with: '害虫の名前'
-        fill_in 'bug[feature]', with: '害虫の特徴'
-        fill_in 'bug[approach]', with: '害虫の駆除方法'
-        fill_in 'bug[prevention]', with: '害虫の予防方法'
-        fill_in 'bug[harm]', with: '害虫の実害'
-        select '選択してください', from: 'bug[size]'
-        select '黒', from: 'bug[color]'
-        select '春', from: 'bug[season]'
-        attach_file 'bug[image]', "#{Rails.root}/spec/fixtures/images/default.png"
+        fill_in 'bug_radar_chart_form[name]', with: '害虫の名前'
+        fill_in 'bug_radar_chart_form[feature]', with: '害虫の特徴'
+        fill_in 'bug_radar_chart_form[approach]', with: '害虫の駆除方法'
+        fill_in 'bug_radar_chart_form[prevention]', with: '害虫の予防方法'
+        fill_in 'bug_radar_chart_form[harm]', with: '害虫の実害'
+        select '選択してください', from: 'bug_radar_chart_form[size]'
+        select '黒', from: 'bug_radar_chart_form[color]'
+        select '春', from: 'bug_radar_chart_form[season]'
+        attach_file 'bug_radar_chart_form[image]', "#{Rails.root}/spec/fixtures/images/default.png"
         click_on '登録する'
         expect(page).to have_content '登録しました'
         expect(Bug.count).to eq 2
@@ -92,13 +93,15 @@ RSpec.describe 'Bugs', type: :system do
     end
 
     context '編集ページ' do
+      let!(:radar_chart) { create(:radar_chart, bug: bug) }
       let(:edit_bug) { create(:bug, user: user) }
+      let!(:radar_chart_with_edit_bug) { create(:radar_chart, bug: edit_bug) }
 
       it '有効な値を入れると更新できる' do
         visit bug_path(edit_bug)
         click_on '編集'
-        fill_in 'bug[feature]', with: '特徴を更新します'
-        select '冬', from: 'bug[season]'
+        fill_in 'bug_radar_chart_form[feature]', with: '特徴を更新します'
+        select '冬', from: 'bug_radar_chart_form[season]'
         click_on '更新する'
         expect(page).to have_content '更新しました'
         expect(current_path).to eq bug_path(edit_bug)
@@ -106,7 +109,7 @@ RSpec.describe 'Bugs', type: :system do
 
       it '名前を空欄にすると更新に失敗する' do
         visit edit_bug_path(edit_bug)
-        fill_in 'bug[name]', with: nil
+        fill_in 'bug_radar_chart_form[name]', with: nil
         click_on '更新する'
         expect(page).to have_content '更新できませんでした'
         expect(page).to have_content '名前を入力してください'

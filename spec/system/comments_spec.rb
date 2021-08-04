@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Comments', type: :system do
   let(:user) { create :user }
   let(:bug) { create :bug }
-  let!(:radar_chart) { create :radar_chart }
+  let!(:radar_chart) { create :radar_chart, bug: bug }
 
   describe 'ログイン前' do
     context 'コメントを投稿する' do

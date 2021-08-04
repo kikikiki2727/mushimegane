@@ -14,7 +14,7 @@ class BugsController < ApplicationController
   def show
     @bug = Bug.find(params[:id])
     @radar_chart = @bug.radar_chart
-    @other_bug = Bug.includes(:radar_chart).where.not(id: @bug.id).shuffle.first
+    @other_bug = Bug.includes(:radar_chart).where.not(id: @bug.id).sample
     @comments = @bug.comments.order(created_at: :desc)
     @comment = Comment.new
     @url = bug_comments_path(@bug)
@@ -80,11 +80,11 @@ class BugsController < ApplicationController
   end
 
   def set_bug_radar_chart_form
-    @bug_radar_chart_form = BugRadarChartForm.new(name: @bug.name, feature: @bug.feature, approach: @bug.approach, 
-                                                  prevention: @bug.prevention, harm: @bug.harm, size: @bug.size, 
-                                                  color: @bug.color, season: @bug.season, capture: @radar_chart.capture, 
-                                                  breeding: @radar_chart.breeding, injury: @radar_chart.injury,  
-                                                  prevention_difficulty: @radar_chart.prevention_difficulty, 
+    @bug_radar_chart_form = BugRadarChartForm.new(name: @bug.name, feature: @bug.feature, approach: @bug.approach,
+                                                  prevention: @bug.prevention, harm: @bug.harm, size: @bug.size,
+                                                  color: @bug.color, season: @bug.season, capture: @radar_chart.capture,
+                                                  breeding: @radar_chart.breeding, injury: @radar_chart.injury,
+                                                  prevention_difficulty: @radar_chart.prevention_difficulty,
                                                   discomfort: @radar_chart.discomfort)
   end
 
@@ -94,9 +94,9 @@ class BugsController < ApplicationController
   end
 
   def bug_radar_chart_form_params
-    params.require(:bug_radar_chart_form).permit(:name, :feature, :approach, :prevention, :harm, 
+    params.require(:bug_radar_chart_form).permit(:name, :feature, :approach, :prevention, :harm,
                                                  :size, :color, :season, :capture, :breeding,
-                                                 :prevention_difficulty, :injury, :discomfort, 
+                                                 :prevention_difficulty, :injury, :discomfort,
                                                  :image).merge(user_id: current_user.id)
   end
 end

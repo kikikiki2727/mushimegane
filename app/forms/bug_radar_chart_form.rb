@@ -21,26 +21,26 @@ class BugRadarChartForm
 
   def create!
     ActiveRecord::Base.transaction do
-      bug = Bug.create!(name: name, feature: feature, approach: approach, 
-                     prevention: prevention, harm: harm, size: size, 
-                     color: color, season: season, user_id: user_id, image: image)
+      bug = Bug.create!(name: name, feature: feature, approach: approach,
+                        prevention: prevention, harm: harm, size: size,
+                        color: color, season: season, user_id: user_id, image: image)
 
-      radar_chart = bug.create_radar_chart!(capture: capture, breeding: breeding, 
-                                          prevention_difficulty: prevention_difficulty, 
-                                          injury: injury, discomfort: discomfort)
+      bug.create_radar_chart!(capture: capture, breeding: breeding,
+                              prevention_difficulty: prevention_difficulty,
+                              injury: injury, discomfort: discomfort)
     end
   end
 
   def update!(bug, radar_chart)
     ActiveRecord::Base.transaction do
-      bug.update!(name: name, feature: feature, approach: approach, 
-                             prevention: prevention, harm: harm, size: size, 
-                             color: color, season: season, user_id: user_id)
+      bug.update!(name: name, feature: feature, approach: approach,
+                  prevention: prevention, harm: harm, size: size,
+                  color: color, season: season, user_id: user_id)
 
-      radar_chart.update!(capture: capture, breeding: breeding, 
-                                     prevention_difficulty: prevention_difficulty, 
-                                     injury: injury, discomfort: discomfort)
-                                     
+      radar_chart.update!(capture: capture, breeding: breeding,
+                          prevention_difficulty: prevention_difficulty,
+                          injury: injury, discomfort: discomfort)
+
       bug.image.attach(image) if image.present?
     end
   end
