@@ -1,8 +1,8 @@
 module SearchImagesHelper
   def upload_image(data)
     credentials = Aws::Credentials.new(
-      ENV['AWS_ACCESS_KEY_ID'],
-      ENV['AWS_SECRET_ACCESS_KEY']
+      Rails.application.credentials.aws[:access_key_id],
+      Rails.application.credentials.aws[:secret_access_key]
     )
     region = 'ap-northeast-1'
 
