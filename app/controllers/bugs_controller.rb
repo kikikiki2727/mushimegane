@@ -2,6 +2,8 @@ class BugsController < ApplicationController
   include SearchImagesHelper
 
   before_action :set_bug, only: %i[edit update destroy]
+  before_action :set_radar_chart, only: %i[edit update destroy]
+  before_action :set_bug_radar_chart_form, only: %i[edit update destroy]
   skip_before_action :require_login, only: %i[index show image_search]
 
   def index
@@ -12,37 +14,39 @@ class BugsController < ApplicationController
   def show
     @bug = Bug.find(params[:id])
     @radar_chart = @bug.radar_chart
-    @other_bug = RadarChart.where.not(bug_id: @bug.id).sample.bug
-    # @other_bug = Bug.where.not(id: @bug.id).shuffle.first
-    # @other_bug = RadarChart.offset(rand(RadarChart.count)).first.bug
+    @other_bug = Bug.includes(:radar_chart).where.not(id: @bug.id).sample
     @comments = @bug.comments.order(created_at: :desc)
     @comment = Comment.new
     @url = bug_comments_path(@bug)
   end
 
   def new
-    @bug = current_user.bugs.build
+    @bug_radar_chart_form = BugRadarChartForm.new
+    @bug = Bug.new
+  end
+
+  def create
+    @bug_radar_chart_form = BugRadarChartForm.new(bug_radar_chart_form_params)
+    @bug_radar_chart_form.create!
+    @bug = Bug.last
+    redirect_to @bug, success: '登録しました'
+  rescue ActiveRecord::RecordInvalid => e
+    @bug_radar_chart_form = e.record
+    @bug = Bug.new
+    flash.now[:danger] = '登録できませんでした'
+    render :new
   end
 
   def edit; end
 
-  def create
-    @bug = current_user.bugs.build(bug_params)
-    if @bug.save
-      redirect_to @bug, success: '登録しました'
-    else
-      flash.now[:danger] = '登録できませんでした'
-      render :new
-    end
-  end
-
   def update
-    if @bug.update(bug_params)
-      redirect_to @bug, success: '更新しました'
-    else
-      flash.now[:danger] = '更新できませんでした'
-      render :new
-    end
+    @bug_radar_chart_form = BugRadarChartForm.new(bug_radar_chart_form_params)
+    @bug_radar_chart_form.update!(@bug, @radar_chart)
+    redirect_to @bug, success: '更新しました'
+  rescue ActiveRecord::RecordInvalid => e
+    @bug_radar_chart_form = e.record
+    flash.now[:danger] = '更新できませんでした'
+    render :new
   end
 
   def destroy
@@ -71,13 +75,28 @@ class BugsController < ApplicationController
     @bug = current_user.bugs.find(params[:id])
   end
 
-  def bug_params
-    params.require(:bug).permit(:name, :feature, :approach, :prevention, :harm, :size, :color, :season, :image,
-                                :illustration)
+  def set_radar_chart
+    @radar_chart = @bug.radar_chart
+  end
+
+  def set_bug_radar_chart_form
+    @bug_radar_chart_form = BugRadarChartForm.new(name: @bug.name, feature: @bug.feature, approach: @bug.approach,
+                                                  prevention: @bug.prevention, harm: @bug.harm, size: @bug.size,
+                                                  color: @bug.color, season: @bug.season, capture: @radar_chart.capture,
+                                                  breeding: @radar_chart.breeding, injury: @radar_chart.injury,
+                                                  prevention_difficulty: @radar_chart.prevention_difficulty,
+                                                  discomfort: @radar_chart.discomfort)
   end
 
   def search_params
     params[:search]&.permit(:name, :search_word, :size, :color, :season, :capture, :breeding,
                             :prevention_difficulty, :injury, :discomfort)
+  end
+
+  def bug_radar_chart_form_params
+    params.require(:bug_radar_chart_form).permit(:name, :feature, :approach, :prevention, :harm,
+                                                 :size, :color, :season, :capture, :breeding,
+                                                 :prevention_difficulty, :injury, :discomfort,
+                                                 :image).merge(user_id: current_user.id)
   end
 end

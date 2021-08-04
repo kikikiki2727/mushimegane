@@ -97,3 +97,18 @@ ja:
         discomfort_high: 高い
         discomfort_normal: 普通
         discomfort_low: 低い
+      bug_radar_chart_form:
+        name: 名前
+        feature: 特徴
+        approach: 駆除方法
+        prevention: 予防方法
+        harm: 実害
+        size: 大きさ
+        color: 色
+        season: 季節
+        image: 画像
+        capture: 攻略度
+        breeding: 繁殖力
+        prevention_difficulty: 予防難度
+        injury: 害
+        discomfort: 不快感

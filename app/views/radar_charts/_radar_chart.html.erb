@@ -10,19 +10,21 @@ var myChart = new Chart(ctx, {
         {
         label: "<%= bug.name %>",
         data: [<%= bug.radar_chart.capture %>, <%= bug.radar_chart.breeding %>, <%= bug.radar_chart.prevention_difficulty %>, <%= bug.radar_chart.injury %>, <%= bug.radar_chart.discomfort %>],
-        backgroundColor: 'rgba(85,107,47,0.3)',
-        borderColor: 'rgba(85,107,47)',
+        backgroundColor: 'rgba(255,99,71,0.4)',
+        borderColor: 'rgba(255,0,0)',
         borderWidth: 1,
-        pointBackgroundColor: 'rgb(46,106,177)'
+        pointBackgroundColor: 'rgba(255,0,0)'
         },
-        {
-          label: "<%= other_bug.name %>",
-          data: [<%= other_bug.radar_chart.capture %>, <%= other_bug.radar_chart.breeding %>, <%= other_bug.radar_chart.prevention_difficulty %>, <%= other_bug.radar_chart.injury %>, <%= other_bug.radar_chart.discomfort %>],
-          backgroundColor: 'rgba(204,204,153,0.3)',
-          borderColor: 'rgba(122,255,129,0.2)',
-          borderWidth: 1,
-          pointBackgroundColor: 'RGB(46,106,177)'
-          }
+        <% if other_bug.present? %>
+          {
+            label: "<%= other_bug.name %>",
+            data: [<%= other_bug.radar_chart.capture %>, <%= other_bug.radar_chart.breeding %>, <%= other_bug.radar_chart.prevention_difficulty %>, <%= other_bug.radar_chart.injury %>, <%= other_bug.radar_chart.discomfort %>],
+            backgroundColor: 'rgba(0,255,255,0.3)',
+            borderColor: 'rgb(0,0,255)',
+            borderWidth: 1,
+            pointBackgroundColor: 'rgb(0,0,255)'
+            }
+        <% end %>
     ]
   },
   options: {

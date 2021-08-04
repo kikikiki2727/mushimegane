@@ -16,15 +16,7 @@
           <% end %>
         </div>
         <div class="radar-chart">
-          <% if @bug.radar_chart %>
-            <%= render 'radar_charts/radar_chart', bug: @bug, other_bug: @other_bug %>
-            <div class="float-end">
-              <%= link_to 'レーダーチャートを編集する', edit_bug_radar_chart_path(@bug) if current_user&.own?(@bug) %>
-            </div>
-          <% else %>
-            <p class="text-center">レーダーチャートがありません</p>
-            <%= link_to 'レーダーチャートを作成する', new_bug_radar_chart_path(@bug) if current_user&.own?(@bug) %>
-          <% end %>
+          <%= render 'radar_charts/radar_chart', bug: @bug, other_bug: @other_bug %>
         </div>
       </div>
       <div class="bug-text-contents">
