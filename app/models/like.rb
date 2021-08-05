@@ -1,6 +1,5 @@
 class Like < ApplicationRecord
-  belongs_to :user
   belongs_to :comment
 
-  validates :comment, uniqueness: { scope: :user_id }
+  validates :comment, uniqueness: { scope: :global_ip }
 end

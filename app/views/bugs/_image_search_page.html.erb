@@ -16,7 +16,8 @@
             <div class="col-12">
               <%= form_with url: image_search_bugs_path, method: :post, local: true do |f| %>
                 <div class="form-group mb-3">
-                  <p style="color: red;">※ファイル形式は`png`か`jpeg`でお願いします。</p>
+                  <p style="color: red;">※ファイル形式(必須): png, jpeg</p>
+                  <p style="color: red;">※ファイルサイズ(推奨): 1MB(1000KB)以下</p>
                   <%= f.file_field :image, class: 'form-control', id: 'input_image', accept: 'image/png, image/jpeg' %>
                 </div>
                 <div class="mb-3">

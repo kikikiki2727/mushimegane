@@ -60,13 +60,12 @@ ActiveRecord::Schema.define(version: 2021_06_09_165040) do
   end
 
   create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "user_id", null: false
     t.bigint "comment_id", null: false
+    t.string "global_ip", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["comment_id"], name: "index_likes_on_comment_id"
-    t.index ["user_id", "comment_id"], name: "index_likes_on_user_id_and_comment_id", unique: true
-    t.index ["user_id"], name: "index_likes_on_user_id"
+    t.index ["global_ip", "comment_id"], name: "index_likes_on_global_ip_and_comment_id", unique: true
   end
 
   create_table "radar_charts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -96,6 +95,5 @@ ActiveRecord::Schema.define(version: 2021_06_09_165040) do
   add_foreign_key "comments", "bugs"
   add_foreign_key "comments", "users"
   add_foreign_key "likes", "comments"
-  add_foreign_key "likes", "users"
   add_foreign_key "radar_charts", "bugs"
 end

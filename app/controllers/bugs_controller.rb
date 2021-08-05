@@ -18,6 +18,7 @@ class BugsController < ApplicationController
     @comments = @bug.comments.order(created_at: :desc)
     @comment = Comment.new
     @url = bug_comments_path(@bug)
+    @current_ip = request.remote_ip
   end
 
   def new

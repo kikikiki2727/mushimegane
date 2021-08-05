@@ -17,6 +17,7 @@ class CommentsController < ApplicationController
   def sort
     @bug = Bug.find(params[:bug_id])
     @comments = sort_type(params[:type], @bug)
+    @current_ip = request.remote_ip
   end
 
   private

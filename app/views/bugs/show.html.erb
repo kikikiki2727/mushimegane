@@ -33,17 +33,16 @@
   <div class="row">
     <div class="col-sm-12 col-lg-6 mb-5 p-3 comment_index">
       <h3 class="mb-3 pb-2 border-bottom border-dark">コメント一覧</h3>
-      <p class="warn_message">※いいねにはログインが必要です。</p>
       <div class="comment_order_button">
         <%= render 'comments/comments_sort', bug: @bug %>
       </div>
       <div class="comment-page">
-        <%= render 'comments/comments', comments: @comments %>
+        <%= render 'comments/comments', comments: @comments, current_ip: @current_ip %>
       </div>
     </div>
     <div class="col-sm-12 col-lg-5 offset-lg-1 mb-5 p-3 comment_new">
       <h3 class="mb-3 pb-2 border-bottom border-dark">コメント投稿</h3>
-      <p class="warn_message">※コメントにはログインが必要です。</p>
+      <p class="warn_message">※コメントは削除できません。</p>
       <%= render 'comments/form', bug: @bug, comment: @comment, url: @url %>
     </div>
   </div>

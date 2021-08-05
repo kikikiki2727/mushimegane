@@ -92,6 +92,6 @@ module SearchImagesHelper
               .or(relation.where('harm LIKE ?', "%#{label}%"))
               .each { |bug| result << bug }
     end
-    result.uniq!
+    bugs_array = result.uniq
   end
 end
