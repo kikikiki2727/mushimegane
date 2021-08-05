@@ -1,16 +1,18 @@
 class CommentsController < ApplicationController
   include CommentsHelper
-  skip_before_action :require_login, only: :sort
+  skip_before_action :require_login
+  before_action :set_bug, only: :create
 
   def create
-    @comment = current_user.comments.build(comment_params)
+    @current_ip = request.remote_ip
+    @comment = @bug.comments.build(comment_params.merge(global_ip: @current_ip))
     @comment.save
   end
 
   def destroy
-    @comment = current_user.comments.find(params[:id])
+    @comment = Comment.find(params[:id])
+    bug = @comment.bug
     @comment.destroy!
-    bug = Bug.find(params[:bug_id])
     @comments_count = bug.comments.count
   end
 
@@ -22,7 +24,11 @@ class CommentsController < ApplicationController
 
   private
 
+  def set_bug
+    @bug = Bug.find(params[:bug_id])
+  end
+
   def comment_params
-    params.require(:comment).permit(:sentence).merge(bug_id: params[:bug_id])
+    params.require(:comment).permit(:sentence)
   end
 end
