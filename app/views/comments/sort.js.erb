@@ -1,1 +1,1 @@
-$('.comment-page').html("<%= j(render('comments/comments', comments: @comments)) %>")
+$('.comment-page').html("<%= j(render('comments/comments', comments: @comments, current_ip: @current_ip)) %>")

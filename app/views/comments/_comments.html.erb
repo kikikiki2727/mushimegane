@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-12">
     <ul class="comment_list">
-      <%= render comments %>
+      <%= render comments, current_ip: current_ip %>
       <div class="comment_present">
         <%= 'コメントがありません' unless comments.present? %>
       </div>

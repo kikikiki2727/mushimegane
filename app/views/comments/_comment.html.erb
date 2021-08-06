@@ -2,12 +2,13 @@
   <div class="comment_sentence py-2 px-4">
     <%= safe_join(comment.sentence.split("\n"), tag(:br)) %>
   </div>
-  <div class="delete_or_likes text-end">
-    <% if current_user&.own?(comment) %>
-      <%= link_to '削除', comment_path(comment, 'bug_id': comment.bug_id), method: :delete, data: { confirm: '削除してもよろしいですか？' }, id: 'delete_button', remote: true %>
+  <div class="like_unlike_button text-end">
+    <%= link_to '削除', comment_path(comment), method: :delete, data: { confirm: '削除してもよろしいですか？' }, id: 'comment_delete_button', remote: true if comment.post_by(current_ip) %> / 
+    <% if comment.liked_by(current_ip) %>
+      <%= render 'likes/unlike', comment: comment, current_ip: current_ip %>
     <% else %>
-      <%= render 'likes/like_button', comment: comment %>
+      <%= render 'likes/like', comment: comment %>
     <% end %>
-    <span>  いいね </span><i id="js-like-count-for-comment-<%= comment.id %>"><%= comment.likes.count %>件</i>
+    <i id="js-like-count-for-comment-<%= comment.id %>"><%= comment.likes.count %>件</i>
   </div>
 </li>
