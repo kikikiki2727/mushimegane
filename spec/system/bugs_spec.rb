@@ -26,26 +26,16 @@ RSpec.describe 'Bugs', type: :system do
 
     context '詳細ページ' do
       let!(:radar_chart) { create(:radar_chart, bug: bug) }
-      let(:edit_bug) { create(:bug, user: user) }
-      let!(:radar_chart_with_edit_bug) { create(:radar_chart, bug: edit_bug) }
-
-      before do
-        login user
-        visit edit_bug_path(edit_bug)
-        attach_file 'bug_radar_chart_form[image]', "#{Rails.root}/spec/fixtures/images/default.png"
-        click_on '更新する'
-        logout
-        visit bug_path(edit_bug)
-      end
 
       it '害虫の詳細が表示される' do
-        expect(page).to have_content edit_bug.name
+        visit bug_path(bug)
+        expect(page).to have_content bug.name
         expect(page).to have_content Bug.human_attribute_name(:feature)
         expect(page).to have_content Bug.human_attribute_name(:approach)
         expect(page).to have_content Bug.human_attribute_name(:prevention)
         expect(page).to have_content Bug.human_attribute_name(:harm)
         expect(page).to have_content Bug.human_attribute_name(:feature)
-        expect(current_path).to eq bug_path(edit_bug)
+        expect(current_path).to eq bug_path(bug)
       end
     end
 

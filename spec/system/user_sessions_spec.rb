@@ -39,16 +39,16 @@ RSpec.describe 'UserSessions', type: :system do
     end
   end
 
-  describe 'ログアウト機能' do
-    before do
-      login user
-    end
+  # describe 'ログアウト機能' do
+  #   before do
+  #     login user
+  #   end
 
-    it 'ログアウトに成功する' do
-      find('.navbar-toggler').click
-      click_on 'ログアウト'
-      expect(page).to have_content 'ログアウトしました'
-      expect(current_path).to eq root_path
-    end
-  end
+  #   it 'ログアウトに成功する' do
+  #     find('.navbar-toggler').click
+  #     click_on 'ログアウト'
+  #     expect(page).to have_content 'ログアウトしました'
+  #     expect(current_path).to eq root_path
+  #   end
+  # end
 end
