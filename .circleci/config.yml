@@ -1,0 +1,77 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.7.2-node-browsers-legacy
+        environment:
+          - BUNDLER_VERSION: 2.1.4
+          - RAILS_ENV: test
+          - MYSQL_HOST: 127.0.0.1
+          - MYSQL_USER: root
+          - MYSQL_PASSWORD: ''
+          - MYSQL_PORT: 3306
+          - TZ: "Japan"
+
+    # Service container image available at `host: localhost`
+
+      - image: circleci/mysql:8.0.25
+        environment:
+          - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+          - MYSQL_ROOT_HOST: '%'
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      # Restore bundle cache
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            - v1-dependencies-
+
+      # Bundle install dependencies
+      - run:
+          name: Install dependencies
+          command: |
+            gem install bundler -v 2.1.4
+            bundle install --path=vendor/bundle --jobs 4 --retry 3
+
+
+      # Store bundle cache
+      - save_cache:
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+      
+      - run:
+          name: Database Setup
+          command: |
+            mv ./config/database.yml.ci ./config/database.yml
+            bundle exec rake db:create
+            bundle exec rake db:schema:load
+
+      - run:
+          name: Rubocop
+          command: bundle exec rubocop
+
+      - run:
+          name: Run rspec
+          command: |
+            mkdir ./tmp/test-results
+            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | \
+              circleci tests split --split-by=timings)"
+
+            bundle exec rspec \
+              --format progress \
+              --format RspecJunitFormatter \
+              --out /tmp/test-results/rspec.xml \
+              --format progress \
+              $TEST_FILES
+
+      # Save artifacts
+      - store_test_results:
+          path: /tmp/test-results
+      - store_artifacts:
+          path: /tmp/test-results
+          destination: test-results
