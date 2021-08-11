@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2021_06_09_165040) do
 
-  create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
     t.bigint "record_id", null: false
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2021_06_09_165040) do
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
 
-  create_table "active_storage_blobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "active_storage_blobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "key", null: false
     t.string "filename", null: false
     t.string "content_type"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2021_06_09_165040) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "bugs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "bugs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
     t.text "feature"
     t.text "approach"
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2021_06_09_165040) do
     t.index ["user_id"], name: "index_bugs_on_user_id"
   end
 
-  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.text "sentence", null: false
     t.bigint "bug_id", null: false
     t.string "global_ip", null: false
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 2021_06_09_165040) do
     t.index ["bug_id"], name: "index_comments_on_bug_id"
   end
 
-  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "comment_id", null: false
     t.string "global_ip", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2021_06_09_165040) do
     t.index ["global_ip", "comment_id"], name: "index_likes_on_global_ip_and_comment_id", unique: true
   end
 
-  create_table "radar_charts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "radar_charts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "capture", null: false
     t.integer "breeding", null: false
     t.integer "prevention_difficulty", null: false
@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 2021_06_09_165040) do
     t.index ["bug_id"], name: "index_radar_charts_on_bug_id"
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "email", null: false
     t.string "crypted_password"
     t.string "salt"

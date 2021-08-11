@@ -12,9 +12,7 @@ jobs:
           - MYSQL_PORT: 3306
           - TZ: "Japan"
 
-    # Service container image available at `host: localhost`
-
-      - image: circleci/mysql:8.0.25
+      - image: circleci/mysql:5.7
         environment:
           - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
           - MYSQL_ROOT_HOST: '%'
@@ -22,15 +20,21 @@ jobs:
     working_directory: ~/repo
 
     steps:
+      # githubのリポジトリを取得
       - checkout
 
-      # Restore bundle cache
+      # yarnインストール
+      - run:
+          name: yarn Install
+          command: yarn install
+
+      # キャッシュがあればリストアする
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "Gemfile.lock" }}
             - v1-dependencies-
 
-      # Bundle install dependencies
+      # bundlerのインストールとbundle install実行
       - run:
           name: Install dependencies
           command: |
@@ -38,12 +42,13 @@ jobs:
             bundle install --path=vendor/bundle --jobs 4 --retry 3
 
 
-      # Store bundle cache
+      # キャッシュ
       - save_cache:
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
       
+      # データベースのセットアップ
       - run:
           name: Database Setup
           command: |
@@ -51,10 +56,12 @@ jobs:
             bundle exec rake db:create
             bundle exec rake db:schema:load
 
+      # rubocop実行
       - run:
           name: Rubocop
           command: bundle exec rubocop
 
+      # rspec実行
       - run:
           name: Run rspec
           command: |
@@ -69,7 +76,7 @@ jobs:
               --format progress \
               $TEST_FILES
 
-      # Save artifacts
+      # 結果を保存
       - store_test_results:
           path: /tmp/test-results
       - store_artifacts:
