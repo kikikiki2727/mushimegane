@@ -34,7 +34,7 @@
   font-weight: bolder;
 }
 
-#third_sentence_body {
+#third_sentence_list {
   width: 100%;
   margin: 0 auto;
   max-width: 350px;
@@ -42,4 +42,52 @@
 
 .top_page_flash {
   padding-top: 100px;
+}
+
+/*スマホ*/
+@media screen and (max-width: 480px) {
+
+  #top_page_top {
+    padding-bottom: 450px;
+    background: no-repeat url('../../assets/images/black_chair.jpeg');
+    background-size: 100% 100%;
+  }
+  
+  #first_sentence {
+    width: 90%;
+    padding: 0 5px;
+    padding-top: 40px;
+  }
+
+  #first_sentence_title {
+    color: white;
+  }
+
+  #second_sentence {
+    padding: 0 20px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background-color: #FFFFDD;
+  }
+
+  #second_sentence_title {
+    padding-bottom: 50px;
+  }
+
+  #second_sentence_body {
+    padding: 0 10px;
+  }
+
+  #third_sentence {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background: no-repeat url('../../assets/images/coffee.jpeg');
+    background-size: 100% 100%;
+    background-position: 50% 50%;
+  }
+
+  #third_sentence_body {
+    color: white;
+  }
 }

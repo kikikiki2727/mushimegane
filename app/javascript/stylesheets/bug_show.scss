@@ -1,7 +1,7 @@
 /*画像ぼかし*/
 
 .blur_active {
-  filter: blur(3px);
+  filter: blur(5px);
 }
 
 .hide_button {
@@ -19,7 +19,7 @@
 }
 
 .bug_image_contents {
-  text-align : center
+  text-align: center
 }
 
 .show_image_size {
@@ -94,4 +94,27 @@
 
 .warn_message {
   color: red;
+}
+
+/*pcのときのレーダーチャート*/
+@media screen and (min-width: 481px) {
+  .radar_chart {
+    width: 50%;
+    margin: 0 auto;
+  }
+}
+
+/*スマホ*/
+@media screen and (max-width: 480px) {
+  .bug_show {
+    width: 95%;
+  }
+
+  #myTab {
+    font-size: small;
+  }
+
+  .bug_comments {
+    width: 85%;
+  }
 }

@@ -3,25 +3,29 @@
     <%= render 'shared/header' %>
     <%= render 'shared/top_page_flash_message' %>
     <div id="first_sentence" class="position-absolute top-50 start-50 translate-middle">
-      <h1>あなたは一人暮らしではない</h1>
+      <h2 id="first_sentence_title">あなたは一人暮らしではない</h2>
     </div>
   </div>
   <div class="text-center" id="second_sentence">
     <h3 id="second_sentence_title">＼ Message ／</h3>
-    <p>アメリカで行われたある研究では、1軒あたり約100種ほどの虫が存在しているそうです。</p>
-    <p>私たちは気づかないうちにたくさんの虫たちと生活を共にしているんです。</p>
+    <div id="second_sentence_body">
+      <p>アメリカで行われたある研究では、1軒あたり約100種ほどの虫が存在しているそうです。</p>
+      <p>私たちは気づかないうちにたくさんの虫たちと生活を共にしているんです。</p>
+    </div>
   </div>
   <div id="third_sentence">
     <div class="container">
       <h3 class="text-center" id="third_sentence_title">About the service</h3>
-      <p class="text-center pt-5 pb-5"><span class="service_name">「むしめがね」</span>は家に出る不快な虫を検索・共有できるサービスです。</p>
-      <ul class="pb-5" id="third_sentence_body">
-        <li><p>家の中にはどんな虫がいるのか？？</p></li>
-        <li><p>この不快な虫は一体なんなの？</p></li>
-        <li><p>家に出た不快な虫の対処法や実害は？</p></li>
-      </ul>
-      <p class="text-center">と気になったことはありませんか？</p>
-      <p class="text-center">そんなときにお使いください。</p>
+      <div id="third_sentence_body">
+        <p class="text-center pt-5 pb-5"><span class="service_name">「むしめがね」</span>は家に出る不快な虫を検索・共有できるサービスです。</p>
+        <ul class="pb-5" id="third_sentence_list">
+          <li><p>家の中にはどんな虫がいるのか？？</p></li>
+          <li><p>この不快な虫は一体なんなのか？</p></li>
+          <li><p>家に出た不快な虫の対処法や実害は？</p></li>
+        </ul>
+        <p class="text-center">と気になったことはありませんか？</p>
+        <p class="text-center">そんなときにお使いください。</p>
+      </div>
     </div>
   </div>
 </div>
