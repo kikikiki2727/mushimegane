@@ -6,7 +6,7 @@
       <div class="line-one col-12 mb-5">
         <div class="bug_image_contents mb-3">
           <% if @bug.image.attached? %>
-            <%= image_tag @bug.image, size: '350x250', class: "blur blur_#{@bug.id} blur_active border border-dark mb-1" %>
+            <%= image_tag @bug.image, height: '250px', class: "bug_show_image blur blur_#{@bug.id} blur_active border border-dark mb-1" %>
             <div>
               <button class="blur_button blur_button_<%= @bug.id %>" id="blur_button_show" value="<%= @bug.id %>"><i class="far fa-eye-slash"></i> モザイクを外してみる</button>
               <button class="hide_blur_button hide_blur_button_<%= @bug.id %> hide_button" id="no_blur_button_show" value="<%= @bug.id %>"><i class="far fa-eye"></i> やっぱりモザイクをつける</button>
@@ -15,7 +15,7 @@
              <%= image_tag 'sorry_cat.png', class: 'card-img-top show_image_size' %>
           <% end %>
         </div>
-        <div class="radar-chart">
+        <div class="radar_chart">
           <%= render 'radar_charts/radar_chart', bug: @bug, other_bug: @other_bug %>
         </div>
       </div>

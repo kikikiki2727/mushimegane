@@ -3,7 +3,9 @@
     <%= safe_join(comment.sentence.split("\n"), tag(:br)) %>
   </div>
   <div class="like_unlike_button text-end">
-    <%= link_to '削除', comment_path(comment), method: :delete, data: { confirm: '削除してもよろしいですか？' }, id: 'comment_delete_button', remote: true if comment.post_by(current_ip) %> / 
+    <% if comment.post_by(current_ip) %>
+      <%= link_to '削除', comment_path(comment), method: :delete, data: { confirm: '削除してもよろしいですか？' }, id: 'comment_delete_button', remote: true %> / 
+    <% end %>
     <% if comment.liked_by(current_ip) %>
       <%= render 'likes/unlike', comment: comment, current_ip: current_ip %>
     <% else %>
