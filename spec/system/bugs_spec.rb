@@ -66,7 +66,7 @@ RSpec.describe 'Bugs', type: :system do
         select '選択してください', from: 'bug_radar_chart_form[size]'
         select '黒', from: 'bug_radar_chart_form[color]'
         select '春', from: 'bug_radar_chart_form[season]'
-        attach_file 'bug_radar_chart_form[image]', "#{Rails.root}/spec/fixtures/images/default.png"
+        # attach_file 'bug_radar_chart_form[image]', "#{Rails.root}/spec/fixtures/images/default.png"
         click_on '登録する'
         expect(page).to have_content '登録しました'
         expect(Bug.count).to eq 2
