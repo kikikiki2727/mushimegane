@@ -19,7 +19,7 @@
 }
 
 .bug_image_contents {
-  text-align: center
+  text-align: center;
 }
 
 .show_image_size {
@@ -110,9 +110,19 @@
     width: 95%;
   }
 
+  .bug_show_image {
+    width: 90%;
+  }
+
+  .show_image_size {
+    width: 90%;
+    height: 250px;
+  }
+
   #myTab {
     font-size: small;
   }
+
 
   .bug_comments {
     width: 85%;
