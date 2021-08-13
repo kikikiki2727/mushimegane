@@ -5,7 +5,7 @@ RSpec.describe 'Users', type: :system do
     visit new_user_path
   end
 
-  describe 'ログイン前' do
+  xdescribe 'ログイン前' do
     describe 'ユーザー新規作成' do
       context '有効な値を入れる' do
         it 'ユーザー登録が成功する' do

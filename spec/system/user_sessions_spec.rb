@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'UserSessions', type: :system do
   let(:user) { create(:user) }
 
-  describe 'ログイン機能' do
+  xdescribe 'ログイン機能' do
     before do
       visit login_path
     end
