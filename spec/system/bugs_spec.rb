@@ -16,7 +16,7 @@ RSpec.describe 'Bugs', type: :system do
       end
     end
 
-    context '新規作成ページ' do
+    xcontext '新規作成ページ' do
       it 'ログイン画面にリダイレクトされる' do
         visit new_bug_path
         expect(page).to have_content 'ログインしてください'
@@ -39,7 +39,7 @@ RSpec.describe 'Bugs', type: :system do
       end
     end
 
-    context '編集ページ' do
+    xcontext '編集ページ' do
       it 'ログイン画面にリダイレクトされる' do
         visit new_bug_path
         expect(page).to have_content 'ログインしてください'
@@ -55,7 +55,7 @@ RSpec.describe 'Bugs', type: :system do
       login user
     end
 
-    context '新規作成ページ' do
+    xcontext '新規作成ページ' do
       it '有効な値を入れると新規作成に成功する' do
         visit new_bug_path
         fill_in 'bug_radar_chart_form[name]', with: '害虫の名前'
@@ -82,7 +82,7 @@ RSpec.describe 'Bugs', type: :system do
       end
     end
 
-    context '編集ページ' do
+    xcontext '編集ページ' do
       let!(:radar_chart) { create(:radar_chart, bug: bug) }
       let(:edit_bug) { create(:bug, user: user) }
       let!(:radar_chart_with_edit_bug) { create(:radar_chart, bug: edit_bug) }
