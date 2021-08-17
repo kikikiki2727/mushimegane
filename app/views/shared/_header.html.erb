@@ -14,15 +14,16 @@
           <li class="nav-item">
             <%= render '/bugs/image_search_page' %>
           </li>
+        </ul>
+<% 
+=begin
+%>
           <li class="nav-item">
             <%= link_to news_path, class: 'nav-link' do %>
               <i class="fas fa-paper-plane"></i><span> 新着情報</span>
             <% end %>
           </li>
-        </ul>
-<% 
-=begin
-%>
+          
           <li class="nav-item">
             <%= link_to new_bug_path, class: 'nav-link' do %>
               <i class="fas fa-plus-square"></i><span> 新規作成</span>
