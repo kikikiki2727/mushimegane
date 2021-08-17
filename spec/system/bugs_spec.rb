@@ -122,7 +122,7 @@ RSpec.describe 'Bugs', type: :system do
         it '検索ワードの入ったレコードのみ表示される' do
           visit root_path
           find('.navbar-toggler').click
-          click_on '検索'
+          click_on '通常検索'
           fill_in 'search[search_word]', with: 'ゴキブリ'
           click_on '検索する'
           expect(page).to have_content name_bug.name
@@ -139,7 +139,7 @@ RSpec.describe 'Bugs', type: :system do
       before do
         visit root_path
         find('.navbar-toggler').click
-        click_on '検索'
+        click_on '通常検索'
       end
 
       context 'サイズを「small」に指定して検索する' do
