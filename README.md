@@ -13,6 +13,8 @@ https://mushimegane.fun/
 # :green_book: Qiita記事
 [【個人開発】家の中にときどき出る不快な虫を検索するサービス「むしめがね」をリリースしました。](https://qiita.com/kimorisan/items/84997591c7c2c897da18)
 
+✅50LGTM (2021年8月18日現在) 
+
 <br />
 
 # :mag: むしめがねについて
