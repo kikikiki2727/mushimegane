@@ -13,7 +13,7 @@ https://mushimegane.fun/
 # :green_book: Qiita記事
 [【個人開発】家の中にときどき出る不快な虫を検索するサービス「むしめがね」をリリースしました。](https://qiita.com/kimorisan/items/84997591c7c2c897da18)
 
-✅50LGTM (2021年8月18日現在) 
+✅52LGTM (2021年8月19日現在) 
 
 <br />
 
@@ -48,8 +48,10 @@ https://mushimegane.fun/
 - AWS
   - VPC
   - EC2
+    - Amazon Linux 2 
   - Route53
   - RDS
+    - MySQL 
   - ALB
   - ACM
   - IAM
@@ -67,4 +69,4 @@ https://mushimegane.fun/
 <br />
 
 # :memo: ER図
-[![Image from Gyazo](https://i.gyazo.com/6aa5280226b5ddbce21fac444309dea4.png)](https://gyazo.com/6aa5280226b5ddbce21fac444309dea4)
+[![Image from Gyazo](https://i.gyazo.com/9e73078ddad7580998c662bd7923b317.png)](https://gyazo.com/9e73078ddad7580998c662bd7923b317)
