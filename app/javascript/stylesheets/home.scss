@@ -4,16 +4,21 @@
   background: no-repeat url('../../assets/images/chair_large.jpeg');
   background-size: 100% 100%;
   background-position: 50% 50%;
+  background-color: rgba(255,255,255,0.4);
+  background-blend-mode: lighten;
 }
 
 #second_sentence {
   padding-top: 150px;
-  padding-bottom: 200px;
-  background-color: #FFFFDD;
+  padding-bottom: 150px;
+  background-color: white;
 }
 
 #second_sentence_title {
-  padding-bottom: 100px;
+  border-bottom: 3px dashed #000;
+  padding-bottom: 50px;
+  margin: 0 100px;
+  margin-bottom: 50px;
 }
 
 #third_sentence {
@@ -23,6 +28,8 @@
   background: no-repeat url('../../assets/images/tea.jpeg');
   background-size: 100% 100%;
   background-position: 50% 50%;
+  background-color: rgba(255,255,255,0.4);
+  background-blend-mode: lighten;
 }
 
 #third_sentence_title {
@@ -58,27 +65,30 @@
     padding-bottom: 450px;
     background: no-repeat url('../../assets/images/black_chair.jpeg');
     background-size: 100% 100%;
+    background-color: rgba(255,255,255,0.2);
+    background-blend-mode: lighten;
   }
   
   #first_sentence {
     width: 90%;
     padding: 0 5px;
-    padding-top: 40px;
+    padding-top: 250px;
   }
 
   #first_sentence_title {
-    color: white;
+    color: rgb(105,105,105);
   }
 
   #second_sentence {
     padding: 0 20px;
     padding-top: 100px;
     padding-bottom: 100px;
-    background-color: #FFFFDD;
   }
 
   #second_sentence_title {
-    padding-bottom: 50px;
+    border-bottom: 3px dashed #000;
+    padding-bottom: 30px;
+    margin: 0 5px;
   }
 
   #second_sentence_body {
@@ -92,9 +102,7 @@
     background: no-repeat url('../../assets/images/coffee.jpeg');
     background-size: 100% 100%;
     background-position: 50% 50%;
-  }
-
-  #third_sentence_body {
-    color: white;
+    background-color: rgba(255,255,255,0.6);
+    background-blend-mode: lighten;
   }
 }
