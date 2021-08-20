@@ -5,7 +5,7 @@
 
 <!-- Modal -->
 <div class="modal fade" id="WordSearchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">虫を検索する</h5>
@@ -30,7 +30,7 @@
                 <%= f.label :size %>
                 <div class="form-control mb-3 col-4">
                   <%= f.radio_button :size, '', class: 'form-check-input' %>
-                  <%= f.label '選択してください', class: 'form-check-label', 'for': 'search_size_' %>
+                  <%= f.label '未選択', class: 'form-check-label', 'for': 'search_size_' %>
                   <%= f.radio_button :size, 'extra_small', class: 'form-check-input' %>
                   <%= f.label :size_extra_small, class: 'form-check-label' %>
                   <%= f.radio_button :size, 'small', class: 'form-check-input' %>
@@ -44,7 +44,7 @@
                 <%= f.label :color %>
                 <div class="form-control mb-3 col-4">
                   <%= f.radio_button :color, '', class: 'form-check-input' %>
-                  <%= f.label '選択してください', class: 'form-check-label', 'for': 'search_color_' %>
+                  <%= f.label '未選択', class: 'form-check-label', 'for': 'search_color_' %>
                   <%= f.radio_button :color, 'black', class: 'form-check-input' %>
                   <%= f.label 'color_black', class: 'form-check-label' %>
                   <%= f.radio_button :color, 'brown', class: 'form-check-input' %>
@@ -66,7 +66,7 @@
                 <%= f.label :season %>
                 <div class="form-control mb-3 col-4">
                   <%= f.radio_button :season, '', class: 'form-check-input' %>
-                  <%= f.label '選択してください', class: 'form-check-label', 'for': 'search_season_' %>
+                  <%= f.label '未選択', class: 'form-check-label', 'for': 'search_season_' %>
                   <%= f.radio_button :season, 'spring', class: 'form-check-input' %>
                   <%= f.label 'season_spring', class: 'form-check-label' %>
                   <%= f.radio_button :season, 'summer', class: 'form-check-input' %>
@@ -80,7 +80,7 @@
                 <%= f.label :capture %>
                 <div class="form-control mb-3">
                   <%= f.radio_button :capture, '', class: 'form-check-input' %>
-                  <%= f.label '選択してください', class: 'form-check-label', 'for': 'search_capture_' %>
+                  <%= f.label '未選択', class: 'form-check-label', 'for': 'search_capture_' %>
                   <%= f.radio_button :capture, 'high', class: 'form-check-input' %>
                   <%= f.label 'capture_high', class: 'form-check-label' %>
                   <%= f.radio_button :capture, 'normal', class: 'form-check-input' %>
@@ -92,7 +92,7 @@
                 <%= f.label :breeding %>
                 <div class="form-control mb-3">
                   <%= f.radio_button :breeding, '', class: 'form-check-input' %>
-                  <%= f.label '選択してください', class: 'form-check-label', 'for': 'search_breeding_' %>
+                  <%= f.label '未選択', class: 'form-check-label', 'for': 'search_breeding_' %>
                   <%= f.radio_button :breeding, 'high', class: 'form-check-input' %>
                   <%= f.label 'breeding_high', class: 'form-check-label' %>
                   <%= f.radio_button :breeding, 'normal', class: 'form-check-input' %>
@@ -104,7 +104,7 @@
                 <%= f.label :prevention_difficulty %>
                 <div class="form-control mb-3">
                   <%= f.radio_button :prevention_difficulty, '', class: 'form-check-input' %>
-                  <%= f.label '選択してください', class: 'form-check-label', 'for': 'search_prevention_difficulty_' %>
+                  <%= f.label '未選択', class: 'form-check-label', 'for': 'search_prevention_difficulty_' %>
                   <%= f.radio_button :prevention_difficulty, 'high', class: 'form-check-input' %>
                   <%= f.label 'prevention_difficulty_high', class: 'form-check-label' %>
                   <%= f.radio_button :prevention_difficulty, 'normal', class: 'form-check-input' %>
@@ -116,7 +116,7 @@
                 <%= f.label :injury %>
                 <div class="form-control mb-3">
                   <%= f.radio_button :injury, '', class: 'form-check-input' %>
-                  <%= f.label '選択してください', class: 'form-check-label', 'for': 'search_injury_' %>
+                  <%= f.label '未選択', class: 'form-check-label', 'for': 'search_injury_' %>
                   <%= f.radio_button :injury, 'high', class: 'form-check-input' %>
                   <%= f.label 'injury_high', class: 'form-check-label' %>
                   <%= f.radio_button :injury, 'normal', class: 'form-check-input' %>
@@ -128,7 +128,7 @@
                 <%= f.label :discomfort %>
                 <div class="form-control mb-3">
                   <%= f.radio_button :discomfort, '', class: 'form-check-input' %>
-                  <%= f.label '選択してください', class: 'form-check-label', 'for': 'search_discomfort_' %>
+                  <%= f.label '未選択', class: 'form-check-label', 'for': 'search_discomfort_' %>
                   <%= f.radio_button :discomfort, 'high', class: 'form-check-input' %>
                   <%= f.label 'discomfort_high', class: 'form-check-label' %>
                   <%= f.radio_button :discomfort, 'normal', class: 'form-check-input' %>
@@ -139,7 +139,7 @@
                 
           
                 <div class="buttons mb-3">
-                  <%= f.submit '検索する', class: 'btn btn-primary' %>
+                  <%= f.submit '検索する', class: 'btn orangered_btn' %>
                   <%= link_to '閉じる', '#', class: 'btn btn-secondary', 'data-bs-dismiss': :modal %>
                 </div>
               <% end %>

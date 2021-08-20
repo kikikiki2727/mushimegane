@@ -24,7 +24,7 @@
       </div>
     </div>
   </div>
-  <%= link_to '検索結果に戻る', :back %>
+  <%= link_to '検索結果に戻る', :back, class: 'btn orangered_btn' %>
   <% if current_user&.own?(@bug) %> 
     | <%= link_to '編集', edit_bug_path(@bug) %> |
     <%= link_to '削除', bug_path(@bug), method: :delete, data: { confirm: '削除してもよろしいですか？' } %>
