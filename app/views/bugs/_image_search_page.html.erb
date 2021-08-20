@@ -24,7 +24,8 @@
                   <%= image_tag '', id: 'image_preview', style: 'display: none;' %>
                 </div>
                 <div class="actions mb-3">
-                  <%= f.submit '検索する', class: 'btn btn-primary' %>
+                  <%= f.submit '検索する', class: 'btn orangered_btn' %>
+                  <%= link_to '閉じる', '#', class: 'btn btn-secondary', 'data-bs-dismiss': :modal %>
                 </div>
               <% end %>
             </div>

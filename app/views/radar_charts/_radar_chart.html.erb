@@ -10,10 +10,10 @@ var myChart = new Chart(ctx, {
         {
         label: "<%= bug.name %>",
         data: [<%= bug.radar_chart.capture %>, <%= bug.radar_chart.breeding %>, <%= bug.radar_chart.prevention_difficulty %>, <%= bug.radar_chart.injury %>, <%= bug.radar_chart.discomfort %>],
-        backgroundColor: 'rgba(255,99,71,0.4)',
-        borderColor: 'rgba(255,0,0)',
+        backgroundColor: 'rgba(50,205,50,0.3)',
+        borderColor: 'rgb(34,139,34)',
         borderWidth: 1,
-        pointBackgroundColor: 'rgba(255,0,0)'
+        pointBackgroundColor: 'rgb(34,139,34)'
         },
         <% if other_bug.present? %>
           {

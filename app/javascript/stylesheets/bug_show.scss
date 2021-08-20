@@ -32,7 +32,7 @@
   border-radius:30px;
 
   &:hover {
-    background: red;
+    background: rgb(50,205,50);
     color: white;
   }
 }
@@ -42,7 +42,8 @@
   border-radius:30px;
 
   &:hover {
-    background: #6ff2fc;
+    background: rgb(0,191,255);
+    color: white;
   }
 }
 
@@ -78,7 +79,7 @@
   border-bottom: 2px solid gray;
 
   & .nav-link.active {
-    background-color: #5bc8db;
+    background-color: rgb(50,205,50);
     color: #FFF;
     border-width: 3px;
     border-top-color: gray;
@@ -88,12 +89,28 @@
   }
 
   & .nav-link {
-    color: #4042b1;
+    color: rgb(34,139,34);
   }
 }
 
-.warn_message {
-  color: red;
+.orangered_color {
+  color: rgb(50,205,50);
+
+  &:hover {
+    color: rgb(34,139,34);
+  }
+}
+
+.orangered_btn {
+  background-color: rgb(50,205,50);
+  color: white;
+  border-radius: 15px;
+  padding: 5px 15px;
+
+  &:hover {
+    background-color: rgb(34,139,34);
+    color: white;
+  }
 }
 
 /*pcのときのレーダーチャート*/
