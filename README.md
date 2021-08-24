@@ -8,12 +8,14 @@
 # :earth_americas: サービスURL
 https://mushimegane.fun/
 
+✅ユニークユーザー数311人 (2021年8月23日現在) 
+
 <br />
 
 # :green_book: Qiita記事
 [【個人開発】家の中にときどき出る不快な虫を検索するサービス「むしめがね」をリリースしました。](https://qiita.com/kimorisan/items/84997591c7c2c897da18)
 
-✅52LGTM (2021年8月19日現在) 
+✅57LGTM (2021年8月23日現在) 
 
 <br />
 
