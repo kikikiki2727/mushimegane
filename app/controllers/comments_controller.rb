@@ -1,6 +1,4 @@
 class CommentsController < ApplicationController
-  include CommentsHelper
-  skip_before_action :require_login
   before_action :set_bug, only: :create
 
   def create
@@ -18,7 +16,7 @@ class CommentsController < ApplicationController
 
   def sort
     @bug = Bug.find(params[:bug_id])
-    @comments = sort_type(params[:type], @bug)
+    @comments = @bug.sort_type(params[:type])
     @current_ip = request.remote_ip
   end
 

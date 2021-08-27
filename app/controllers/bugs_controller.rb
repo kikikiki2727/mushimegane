@@ -4,7 +4,7 @@ class BugsController < ApplicationController
   before_action :set_bug, only: %i[edit update destroy]
   before_action :set_radar_chart, only: %i[edit update destroy]
   before_action :set_bug_radar_chart_form, only: %i[edit update destroy]
-  skip_before_action :require_login, only: %i[index show image_search]
+  before_action :require_login, only: %i[new create edit update destroy]
 
   def index
     @search_bugs_form = SearchBugsForm.new(search_params)
@@ -30,11 +30,11 @@ class BugsController < ApplicationController
     @bug_radar_chart_form = BugRadarChartForm.new(bug_radar_chart_form_params)
     @bug_radar_chart_form.create!
     @bug = Bug.last
-    redirect_to @bug, success: '登録しました'
+    redirect_to @bug, success: t('.success')
   rescue ActiveRecord::RecordInvalid => e
     @bug_radar_chart_form = e.record
     @bug = Bug.new
-    flash.now[:danger] = '登録できませんでした'
+    flash.now[:danger] = t('.fail')
     render :new
   end
 
@@ -43,16 +43,16 @@ class BugsController < ApplicationController
   def update
     @bug_radar_chart_form = BugRadarChartForm.new(bug_radar_chart_form_params)
     @bug_radar_chart_form.update!(@bug, @radar_chart)
-    redirect_to @bug, success: '更新しました'
+    redirect_to @bug, success: t('.success')
   rescue ActiveRecord::RecordInvalid => e
     @bug_radar_chart_form = e.record
-    flash.now[:danger] = '更新できませんでした'
+    flash.now[:danger] = t('.fail')
     render :new
   end
 
   def destroy
     @bug.destroy!
-    redirect_to bugs_path, success: '削除しました'
+    redirect_to bugs_path, success: t('.success')
   end
 
   def image_search

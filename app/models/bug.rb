@@ -18,4 +18,15 @@ class Bug < ApplicationRecord
   scope :high_chart, ->(column) { joins(:radar_chart).where(radar_charts: { column => [8, 9, 10] }) }
   scope :normal_chart, ->(column) { joins(:radar_chart).where(radar_charts: { column => [4, 5, 6, 7] }) }
   scope :low_chart, ->(column) { joins(:radar_chart).where(radar_charts: { column => [1, 2, 3] }) }
+
+  def sort_type(type)
+    case type
+    when 'like'
+      comments.sort_like
+    when 'asc'
+      comments.order(created_at: :asc)
+    else
+      comments.order(created_at: :desc)
+    end
+  end
 end
