@@ -18,6 +18,15 @@ ja:
       fail: ログインに失敗しました
     destroy:
       success: ログアウトしました
+  bugs:
+    create:
+      success: 登録しました
+      fail: 登録できませんでした
+    update:
+      success: 更新しました
+      fail: 更新できませんでした
+    destroy:
+      success: 削除しました
   views:
     pagination:
       first: <i class="fas fa-angle-double-left"></i>

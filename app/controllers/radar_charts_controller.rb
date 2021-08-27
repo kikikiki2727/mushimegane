@@ -1,5 +1,6 @@
 class RadarChartsController < ApplicationController
   before_action :set_bug
+  before_action :require_login
 
   def new
     @radar_chart = @bug.build_radar_chart

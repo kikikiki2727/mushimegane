@@ -34,8 +34,6 @@ gem 'rails-i18n'
 
 gem 'sorcery', '0.16.0'
 
-gem 'draper'
-
 gem 'aws-sdk-rekognition'
 gem 'aws-sdk-s3', '~> 1'
 gem 'aws-sdk-translate'
@@ -63,8 +61,6 @@ group :development do
 
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false
-
-  gem 'rails_best_practices', require: false
 
   gem 'better_errors'
   gem 'binding_of_caller'
