@@ -3,7 +3,7 @@
 
 <br />
 
-[![Image from Gyazo](https://i.gyazo.com/e2b2367c9417ce0600beadf44171e3bc.png)](https://gyazo.com/e2b2367c9417ce0600beadf44171e3bc)
+[![Image from Gyazo](https://i.gyazo.com/2c85b4c127e9ba9f1b89c05314311acd.jpg)](https://gyazo.com/2c85b4c127e9ba9f1b89c05314311acd)
 
 # :earth_americas: サービスURL
 https://mushimegane.fun/
@@ -21,7 +21,7 @@ https://mushimegane.fun/
 
 # :mag: むしめがねについて
 #### 【サービス概要】
-家にときどき出てくる不快な虫がなんなのか検索し、対処法や予防法、実害を閲覧できます。
+家にときどき出てくる不快な虫を特徴や画像から検索し、対処法や予防法、実害を閲覧できます。
 
 #### 【ユーザーが抱える課題】
 - 家に発生した不快な虫が何という虫なのか、なぜ発生するのか、どうすれば適切な対処ができるのか知りたい。
@@ -41,8 +41,9 @@ https://mushimegane.fun/
 # :wrench: 使用技術
 - Rails 6.0.3.7
 - Ruby 2.7.2
-- Rspec
-- Rubocop
+- Rspec(テスト)
+- Rubocop（リントチェック）
+- bullet（N+1問題検知）
 - jQuery
 - Bootstrap
 - Nginx
