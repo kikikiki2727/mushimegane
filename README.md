@@ -5,18 +5,19 @@
 
 [![Image from Gyazo](https://i.gyazo.com/2c85b4c127e9ba9f1b89c05314311acd.jpg)](https://gyazo.com/2c85b4c127e9ba9f1b89c05314311acd)
 
-# :earth_americas: サービスURL
-https://mushimegane.fun/
+# :earth_americas: 運用実績 (2021年9月11日現在) 
+サービスURL:https://mushimegane.fun/  
 
-✅1,727PV (2021年8月31日現在)  
-✅ユニークユーザー数342人 (2021年8月31日現在)
+✅リリース日:2021年9月11日  
+✅ページビュー:1,945PV  
+✅ユニークユーザー数:382人
 
 <br />
 
 # :green_book: Qiita記事
 [【個人開発】家の中にときどき出る不快な虫を検索するサービス「むしめがね」をリリースしました。](https://qiita.com/kimorisan/items/84997591c7c2c897da18)
 
-✅60LGTM (2021年8月31日現在) 
+✅62LGTM (2021年9月11日現在) 
 
 <br />
 
