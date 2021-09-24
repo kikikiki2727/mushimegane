@@ -5,12 +5,12 @@
 
 [![Image from Gyazo](https://i.gyazo.com/2c85b4c127e9ba9f1b89c05314311acd.jpg)](https://gyazo.com/2c85b4c127e9ba9f1b89c05314311acd)
 
-# :earth_americas: 運用実績 (2021年9月11日現在) 
+# :earth_americas: 運用実績 (2021年9月23日現在) 
 サービスURL:https://mushimegane.fun/  
 
-✅リリース日:2021年9月11日  
-✅ページビュー:1,945PV  
-✅ユニークユーザー数:382人
+✅リリース日:2021年8月17日  
+✅ページビュー:2,115PV  
+✅ユニークユーザー数:413人
 
 <br />
 
